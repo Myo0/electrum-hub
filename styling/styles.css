@@ -1,0 +1,401 @@
+/* style.css */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #f5f5f5;
+  color: #333;
+}
+.logo {
+  text-align: center;
+  font-size: 3rem;
+  color: yellow;
+  text-shadow:
+    -1px -1px 0 #000,
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
+  margin: 1rem 0;
+}
+.main-nav {
+  background: #222;
+  text-align: center;
+}
+.main-nav a {
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  display: inline-block;
+  text-decoration: none;
+}
+.main-nav a.active {
+  background: #444;
+}
+.container {
+  max-width: 45%;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+h1 {
+  font-size: 4rem;
+  color: #555;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.sub-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+  border-bottom: 2px solid #bbb;
+  margin-bottom: 1rem;
+  padding-bottom: 0;
+}
+
+.sub-nav button {
+  background: #ddd;
+  border: 1px solid #bbb;
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.sub-nav button.active {
+  background: #fff;
+  border-color: #888;
+  color: #333;
+  font-weight: bold;
+}
+
+.sub-nav button:not(.active):hover {
+  background: #e0e0e0;
+}
+
+.content-section {
+  display: none;
+}
+.content-section.active {
+  display: block;
+}
+.search-bar {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+.table-header {
+  display: flex;
+  align-items: center;
+  background: #ccc;
+  padding: 0.25rem 0.5rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.table-header span {
+  flex: 1;
+  padding: 0.25rem 0.5rem;
+  text-align: center;
+}
+.section-header {
+  background: #d4edda;
+  padding: 0.5rem 1rem;
+  border: 1px solid #000;
+  border-left-width: 4px;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.gen-header {
+  background: #dc3545;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: 1px solid #a71d2a;
+  border-radius: 4px;
+  margin: 1.5rem 0 0.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.table-header span:nth-child(4) {
+  flex: 2;
+}
+
+.tooltip-wrapper {
+  position: relative;
+  cursor: help;
+}
+
+.tooltip-text {
+  opacity: 0;
+  visibility: hidden;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 0.25rem;
+  z-index: 10;
+  transition: opacity 0.3s ease 0.5s;
+}
+
+.tooltip-wrapper:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.pokemon-row {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.pokemon-row:hover {
+  background: #f9f9f9;
+}
+
+.pokemon-check {
+  margin-right: 0.5rem;
+  width: 1rem;
+  height: 1rem;
+  pointer-events: none;
+}
+
+@layer sprites {
+  .pokemon-sprite {
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    margin: 0 auto;
+    background-image: url('../assets/pokemonicons-sheet.png');
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+  }
+
+  .pokemon-sprite.bulbasaur {
+    background-position: -40px     0;
+  }
+  .pokemon-sprite.ivysaur {
+    background-position: -80px   0;
+  }
+  .pokemon-sprite.venusaur {
+    background-position: -120px   0;
+  }
+}
+
+.pokemon-name {
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+.type-badge {
+  text-transform: uppercase;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: #fff;
+  margin-right: 0.1rem;
+}
+
+.type-badge.grass { background: #78c850; }
+.type-badge.poison { background: #a040a0; }
+/* add more .type-badge.<type> rules for each type */
+
+.ability {
+  font-size: 0.85rem;
+  color: #333;
+  margin-right: 0.75rem;
+}
+
+.stats {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: #555;
+  margin-left: auto;
+}
+
+.stat abbr {
+  text-decoration: none;
+  font-weight: bold;
+  cursor: help;
+}
+
+.table-header,
+.pokemon-row {
+  display: grid;
+  align-items: center;
+  column-gap: 0.2rem;
+  grid-template-columns:
+    2rem       /* checkbox */
+    3rem       /* sprite+number */
+    minmax(6rem,1.2fr) /* Name */
+    minmax(6rem,1fr)   /* Types */
+    minmax(7rem,1fr)   /* Abilities */
+    repeat(7,2.5rem);  /* HP,Atk,Def,SpA,SpD,Spe,BST */
+}
+
+/* center sprite inside that col-number cell */
+.table-header .col-number,
+.pokemon-row .col-number {
+  justify-self: center;
+}
+
+/* hide the raw number text but keep it in the DOM */
+.number-text {
+  display: none;
+}
+
+/* optional: center the background‐image sprite if you ever use it alone */
+.pokemon-sprite {
+  margin: 0 auto;
+}
+
+.col-sprite,
+.table-header .col-sprite {
+  display: flex;
+  justify-content: center;
+}
+
+/* center “Number” cells */
+.table-header .col-number,
+.pokemon-row .col-number {
+  justify-self: center;
+}
+
+/* center “Name” cells */
+.table-header .col-name,
+.pokemon-row .col-name {
+  justify-self: center;
+}
+
+/* center “Types” cells */
+.table-header .col-types,
+.pokemon-row .col-types {
+  justify-self: center;
+}
+
+/* center “Abilities” header and cells, and prevent line-wrap */
+.table-header .tooltip-wrapper,
+.pokemon-row .col-abilities {
+  justify-self: center;
+  white-space: nowrap;
+}
+
+.col-abilities, .col-hp, .col-atk, .col-def, .col-spd, .col-spa, .col-spe, .col-bst {
+  font-size: 0.8rem;
+  justify-self: center;
+}
+
+.col-name, .col-abilities {
+  font-weight: bold;
+}
+
+/* stack a small label above each stat */
+.pokemon-row .col-hp,
+.pokemon-row .col-atk,
+.pokemon-row .col-def,
+.pokemon-row .col-spa,
+.pokemon-row .col-spd,
+.pokemon-row .col-spe,
+.pokemon-row .col-bst {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* labels */
+.pokemon-row .col-hp::before { content: "HP";  color: #888; font-size: 0.8rem; margin-bottom: 0.1rem; }
+.pokemon-row .col-atk::before { content: "Atk"; color: #888; font-size: 0.8rem; margin-bottom: 0.1rem; }
+.pokemon-row .col-def::before { content: "Def"; color: #888; font-size: 0.8rem; margin-bottom: 0.1rem; }
+.pokemon-row .col-spa::before { content: "SpA"; color: #888; font-size: 0.8rem; margin-bottom: 0.1rem; }
+.pokemon-row .col-spd::before { content: "SpD"; color: #888; font-size: 0.8rem; margin-bottom: 0.1rem; }
+.pokemon-row .col-spe::before { content: "Spe"; color: #888; font-size: 0.8rem; margin-bottom: 0.1rem; }
+.pokemon-row .col-bst::before { content: "BST"; color: #888; font-size: 0.8rem; margin-bottom: 0.1rem; }
+
+.table-header .col-sprite,
+.pokemon-row .col-sprite {
+  justify-self: center;
+}
+
+#theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+body.dark-mode {
+  background: #121212;
+  color: #eee;
+}
+
+body.dark-mode .container {
+  background: #1e1e1e;
+}
+
+body.dark-mode .main-nav {
+  background: #333;
+}
+
+body.dark-mode .main-nav a {
+  color: #ccc;
+}
+
+body.dark-mode .main-nav a.active {
+  background: #555;
+}
+
+body.dark-mode .sub-nav button {
+  background: #444;
+  color: #ddd;
+  border-color: #555;
+}
+
+body.dark-mode .sub-nav button.active {
+  background: #222;
+  border-color: #777;
+}
+
+body.dark-mode .section-header {
+  background: #2e7d32;
+  color: #c8e6c9;
+  border-color: #ffffff;
+}
+
+body.dark-mode .table-header {
+  background: #333;
+  color: #ddd;
+}
+
+body.dark-mode .gen-header {
+  background: #380606;
+  
+}
+
+body.dark-mode .pokemon-row:hover {
+  background: #2a2a2a;
+}
+
+body.dark-mode .logo {
+  text-shadow:
+    -1px -1px 0 #fff,
+     1px -1px 0 #fff,
+    -1px  1px 0 #fff,
+     1px  1px 0 #fff;
+}
+
+body.dark-mode h1 {
+  color: #ccc;
+}

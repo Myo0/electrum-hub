@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Electrum Hub</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styling/styles.css">
 </head>
 <body>
   <header class="logo">Electrum (Placeholder)</header>
@@ -13,6 +13,7 @@
     <a href="index.html" class="active">Hub</a>
     <a href="calculator.html">Calculator</a>
     <a target ="_blank" href="https://docs.google.com/spreadsheets/d/1N0cg5vG_irsSNjaZxOeM4_eIba-nqkY9Zzcs1rYGbEs/edit?gid=665425777#gid=665425777">Trainers (Spreadsheet)</a>
+    <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
   </nav>
 
   <div class="container">
@@ -34,9 +35,10 @@
       <div class="section-header">Pokémon</div>
       <input type="text" placeholder="Search Pokémon…" class="search-bar">
       <div class="table-header">
-        <span>Number</span>
-        <span>Name</span>
-        <span>Types</span>
+        <span class="col-check"></span>
+        <span class="col-number">Number</span>
+        <span class="col-name">Name</span>
+        <span class="col-types">Types</span>
         <span class="tooltip-wrapper">
           Abilities (P)*
           <span class="tooltip-text">
@@ -45,17 +47,86 @@
             If an ability is too overpowered or trivializes the game in the hands of the player for whatever reason, the AI may use it but the Player will not have access to it.
           </span>
         </span>
-        <span>HP</span>
-        <span>Atk</span>
-        <span>Def</span>
-        <span>SpA</span>
-        <span>SpD</span>
-        <span>Spe</span>
-        <span>BST</span>
+        <span class="col-hp">HP</span>
+        <span class="col-atk">Atk</span>
+        <span class="col-def">Def</span>
+        <span class="col-spa">SpA</span>
+        <span class="col-spd">SpD</span>
+        <span class="col-spe">Spe</span>
+        <span class="col-bst">BST</span>
       </div>
     
       <div class="gen-header">Generation I</div>
       <!-- Gen I -->
+
+      <div class="pokemon-row">
+        <span class="col-check">
+          <input type="checkbox" checked class="pokemon-check">
+        </span>
+        <span class="col-number">
+          <span class="pokemon-sprite bulbasaur"></span>
+          <span class="number-text">1</span>
+        </span>
+        <span class="col-name">Bulbasaur</span>
+        <span class="col-types">
+          <span class="type-badge grass">GRASS</span>
+          <span class="type-badge poison">POISON</span>
+        </span>
+        <span class="col-abilities">Overgrow</span>
+        <span class="col-hp">45</span>
+        <span class="col-atk">49</span>
+        <span class="col-def">49</span>
+        <span class="col-spa">65</span>
+        <span class="col-spd">65</span>
+        <span class="col-spe">45</span>
+        <span class="col-bst">318</span>
+      </div>
+      
+      <div class="pokemon-row">
+        <span class="col-check">
+          <input type="checkbox" checked class="pokemon-check">
+        </span>
+        <span class="col-number">
+          <span class="pokemon-sprite ivysaur"></span>
+          <span class="number-text">2</span>
+        </span>
+        <span class="col-name">Ivysaur</span>
+        <span class="col-types">
+          <span class="type-badge grass">GRASS</span>
+          <span class="type-badge poison">POISON</span>
+        </span>
+        <span class="col-abilities">Overgrow</span>
+        <span class="col-hp">60</span>
+        <span class="col-atk">62</span>
+        <span class="col-def">63</span>
+        <span class="col-spa">80</span>
+        <span class="col-spd">80</span>
+        <span class="col-spe">60</span>
+        <span class="col-bst">405</span>
+      </div>
+      
+      <div class="pokemon-row">
+        <span class="col-check">
+          <input type="checkbox" checked class="pokemon-check">
+        </span>
+        <span class="col-number">
+          <span class="pokemon-sprite venusaur"></span>
+          <span class="number-text">3</span>
+        </span>
+        <span class="col-name">Venusaur</span>
+        <span class="col-types">
+          <span class="type-badge grass">GRASS</span>
+          <span class="type-badge poison">POISON</span>
+        </span>
+        <span class="col-abilities">Overgrow</span>
+        <span class="col-hp">80</span>
+        <span class="col-atk">82</span>
+        <span class="col-def">83</span>
+        <span class="col-spa">100</span>
+        <span class="col-spd">100</span>
+        <span class="col-spe">80</span>
+        <span class="col-bst">525</span>
+      </div>
     
       <div class="gen-header">Generation II</div>
       <!-- Gen II -->
@@ -108,6 +179,7 @@
       <!-- trainers list will go here -->
     </section>
   </div>
+  <script src="/JavaScript/pokemon-data.js"></script>
   <script src="/JavaScript/script.js"></script>
 </body>
 </html>

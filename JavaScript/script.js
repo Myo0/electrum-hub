@@ -1,8 +1,5 @@
 "use strict";
-    // Pokémon Objects
-let bulbasaur
 
-    // ------------------------------------------------------------------
 document.querySelectorAll('.sub-nav button').forEach(btn => {
     btn.addEventListener('click', () => {
 
@@ -16,3 +13,12 @@ document.querySelectorAll('.sub-nav button').forEach(btn => {
         .classList.add('active');
     });
   });
+
+  const themeToggle = document.getElementById('theme-toggle');
+themeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+  localStorage.theme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+});
+if (localStorage.theme === 'dark') {
+  document.body.classList.add('dark-mode');
+}
