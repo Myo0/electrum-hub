@@ -1,0 +1,128 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Electrum Hub</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="logo">Electrum (Placeholder)</header>
+
+  <nav class="main-nav">
+    <a href="index.html" class="active">Hub</a>
+    <a href="calculator.html">Calculator</a>
+    <a target ="_blank" href="https://docs.google.com/spreadsheets/d/1N0cg5vG_irsSNjaZxOeM4_eIba-nqkY9Zzcs1rYGbEs/edit?gid=665425777#gid=665425777">Trainers (Spreadsheet)</a>
+  </nav>
+
+  <div class="container">
+    <h1>Info Hub</h1>
+
+    <nav class="sub-nav">
+      <button data-section="search" class="active">Search</button>
+      <button data-section="pokemon">Pokémon</button>
+      <button data-section="location">Location</button>
+      <button data-section="moves">Moves</button>
+      <button data-section="trainers">Trainers</button>
+    </nav>
+
+    <section id="search-section" class="content-section active">
+      <input type="text" placeholder="Search Pokémon, moves, abilities, items, etc." class="search-bar">
+    </section>
+
+    <section id="pokemon-section" class="content-section">
+      <div class="section-header">Pokémon</div>
+      <input type="text" placeholder="Search Pokémon…" class="search-bar">
+      <div class="table-header">
+        <span>Number</span>
+        <span>Name</span>
+        <span>Types</span>
+        <span class="tooltip-wrapper">
+          Abilities (P)*
+          <span class="tooltip-text">
+            “(P)” marks abilities available to the Player. Expanding the Pokémon by clicking on it will display abilities exclusive to the AI if it has any.<br><br>
+
+            If an ability is too overpowered or trivializes the game in the hands of the player for whatever reason, the AI may use it but the Player will not have access to it.
+          </span>
+        </span>
+        <span>HP</span>
+        <span>Atk</span>
+        <span>Def</span>
+        <span>SpA</span>
+        <span>SpD</span>
+        <span>Spe</span>
+        <span>BST</span>
+      </div>
+    
+      <div class="gen-header">Generation I</div>
+      <!-- Gen I -->
+    
+      <div class="gen-header">Generation II</div>
+      <!-- Gen II -->
+    
+      <div class="gen-header">Generation III</div>
+      <!-- Gen III -->
+    
+      <div class="gen-header">Generation IV</div>
+      <!-- Gen IV -->
+    
+      <div class="gen-header">Generation V</div>
+      <!-- Gen V -->
+    
+      <div class="gen-header">Generation VI</div>
+      <!-- Gen VI -->
+    
+      <div class="gen-header">Generation VII</div>
+      <!-- Gen VII -->
+    
+      <div class="gen-header">Generation VIII</div>
+      <!-- Gen VIII -->
+    
+      <div class="gen-header">Generation IX</div>
+      <!-- Gen IX -->
+    </section>
+
+    <section id="location-section" class="content-section">
+      <div class="section-header">Locations</div>
+      <input type="text" placeholder="Search locations or Pokémon…" class="search-bar">
+      <!-- location list -->
+    </section>
+
+    <section id="moves-section" class="content-section">
+      <div class="section-header">Moves</div>
+      <input type="text" placeholder="Search moves…" class="search-bar">
+      <div class="table-header">
+        <span>Name</span>
+        <span>Type</span>
+        <span>Category</span>
+        <span>Base Power</span>
+        <span>Accuracy</span>
+        <span>PP</span>
+      </div>
+      <!-- all moves will go here -->
+    </section>
+
+    <section id="trainers-section" class="content-section">
+      <div class="section-header">Trainers</div>
+      <input type="text" placeholder="Search trainers or locations…" class="search-bar">
+      <!-- trainers list will go here -->
+    </section>
+  </div>
+  <script>
+    document.querySelectorAll('.sub-nav button').forEach(btn => {
+    btn.addEventListener('click', () => {
+
+      document.querySelectorAll('.sub-nav button')
+        .forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+  
+      document.querySelectorAll('.content-section')
+        .forEach(sec => sec.classList.remove('active'));
+      document.getElementById(`${btn.dataset.section}-section`)
+        .classList.add('active');
+    });
+  });
+  </script>
+</body>
+</html>
