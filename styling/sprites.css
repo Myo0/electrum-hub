@@ -1,0 +1,25 @@
+@layer sprites {
+    .pokemon-sprite {
+      display: inline-block;
+      width: 34px;
+      height: 34px;
+      margin: 0 auto;
+      background-image: url('../assets/pokemonicons-sheet.png');
+      background-repeat: no-repeat;
+      image-rendering: pixelated;
+    }
+    /* mega evos start at -3300px Y coord */
+  
+    .pokemon-sprite.bulbasaur {
+      background-position: -40px     0;
+    }
+    .pokemon-sprite.ivysaur {
+      background-position: -80px   0;
+    }
+    .pokemon-sprite.venusaur {
+      background-position: -120px   0;
+    }
+    .pokemon-sprite.mega-venusaur {
+      background-position: 0px   -3300px;
+    }
+  }

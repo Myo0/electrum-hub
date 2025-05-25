@@ -151,14 +151,89 @@ totalRow.innerHTML = `
 `;
 barContainer.appendChild(totalRow);
 
+// IV-only stat calculator (no EVs)
+function renderStatTable(level = 100) {
+  const tbody = document.querySelector('#stat-calc-table tbody');
+  tbody.innerHTML = '';
+  const B = p.stats;
+
+  ['hp','atk','def','spa','spd','spe'].forEach(stat => {
+    // formula: floor((2*Base + IV + EV/4) * L/100) + (L+10 for HP, +5 otherwise)
+    const basePart = 2 * B[stat];
+    const minIV = 0;
+    const maxIV = 31;
+
+    let minVal, maxVal;
+    if (stat === 'hp') {
+      minVal = Math.floor((basePart + minIV) * level/100) + level + 10;
+      maxVal = Math.floor((basePart + maxIV) * level/100) + level + 10;
+    } else {
+      minVal = Math.floor((basePart + minIV) * level/100) + 5;
+      maxVal = Math.floor((basePart + maxIV) * level/100) + 5;
+    }
+
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${stat.toUpperCase()}</td>
+      <td>${minVal}</td>
+      <td>${maxVal}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+const lvlInput = document.getElementById('stat-level');
+lvlInput.oninput = () => renderStatTable(+lvlInput.value);
+
+renderStatTable(+lvlInput.value);
+
+
   // evolutions
   const evoC = document.getElementById('detail-evolution');
   evoC.innerHTML = '<h3>Evolution:</h3>';
-  for (let evo of p.evolution) {
-    const img = document.createElement('img');
-    img.src = `assets/front/${evo.toLowerCase()}.png`;
-    img.title = evo;
-    evoC.appendChild(img);
+
+  if (!p.evolution || p.evolution.length === 0) {
+    // no evolution case
+    const noEvo = document.createElement('div');
+    noEvo.textContent = 'Does not evolve';
+    noEvo.style.fontStyle = 'italic';
+    noEvo.style.fontSize = '1rem';
+    noEvo.style.fontWeight = 'bold';
+    evoC.appendChild(noEvo);
+  } else {
+
+    const evoContainer = document.createElement('div');
+    evoContainer.className = 'evolution-container';
+
+    p.evolution.forEach((name, idx) => {
+      const step = document.createElement('div');
+      step.className = 'evolution-step';
+
+      const sprite = document.createElement('span');
+      sprite.className = `pokemon-sprite ${name.toLowerCase()}`;
+      sprite.title = name;
+
+      const label = document.createElement('span');
+      label.className = 'evo-name';
+      label.textContent = name;
+      if (name === p.name) label.classList.add('selected');
+      label.addEventListener('click', () => {
+        const next = window.pokemonData.find(mon => mon.name === name);
+        if (next) renderDetail(next);
+      });
+
+      step.append(sprite, label);
+      evoContainer.appendChild(step);
+
+      if (idx < p.evolution.length - 1) {
+        const arrow = document.createElement('span');
+        arrow.className = 'evolution-arrow';
+        arrow.textContent = '→';
+        evoContainer.appendChild(arrow);
+      }
+    });
+
+    evoC.appendChild(evoContainer);
   }
 
   // learnsets
@@ -177,3 +252,4 @@ barContainer.appendChild(totalRow);
 document.querySelectorAll('.pokemon-row').forEach((row,i) => {
   row.addEventListener('click', () => renderDetail(pokemonData[i]));
 });
+

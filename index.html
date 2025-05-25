@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Electrum Hub</title>
   <link rel="stylesheet" href="styling/styles.css">
+  <link rel="stylesheet" href="styling/sprites.css">
 </head>
 <body>
   <header class="logo">Electrum (Placeholder)</header>
@@ -81,8 +82,26 @@
           </div>
           <section id="detail-stats">
             <h3>Base stats:</h3>
-            <div id="stat-bars"></div>
-            <!-- injected by script.js -->
+            <div class="stats-grid">
+              <div id="stat-bars" class="bar-container">
+                <!-- injected by script.js -->
+              </div>
+              <div class="stat-calc">
+                <table id="stat-calc-table">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>Min (0 IV)</th>
+                      <th>Max (31 IV)</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+                <div class="level-input">
+                  at level <input type="number" id="stat-level" value="100" min="1" max="100">
+                </div>
+              </div>
+            </div>
           </section>
           <section id="detail-evolution">
             <!-- injected by script.js -->
@@ -165,6 +184,29 @@
         <span class="col-spd">100</span>
         <span class="col-spe">80</span>
         <span class="col-bst">525</span>
+      </div>
+
+      <div class="pokemon-row">
+        <span class="col-check">
+          <input type="checkbox" checked class="pokemon-check">
+        </span>
+        <span class="col-number">
+          <span class="pokemon-sprite mega-venusaur"></span>
+          <span class="number-text">3</span>
+        </span>
+        <span class="col-name">Mega Venusaur</span>
+        <span class="col-types">
+          <span class="type-badge grass">GRASS</span>
+          <span class="type-badge poison">POISON</span>
+        </span>
+        <span class="col-abilities">Thick Fat</span>
+        <span class="col-hp">80</span>
+        <span class="col-atk">100</span>
+        <span class="col-def">123</span>
+        <span class="col-spa">122</span>
+        <span class="col-spd">1120</span>
+        <span class="col-spe">80</span>
+        <span class="col-bst">625</span>
       </div>
     </div>
     
