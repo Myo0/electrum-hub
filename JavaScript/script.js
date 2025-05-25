@@ -33,6 +33,20 @@ detailClose.onclick = () => {
   document.body.classList.remove('detail-open');
 };
 
+document.querySelectorAll('.main-nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    detailPanel.classList.remove('open');
+    document.body.classList.remove('detail-open');
+  });
+});
+
+document.querySelectorAll('.sub-nav button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    detailPanel.classList.remove('open');
+    document.body.classList.remove('detail-open');
+  });
+});
+
 // 2) Render helpers
 function renderDetail(p) {
   document.getElementById('detail-name').textContent = p.name;

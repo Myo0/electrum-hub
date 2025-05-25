@@ -2,7 +2,7 @@ window.pokemonData = [
     {
       number: 1,
       name: 'Bulbasaur',
-      available: false,
+      available: true,
       types: ['Grass', 'Poison'],
       ability: 'Overgrow',
       hiddenAbility: 'Chlorophyll',
