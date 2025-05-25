@@ -1,3 +1,7 @@
+:root {
+  --panel-width: 40vw;
+}
+
 * { box-sizing: border-box; }
 body {
   margin: 0;
@@ -31,11 +35,14 @@ body {
 }
 .container {
   max-width: 45%;
+  min-width: 840px;
   margin: 2rem auto;
   padding: 0 1rem;
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+
+  transition: transform 0.3s ease;
 }
 h1 {
   font-size: 4rem;
@@ -388,4 +395,211 @@ body.dark-mode .logo {
 
 body.dark-mode h1 {
   color: #ccc;
+}
+
+/* DETAIL PANEL ---------------------- */
+#pokemon-detail-panel {
+  position: fixed;
+  top: 8.1rem;
+  right: 0;
+  bottom: 0;
+  width: 40%;
+  background: #fff;
+  box-shadow: -4px 0 12px rgba(0,0,0,0.2);
+  transition: width 0.3s ease;
+  z-index: 100;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+#pokemon-detail-panel.open {
+  width: var(--panel-width);
+}
+#detail-close {
+  position: absolute;
+  top: 0.5rem; left: 0.5rem;
+  border: none; background: none;
+  font-size: 1.5rem; cursor: pointer;
+}
+#pokemon-detail-panel header {
+  padding: 1rem;
+  padding-left: 2.5rem;
+  border-bottom: 1px solid #ddd;
+}
+#pokemon-detail-panel header h2 {
+  margin: 0; font-size: 1.4rem;
+}
+#pokemon-detail-panel header small {
+  color: #666; margin-left: 0.5rem;
+}
+#detail-note {
+  background: #ffeeba; color: #856404;
+  padding: 0.5rem; border: 1px solid #ffe8a1;
+  border-radius: 4px; margin-top: 0.75rem;
+}
+#detail-note.hidden {
+  display: none;
+}
+.detail-body {
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+.detail-top {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+  align-items: center; margin-bottom: 1rem;
+}
+.detail-top img {
+  width: 96px; height: 96px; image-rendering: pixelated;
+  border: 1px solid #ddd; background: #f9f9f9;
+}
+.detail-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+#detail-types .type-badge,
+#detail-abilities .type-badge { margin-right: 0.25rem; }
+#detail-stats {
+  margin-bottom: 1rem;
+}
+#detail-types,
+#detail-abilities {
+  margin-top: 0.25rem;
+}
+#detail-stats .stat-row {
+  display: flex; justify-content: space-between; margin: 0.25rem 0;
+}
+#detail-stats .stat-row .bar {
+  flex: 1; height: 0.6rem; margin-left: 0.5rem;
+  background: #ddd; border-radius: 3px; position: relative;
+}
+#detail-stats .stat-row .bar div {
+  height: 100%; background: #f39c12; border-radius: 3px;
+}
+#detail-evolution {
+  margin-bottom: 1rem;
+}
+#detail-evolution img {
+  width: 32px; height: 32px; margin: 0 0.5rem; cursor: pointer;
+  image-rendering: pixelated;
+}
+#detail-learnset ul {
+  list-style: none; padding: 0; margin: 0;
+}
+#detail-learnset li {
+  padding: 0.25rem 0; border-bottom: 1px solid #eee;
+  display: flex; justify-content: space-between;
+}
+
+#pokemon-detail-panel {
+
+  width: 0;
+  transition: width 0.3s ease;
+  color: #333;                  
+}
+
+body.detail-open .container {
+  margin-right: 42.5%;
+}
+
+#pokemon-detail-panel,
+#pokemon-detail-panel * {
+  color: #333 !important;
+}
+
+#pokemon-detail-panel header h2 {
+  color: #111 !important;
+}
+
+.detail-left {
+  flex: 1;
+}
+
+.detail-left img {
+  float: left;
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+#detail-types::before {
+  content: "Types: ";
+  font-weight: bold;
+}
+
+.detail-right {
+  text-align: right;
+  min-width: 8rem;
+}
+
+.detail-right > div {
+  margin-bottom: 0.5rem;
+}
+
+.detail-right strong {
+  font-weight: bold;
+}
+
+.stat-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.stat-bar span {
+  width: 5rem;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.stat-bar .bar {
+  flex: 1;
+  height: 0.6rem;
+  background: #eee;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.stat-bar .fill {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.stat-bar.total span {
+  font-size: 1rem;
+}
+
+.stat-bar .bar {
+  flex: 1;
+  height: 0.6rem;
+  background: #eee;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.stat-bar .stat-value {
+  width: 2rem;
+  text-align: right;
+  margin-right: 0.5rem;
+}
+
+.stat-bar .stat-label {
+  width: 5rem;
+  font-weight: bold;
+}
+
+#detail-abilities a {
+  text-decoration: underline;
+}
+
+#pokemon-detail-panel .learnset-header {
+  background: #dc3545;
+  color: #fff !important;
+  padding: 0.5rem 1rem;
+  border: 1px solid #a71d2a;
+  border-radius: 4px;
+  margin: 1rem 0 0.5rem;
+  font-weight: bold;
+  font-size: 1rem;
 }

@@ -55,7 +55,46 @@
         <span class="col-spe">Spe</span>
         <span class="col-bst">BST</span>
       </div>
+
+      <!-- DETAIL PANEL -->
+      <aside id="pokemon-detail-panel" class="closed">
+        <button id="detail-close">×</button>
+        <header>
+          <h2 id="detail-name">Bulbasaur</h2>
+          <small id="detail-dex">#1</small>
+          <div id="detail-note" class="hidden"><strong>Note:</strong> This Pokémon cannot be obtained.</div>
+        </header>
+        <div class="detail-body">
+          <div class="detail-top">
+            <div class="detail-left">
+              <img id="detail-sprite" src="" alt=""/>
+              <div id="detail-types"></div>
+              <div class="detail-section">
+                <h4>Abilities:</h4>
+                <div id="detail-abilities"></div>
+              </div>
+            </div>
+            <div class="detail-right">
+              <div id="detail-gender"></div>
+              <div id="detail-catchrate"></div>
+            </div>
+          </div>
+          <section id="detail-stats">
+            <h3>Base stats:</h3>
+            <div id="stat-bars"></div>
+            <!-- injected by script.js -->
+          </section>
+          <section id="detail-evolution">
+            <!-- injected by script.js -->
+          </section>
+          <section id="detail-learnset">
+            <div class="learnset-header">Level-up Learnset</div>
+            <ul id="detail-learnlist"></ul>
+          </section>
+        </div>
+      </aside>
     
+    <div id="collapse">
       <div class="gen-header">Generation I</div>
       <!-- Gen I -->
 
@@ -127,30 +166,47 @@
         <span class="col-spe">80</span>
         <span class="col-bst">525</span>
       </div>
+    </div>
     
+    <div id="collapse">
       <div class="gen-header">Generation II</div>
       <!-- Gen II -->
-    
+    </div>
+
+    <div id="collapse">
       <div class="gen-header">Generation III</div>
       <!-- Gen III -->
-    
+    </div>
+
+    <div id="collapse">
       <div class="gen-header">Generation IV</div>
       <!-- Gen IV -->
-    
+    </div>
+
+    <div id="collapse">
       <div class="gen-header">Generation V</div>
       <!-- Gen V -->
-    
+    </div>
+
+    <div id="collapse">
       <div class="gen-header">Generation VI</div>
       <!-- Gen VI -->
-    
+    </div>
+
+    <div id="collapse">
       <div class="gen-header">Generation VII</div>
       <!-- Gen VII -->
-    
+    </div>
+
+    <div id="collapse">
       <div class="gen-header">Generation VIII</div>
       <!-- Gen VIII -->
-    
+    </div>
+
+    <div id="collapse">
       <div class="gen-header">Generation IX</div>
       <!-- Gen IX -->
+    </div>
     </section>
 
     <section id="location-section" class="content-section">
@@ -179,6 +235,7 @@
       <!-- trainers list will go here -->
     </section>
   </div>
+  <script src="/JavaScript/move-data.js"></script>
   <script src="/JavaScript/pokemon-data.js"></script>
   <script src="/JavaScript/script.js"></script>
 </body>
