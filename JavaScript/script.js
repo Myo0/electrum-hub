@@ -166,36 +166,50 @@ barContainer.appendChild(totalRow);
 function renderStatTable(level = 100) {
   const tbody = document.querySelector('#stat-calc-table tbody');
   tbody.innerHTML = '';
-  const B = p.stats;
+  const B = p.stats;                // p is your current Pokémon object
+  const negN = 0.9, neuN = 1.0, posN = 1.1;
 
   ['hp','atk','def','spa','spd','spe'].forEach(stat => {
-    // formula: floor((2*Base + IV + EV/4) * L/100) + (L+10 for HP, +5 otherwise)
-    const basePart = 2 * B[stat];
-    const minIV = 0;
-    const maxIV = 31;
+    const base = B[stat];
+    let minNeg, minNeu, maxNeu, maxPos;
 
-    let minVal, maxVal;
     if (stat === 'hp') {
-      minVal = Math.floor((basePart + minIV) * level/100) + level + 10;
-      maxVal = Math.floor((basePart + maxIV) * level/100) + level + 10;
+      // HP formula: floor((2·Base + IV + 0EV)·L/100)+L+10
+      const calcHP = iv => 
+        Math.floor((2*base + iv) * level/100) + level + 10;
+      minNeu = calcHP(0);
+      maxNeu = calcHP(31);
+      // nature does NOT affect HP
+      minNeg = minNeu;
+      maxPos = maxNeu;
     } else {
-      minVal = Math.floor((basePart + minIV) * level/100) + 5;
-      maxVal = Math.floor((basePart + maxIV) * level/100) + 5;
+      // Other stats: floor((2·Base + IV + 0EV)·L/100)+5, then ×nature, floored
+      const calcPre = iv =>
+        Math.floor((2*base + iv) * level/100) + 5;
+      const neu0 = calcPre(0);
+      const neu31 = calcPre(31);
+
+      minNeg = Math.floor(neu0 * negN);
+      minNeu = Math.floor(neu0 * neuN);
+      maxNeu = Math.floor(neu31 * neuN);
+      maxPos = Math.floor(neu31 * posN);
     }
 
     const tr = document.createElement('tr');
     tr.innerHTML = `
       <td>${stat.toUpperCase()}</td>
-      <td>${minVal}</td>
-      <td>${maxVal}</td>
+      <td>${minNeg}</td>
+      <td>${minNeu}</td>
+      <td>${maxNeu}</td>
+      <td>${maxPos}</td>
     `;
     tbody.appendChild(tr);
   });
 }
 
+// wire the input and initial render
 const lvlInput = document.getElementById('stat-level');
 lvlInput.oninput = () => renderStatTable(+lvlInput.value);
-
 renderStatTable(+lvlInput.value);
 
 

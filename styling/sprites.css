@@ -2,7 +2,7 @@
     .pokemon-sprite {
       display: inline-block;
       width: 40px;
-      height: 34px;
+      height: 30px;
       margin: 0 auto;
       background-image: url('../assets/pokemonicons-sheet.png');
       background-repeat: no-repeat;
@@ -32,10 +32,10 @@
       background-position: -240px   0;
     }
     .pokemon-sprite.mega-charizard-x {
-      background-position: -40px   -3299px;
+      background-position: -40px   -3300px;
     }
     .pokemon-sprite.mega-charizard-y {
-      background-position: -80px   -3297px;
+      background-position: -80px   -3300px;
     }
     .pokemon-sprite.squirtle {
       background-position: -280px   0;
@@ -47,7 +47,7 @@
       background-position: -360px   0;
     }
     .pokemon-sprite.mega-blastoise {
-      background-position: -120px   -3299px;
+      background-position: -120px   -3300px;
     }
     .pokemon-sprite.caterpie {
       background-position: -400px   0;
@@ -67,4 +67,7 @@
     .pokemon-sprite.beedrill {
       background-position: -120px   -30px;
     }
+    .pokemon-sprite.mega-beedrill {
+        background-position: -160px   -3300px;
+      }
   }

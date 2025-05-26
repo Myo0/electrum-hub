@@ -713,7 +713,7 @@ window.pokemonData = [
           spd: 80,
           spe: 145
         },
-        evolution: ['Weedle', 'Kakuna', 'Beedrill'],
+        evolution: '',
         learnset: [
           { level: 1,  move: 'U-turn'      },
           { level: 1,  move: 'Knock Off'   },
