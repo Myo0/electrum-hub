@@ -64,7 +64,6 @@ function renderDetail(p) {
   // types
   const tp = document.getElementById('detail-types');
   tp.innerHTML = '';
-  // ensure we always have an array
   const types = Array.isArray(p.types) ? p.types : [p.types];
   types.forEach(t => {
     if (!t) return;  // guard against undefined/null
