@@ -156,4 +156,40 @@ window.pokemonData = [
           { level: 45, move: 'Earth Power'    }
         ]
       },
+      {
+        number: 3,
+        name: 'Charmander',
+        available: true,
+        types: ['Fire', 'Fire'],
+        ability: 'Blaze',
+        hiddenAbility: 'Solar Power',
+        aiAbility: '',
+        gender: '87.5% male, 12.5% female',
+        catchRate: 45,
+        stats: {
+          hp: 39,
+          atk: 52,
+          def: 43,
+          spa: 60,
+          spd: 50,
+          spe: 65
+        },
+        evolution: ['Charmander', 'Charmeleon', 'Charizard'],
+        learnset: [
+          { level: 1,  move: 'Scratch'     },
+          { level: 1,  move: 'Growl'  },
+          { level: 5,  move: 'Ember'         },
+          { level: 8,  move: 'Smokescreen'          },
+          { level: 11,  move: 'Bite'      },
+          { level: 14,  move: 'Dragon Breath'           },
+          { level: 16,  move: 'Fire Fang'       },
+          { level: 20, move: 'Slash'  },
+          { level: 25, move: 'Flame Burst'   },
+          { level: 29, move: 'Dig'     },
+          { level: 32, move: 'Flamethrower'      },
+          { level: 36, move: 'Brick Break'   },
+          { level: 40, move: 'Heat Wave'    },
+          { level: 48, move: 'Flare Blitz'      }
+        ]
+      },
   ];

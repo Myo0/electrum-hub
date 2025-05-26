@@ -22,4 +22,13 @@
     .pokemon-sprite.mega-venusaur {
       background-position: 0px   -3300px;
     }
+    .pokemon-sprite.charmander {
+      background-position: -160px   0;
+    }
+    .pokemon-sprite.charmeleon {
+      background-position: -200px   0;
+    }
+    .pokemon-sprite.charizard {
+      background-position: -240px   0;
+    }
   }
