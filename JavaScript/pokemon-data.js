@@ -574,6 +574,7 @@ window.pokemonData = [
         aiAbility: '',
         gender: '50% male, 50% female',
         catchRate: 45,
+        heldItem: {name: "Silver Powder", rate: 5},
         stats: {
           hp: 60,
           atk: 45,
@@ -608,4 +609,127 @@ window.pokemonData = [
           { level: 42, move: 'Tailwind'    }
         ]
       },
+      {
+        number: 13,
+        name: 'Weedle',
+        available: true,
+        types: ['Bug', 'Poison'],
+        ability: 'Shield Dust',
+        hiddenAbility: 'Run Away',
+        aiAbility: '',
+        gender: '50% male, 50% female',
+        catchRate: 255,
+        stats: {
+          hp: 40,
+          atk: 35,
+          def: 30,
+          spa: 20,
+          spd: 20,
+          spe: 50
+        },
+        evolution: ['Weedle', 'Kakuna', 'Beedrill'],
+        learnset: [
+          { level: 1, move: 'Poison Sting' },
+          { level: 1, move: 'String Shot'  },
+          { level: 9, move: 'Bug Bite'     }
+        ]
+      },
+      {
+        number: 14,
+        name: 'Kakuna',
+        available: true,
+        types: ['Bug', 'Poison'],
+        ability: 'Shed Skin',
+        hiddenAbility: '',
+        aiAbility: '',
+        gender: '50% male, 50% female',
+        catchRate: 120,
+        stats: {
+          hp: 45,
+          atk: 25,
+          def: 50,
+          spa: 25,
+          spd: 25,
+          spe: 35
+        },
+        evolution: ['Weedle', 'Kakuna', 'Beedrill'],
+        learnset: [
+          { level: 1, move: 'Poison Sting' },
+          { level: 7, move: 'Harden'       }
+        ]
+      },
+      {
+        number: 15,
+        name: 'Beedrill',
+        available: true,
+        types: ['Bug', 'Poison'],
+        ability: 'Swarm',
+        hiddenAbility: 'Sniper',
+        aiAbility: '',
+        gender: '50% male, 50% female',
+        catchRate: 45,
+        stats: {
+          hp: 65,
+          atk: 90,
+          def: 40,
+          spa: 45,
+          spd: 80,
+          spe: 75
+        },
+        evolution: ['Weedle', 'Kakuna', 'Beedrill'],
+        learnset: [
+          { level: 1,  move: 'U-turn'      },
+          { level: 1,  move: 'Knock Off'   },
+          { level: 1,  move: 'Twineedle'   },
+          { level: 1,  move: 'Fury Attack' },
+          { level: 10, move: 'Twineedle'   },
+          { level: 12, move: 'Rage'        },
+          { level: 16, move: 'Aerial Ace'  },
+          { level: 18, move: 'Toxic'       },
+          { level: 21, move: 'Assurance'   },
+          { level: 24, move: 'Brick Break' },
+          { level: 26, move: 'Endeavor'    },
+          { level: 29, move: 'X-Scissor'   },
+          { level: 31, move: 'Poison Jab'  },
+          { level: 34, move: 'Drill Run'   },
+          { level: 40, move: 'Megahorn'    }
+        ]
+      },
+      {
+        number: 15,
+        name: 'Mega Beedrill',
+        available: true,
+        types: ['Bug', 'Poison'],
+        ability: 'Adaptability',
+        hiddenAbility: '',
+        aiAbility: '',
+        gender: '50% male, 50% female',
+        catchRate: 45,
+        stats: {
+          hp: 65,
+          atk: 150,
+          def: 40,
+          spa: 15,
+          spd: 80,
+          spe: 145
+        },
+        evolution: ['Weedle', 'Kakuna', 'Beedrill'],
+        learnset: [
+          { level: 1,  move: 'U-turn'      },
+          { level: 1,  move: 'Knock Off'   },
+          { level: 1,  move: 'Twineedle'   },
+          { level: 1,  move: 'Fury Attack' },
+          { level: 10, move: 'Twineedle'   },
+          { level: 12, move: 'Rage'        },
+          { level: 16, move: 'Aerial Ace'  },
+          { level: 18, move: 'Toxic'       },
+          { level: 21, move: 'Assurance'   },
+          { level: 24, move: 'Brick Break' },
+          { level: 26, move: 'Endeavor'    },
+          { level: 29, move: 'X-Scissor'   },
+          { level: 31, move: 'Poison Jab'  },
+          { level: 34, move: 'Drill Run'   },
+          { level: 40, move: 'Megahorn'    }
+        ]
+      }
   ];

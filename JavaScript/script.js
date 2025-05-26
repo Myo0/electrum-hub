@@ -105,6 +105,16 @@ allAbilities.forEach((item, i) => {
     .innerHTML = `<strong>Gender ratio:</strong> ${p.gender}`;
   document.getElementById('detail-catchrate')
     .innerHTML = `<strong>Catch rate:</strong> ${p.catchRate}`;
+  
+  // held item
+  const heldSection = document.getElementById('detail-held-item-section');
+  const hi = document.getElementById('detail-held-item');
+  if (p.heldItem && p.heldItem.name) {
+    hi.textContent = `${p.heldItem.name} (${p.heldItem.rate}%)`;
+    heldSection.style.display = '';
+  } else {
+    heldSection.style.display = 'none';
+  }
 
   // stats
 // 1) Clear & prepare

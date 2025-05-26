@@ -58,4 +58,13 @@
     .pokemon-sprite.butterfree {
       background-position: 0   -30px;
     }
+    .pokemon-sprite.weedle {
+      background-position: -40px   -30px;
+    }
+    .pokemon-sprite.kakuna {
+      background-position: -80px   -30px;
+    }
+    .pokemon-sprite.beedrill {
+      background-position: -120px   -30px;
+    }
   }
