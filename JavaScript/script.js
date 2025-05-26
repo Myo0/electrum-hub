@@ -64,14 +64,16 @@ function renderDetail(p) {
   // types
   const tp = document.getElementById('detail-types');
   tp.innerHTML = '';
-  p.types.forEach(t => {
+  // ensure we always have an array
+  const types = Array.isArray(p.types) ? p.types : [p.types];
+  types.forEach(t => {
+    if (!t) return;  // guard against undefined/null
     const b = document.createElement('span');
     b.className = `type-badge ${t.toLowerCase()}`;
     b.textContent = t;
     tp.appendChild(b);
   });
 
-  // abilities (fallback to ability + hiddenAbility)
   const playerAbs = (Array.isArray(p.abilities)
   ? p.abilities 
   : [p.ability]

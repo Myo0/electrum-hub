@@ -160,7 +160,7 @@ window.pokemonData = [
         number: 3,
         name: 'Charmander',
         available: true,
-        types: ['Fire', 'Fire'],
+        types: 'Fire',
         ability: 'Blaze',
         hiddenAbility: 'Solar Power',
         aiAbility: '',
