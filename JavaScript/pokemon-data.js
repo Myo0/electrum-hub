@@ -1334,6 +1334,7 @@ window.pokemonData = [
           spe: 40
         },
         evolution: ['Sandshrew', 'Sandslash'],
+        evolutionMethod: ['Level 22'],
         learnset: [
           { level: 1,  move: 'Scratch'          },
           { level: 3,  move: 'Poison Sting'     },
@@ -1369,6 +1370,7 @@ window.pokemonData = [
           spe: 65
         },
         evolution: ['Sandshrew', 'Sandslash'],
+        evolutionMethod: ['Level 22'],
         learnset: [
           { level: 1,  move: 'Scratch'          },
           { level: 3,  move: 'Poison Sting'     },
@@ -1405,6 +1407,7 @@ window.pokemonData = [
           spe: 40
         },
         evolution: ['Alolan Sandshrew', 'Alolan Sandslash'],
+        evolutionMethod: ['Ice Stone'],
         learnset: [
           { level: 1,  move: 'Scratch'       },
           { level: 3,  move: 'Bide'          },
@@ -1442,6 +1445,7 @@ window.pokemonData = [
           spe: 65
         },
         evolution: ['Alolan Sandshrew', 'Alolan Sandslash'],
+        evolutionMethod: ['Ice Stone'],
         learnset: [
           { level: 1,  move: 'Scratch'       },
           { level: 3,  move: 'Bide'          },
@@ -1459,6 +1463,217 @@ window.pokemonData = [
           { level: 44, move: 'Earthquake'    },
           { level: 49, move: 'Icicle Crash'  }
         ]
-      }
-      
+      },
+      {
+        number: 29,
+        name: 'Nidoran♀',
+        available: true,
+        types: ['Poison'],
+        abilities: ['Poison Point', 'Rivalry'],
+        hiddenAbility: 'Hustle',
+        aiAbility: '',
+        gender: '100% female',
+        catchRate: 235,
+        stats: {
+          hp: 55,
+          atk: 47,
+          def: 52,
+          spa: 40,
+          spd: 40,
+          spe: 41
+        },
+        evolution: ['Nidoran♀', 'Nidorina', 'Nidoqueen'],
+        learnset: [
+          { level: 1,  move: 'Growl'        },
+          { level: 1,  move: 'Poison Sting' },
+          { level: 1,  move: 'Scratch'      },
+          { level: 9,  move: 'Sludge'       },
+          { level: 13, move: 'Bite'         },
+          { level: 16, move: 'Double Kick'  },
+          { level: 21, move: 'Toxic'        },
+          { level: 24, move: 'Shadow Claw'  },
+          { level: 27, move: 'Sludge Bomb'  },
+          { level: 30, move: 'Crunch'       },
+          { level: 34, move: 'Shadow Claw'  },
+          { level: 38, move: 'Poison Fang'  }
+        ]
+      },
+      {
+        number: 30,
+        name: 'Nidorina',
+        available: true,
+        types: ['Poison'],
+        abilities: ['Poison Point', 'Rivalry'],
+        hiddenAbility: 'Hustle',
+        aiAbility: '',
+        gender: '100% female',
+        catchRate: 120,
+        stats: {
+          hp: 70,
+          atk: 62,
+          def: 67,
+          spa: 55,
+          spd: 55,
+          spe: 56
+        },
+        evolution: ['Nidoran♀', 'Nidorina', 'Nidoqueen'],
+        learnset: [
+          { level: 1,  move: 'Growl'        },
+          { level: 1,  move: 'Poison Sting' },
+          { level: 1,  move: 'Scratch'      },
+          { level: 9,  move: 'Sludge'       },
+          { level: 13, move: 'Bite'         },
+          { level: 16, move: 'Double Kick'  },
+          { level: 21, move: 'Toxic'        },
+          { level: 25, move: 'Shadow Claw'  },
+          { level: 28, move: 'Sludge Bomb'  },
+          { level: 31, move: 'Crunch'       },
+          { level: 36, move: 'Shadow Claw'  },
+          { level: 40, move: 'Poison Fang'  }
+        ]
+      },
+      {
+        number: 31,
+        name: 'Nidoqueen',
+        available: true,
+        types: ['Poison', 'Ground'],
+        abilities: ['Poison Point', 'Rivalry'],
+        hiddenAbility: 'Sheer Force',
+        aiAbility: '',
+        gender: '100% female',
+        catchRate: 45,
+        stats: {
+          hp: 90,
+          atk: 92,
+          def: 87,
+          spa: 75,
+          spd: 85,
+          spe: 76
+        },
+        evolution: ['Nidoran♀', 'Nidorina', 'Nidoqueen'],
+        learnset: [
+          { level: 1,  move: 'Super Fang'    },
+          { level: 1,  move: 'Counter'       },
+          { level: 1,  move: 'Growl'         },
+          { level: 1,  move: 'Poison Sting'  },
+          { level: 1,  move: 'Scratch'       },
+          { level: 9,  move: 'Sludge'        },
+          { level: 13, move: 'Bite'          },
+          { level: 16, move: 'Double Kick'   },
+          { level: 21, move: 'Toxic'         },
+          { level: 25, move: 'Shadow Claw'   },
+          { level: 28, move: 'Sludge Bomb'   },
+          { level: 35, move: 'Crunch'        },
+          { level: 39, move: 'Shadow Claw'   },
+          { level: 44, move: 'Poison Fang'   },
+          { level: 47, move: 'Earthquake'    },
+          { level: 49, move: 'Superpower'    }
+        ]
+      },
+      {
+        number: 32,
+        name: 'Nidoran♂',
+        available: true,
+        types: ['Poison'],
+        abilities: ['Poison Point', 'Rivalry'],
+        hiddenAbility: 'Hustle',
+        aiAbility: '',
+        gender: '100% male',
+        catchRate: 235,
+        stats: {
+          hp: 46,
+          atk: 57,
+          def: 40,
+          spa: 40,
+          spd: 40,
+          spe: 50
+        },
+        evolution: ['Nidoran♂', 'Nidorino', 'Nidoking'],
+        learnset: [
+          { level: 1,  move: 'Growl'         },
+          { level: 1,  move: 'Poison Sting'  },
+          { level: 1,  move: 'Scratch'       },
+          { level: 9,  move: 'Sludge'        },
+          { level: 13, move: 'Bite'          },
+          { level: 16, move: 'Double Kick'   },
+          { level: 21, move: 'Toxic'         },
+          { level: 24, move: 'Rock Slide'    },
+          { level: 27, move: 'Sludge Bomb'   },
+          { level: 30, move: 'Crunch'        },
+          { level: 34, move: 'Shadow Claw'   },
+          { level: 38, move: 'Poison Fang'   }
+        ]
+      },
+      {
+        number: 33,
+        name: 'Nidorino',
+        available: true,
+        types: ['Poison'],
+        abilities: ['Poison Point', 'Rivalry'],
+        hiddenAbility: 'Hustle',
+        aiAbility: '',
+        gender: '100% male',
+        catchRate: 120,
+        stats: {
+          hp: 61,
+          atk: 72,
+          def: 57,
+          spa: 55,
+          spd: 55,
+          spe: 65
+        },
+        evolution: ['Nidoran♂', 'Nidorino', 'Nidoking'],
+        learnset: [
+          { level: 1,  move: 'Growl'         },
+          { level: 1,  move: 'Poison Sting'  },
+          { level: 1,  move: 'Scratch'       },
+          { level: 9,  move: 'Sludge'        },
+          { level: 13, move: 'Bite'          },
+          { level: 16, move: 'Double Kick'   },
+          { level: 21, move: 'Toxic'         },
+          { level: 25, move: 'Rock Slide'    },
+          { level: 28, move: 'Sludge Bomb'   },
+          { level: 31, move: 'Crunch'        },
+          { level: 36, move: 'Shadow Claw'   },
+          { level: 40, move: 'Poison Fang'   }
+        ]
+      },
+      {
+        number: 34,
+        name: 'Nidoking',
+        available: true,
+        types: ['Poison', 'Ground'],
+        abilities: ['Poison Point', 'Rivalry'],
+        hiddenAbility: 'Sheer Force',
+        aiAbility: '',
+        gender: '100% male',
+        catchRate: 45,
+        stats: {
+          hp: 81,
+          atk: 102,
+          def: 77,
+          spa: 85,
+          spd: 75,
+          spe: 85
+        },
+        evolution: ['Nidoran♂', 'Nidorino', 'Nidoking'],
+        learnset: [
+          { level: 1,  move: 'Earthquake'    },
+          { level: 1,  move: 'Growl'         },
+          { level: 1,  move: 'Poison Sting'  },
+          { level: 1,  move: 'Scratch'       },
+          { level: 9,  move: 'Sludge'        },
+          { level: 13, move: 'Bite'          },
+          { level: 16, move: 'Double Kick'   },
+          { level: 21, move: 'Toxic'         },
+          { level: 25, move: 'Rock Slide'    },
+          { level: 28, move: 'Sludge Bomb'   },
+          { level: 31, move: 'Crunch'        },
+          { level: 36, move: 'Shadow Claw'   },
+          { level: 42, move: 'Poison Fang'   },
+          { level: 46, move: 'Drill Run'     },
+          { level: 48, move: 'Megahorn'      },
+          { level: 51, move: 'Head Smash'    }
+        ]
+      },      
   ];

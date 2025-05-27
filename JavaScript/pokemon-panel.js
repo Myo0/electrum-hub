@@ -257,7 +257,9 @@ renderStatTable(+lvlInput.value);
 
       // the branch sprite + label
       const spr = document.createElement('span');
-      spr.className = `pokemon-sprite ${name.toLowerCase()}`;
+      const name1 = name.replace('♀' || '♂', '')
+      const key = name1.toLowerCase().trim().replace(/\s+/g, '-');
+      spr.className = `pokemon-sprite ${key}`;
       spr.title = name;
       const lbl = document.createElement('span');
       lbl.textContent = name;
@@ -291,7 +293,8 @@ renderStatTable(+lvlInput.value);
       const step = document.createElement('div');
       step.className = 'evolution-step';
       const sprite = document.createElement('span');
-      sprite.className = `pokemon-sprite ${name.toLowerCase()}`;
+      const key = name.toLowerCase().trim().replace(/\s+/g, '-');
+      sprite.className = `pokemon-sprite ${key}`;
       sprite.title = name;
       const label = document.createElement('span');
       label.className = 'evo-name';

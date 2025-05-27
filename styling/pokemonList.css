@@ -200,3 +200,12 @@
 .pokemon-row .col-sprite {
   justify-self: center;
 }
+
+.table-header .sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.table-header .sortable.selected {
+  font-weight: bold;
+}

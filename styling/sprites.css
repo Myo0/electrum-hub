@@ -88,10 +88,10 @@
     .pokemon-sprite.raticate {
       background-position: -320px   -30px;
     }
-    .pokemon-sprite.rattata-alolan {
+    .pokemon-sprite.alolan-rattata {
       background-position: -440px   -2850px;
     }
-    .pokemon-sprite.raticate-alolan {
+    .pokemon-sprite.alolan-raticate {
       background-position: 0   -2880px;
     }
     .pokemon-sprite.spearow {
@@ -112,7 +112,7 @@
     .pokemon-sprite.raichu {
       background-position: -80px   -60px;
     }
-    .pokemon-sprite.raichu-alolan {
+    .pokemon-sprite.alolan-raichu {
       background-position: -40px   -2880px;
     }
     .pokemon-sprite.sandshrew {
@@ -121,10 +121,28 @@
     .pokemon-sprite.sandslash {
       background-position: -160px   -60px;
     }
-    .pokemon-sprite.sandshrew-alolan {
+    .pokemon-sprite.alolan-sandshrew {
       background-position: -80px   -2880px;
     }
-    .pokemon-sprite.sandslash-alolan {
+    .pokemon-sprite.alolan-sandslash {
       background-position: -120px   -2880px;
+    }
+    .pokemon-sprite.nidoran♀ {
+        background-position: -200px   -60px;
+    }
+    .pokemon-sprite.nidorina {
+        background-position: -240px   -60px;
+    }
+    .pokemon-sprite.nidoqueen {
+        background-position: -280px   -60px;
+    }
+    .pokemon-sprite.nidoran♂ {
+        background-position: -320px   -60px;
+    }
+    .pokemon-sprite.nidorino {
+        background-position: -360px   -60px;
+    }
+    .pokemon-sprite.nidoking {
+        background-position: -400px   -60px;
     }
   }
