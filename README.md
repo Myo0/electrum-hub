@@ -16,7 +16,7 @@ Eventually when this site is done, I will find a way to host it externally and h
 
 ---
 
-<h2>How to set-up (Release):<h2>
+<h2>How to set-up (Release):</h2>
 
 On the right side of the page just beneath the <strong>About</strong> section, there is the <strong>Releases</strong> section.
 
