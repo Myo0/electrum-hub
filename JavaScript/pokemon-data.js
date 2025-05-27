@@ -851,7 +851,8 @@ window.pokemonData = [
           { level: 40, move: 'Heat Wave'     },
           { level: 43, move: 'Steel Wing'    },
           { level: 46, move: 'Double-Edge'   },
-          { level: 51, move: 'Brave Bird'    }
+          { level: 51, move: 'Brave Bird'    },
+          { level: 55, move: 'Hurricane'     }
         ]
       },
       {

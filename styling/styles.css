@@ -55,7 +55,7 @@ body {
 }
 .container {
   max-width: 45%;
-  min-width: 840px;
+  min-width: 900px;
   margin: 2rem auto;
   padding: 0 1rem;
   background: #fff;
@@ -207,10 +207,9 @@ h1 {
   text-transform: uppercase;
   padding: 0.2rem 0.4rem;
   border-radius: 4px;
-  font-size: 0.75rem;
+  font-size: 0.66rem;
   color: #fff;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-  margin-right: 0.1rem;
 }
 
 .type-badge.grass { background: #78c850; }
