@@ -217,43 +217,132 @@ renderStatTable(+lvlInput.value);
   const evoC = document.getElementById('detail-evolution');
   evoC.innerHTML = '<h3>Evolution:</h3>';
 
-  if (!p.evolution || p.evolution.length === 0) {
-    // no evolution case
+  // 1) SPLIT‐EVOLUTION with optional preEvolution
+  if (Array.isArray(p.evolutionSplit) && p.evolutionSplit.length) {
+    const container = document.createElement('div');
+    container.className = 'evolution-split-horizontal';
+
+    // a) preEvolution chain (e.g. Pichu → ...)
+    if (Array.isArray(p.preEvolution)) {
+      p.preEvolution.forEach((name, i) => {
+        const step = document.createElement('div');
+        step.className = 'evolution-step';
+        const spr = document.createElement('span');
+        spr.className = `pokemon-sprite ${name.toLowerCase()}`;
+        spr.title = name;
+        const lbl = document.createElement('span');
+        lbl.className = 'evo-name';
+        lbl.textContent = name;
+        if (name === p.name) lbl.classList.add('selected');
+        lbl.style.cursor = 'pointer';
+        lbl.addEventListener('click', () => {
+          const next = window.pokemonData.find(m => m.name === name);
+          if (next) renderDetail(next);
+        });
+        step.append(spr, lbl);
+        container.appendChild(step);
+
+        // arrow into base form
+        const arrowIn = document.createElement('span');
+        arrowIn.className = 'evolution-arrow split';
+        arrowIn.textContent = '→';
+        container.appendChild(arrowIn);
+      });
+    }
+
+    // b) Base form (e.g. Pikachu)
+    const baseStep = document.createElement('div');
+    baseStep.className = 'evolution-step';
+    const baseSpr = document.createElement('span');
+    baseSpr.className = `pokemon-sprite ${p.name.toLowerCase()}`;
+    baseSpr.title = p.name;
+    const baseLbl = document.createElement('span');
+    baseLbl.className = 'evo-name';
+    baseLbl.textContent = p.name;
+    if (p.name === p.name) baseLbl.classList.add('selected');
+    baseStep.append(baseSpr, baseLbl);
+    container.appendChild(baseStep);
+
+    // c) Branches off to the right
+    const branches = document.createElement('div');
+    branches.className = 'split-right-branches';
+
+    p.evolutionSplit.forEach((name, idx) => {
+      const branch = document.createElement('div');
+      branch.className = 'evolution-branch-horizontal';
+
+      // right-pointing arrow
+      const arrow = document.createElement('span');
+      arrow.className = 'evolution-arrow split';
+      arrow.textContent = '→';
+      // tooltip from evolutionMethod if available
+      if (Array.isArray(p.evolutionMethod)) {
+        arrow.title = p.evolutionMethod[idx] || '';
+      } else if (typeof p.evolutionMethod === 'string') {
+        arrow.title = p.evolutionMethod;
+      }
+      branch.appendChild(arrow);
+
+      // the branch sprite + label
+      const spr = document.createElement('span');
+      spr.className = `pokemon-sprite ${name.toLowerCase()}`;
+      spr.title = name;
+      const lbl = document.createElement('span');
+      lbl.textContent = name;
+      lbl.style.cursor = 'pointer';
+      lbl.addEventListener('click', () => {
+        const next = window.pokemonData.find(m => m.name === name);
+        if (next) renderDetail(next);
+      });
+      branch.append(spr, lbl);
+
+      branches.append(branch);
+    });
+
+    container.append(branches);
+    evoC.append(container);
+
+  // 2) NO EVOLUTION AT ALL
+  } else if (!p.evolution || p.evolution.length === 0) {
     const noEvo = document.createElement('div');
     noEvo.textContent = 'Does not evolve';
     noEvo.style.fontStyle = 'italic';
-    noEvo.style.fontSize = '1rem';
-    noEvo.style.fontWeight = 'bold';
     evoC.appendChild(noEvo);
-  } else {
 
+  // 3) LINEAR EVOLUTION FALLBACK
+  } else {
     const evoContainer = document.createElement('div');
     evoContainer.className = 'evolution-container';
 
     p.evolution.forEach((name, idx) => {
+      // step
       const step = document.createElement('div');
       step.className = 'evolution-step';
-
       const sprite = document.createElement('span');
       sprite.className = `pokemon-sprite ${name.toLowerCase()}`;
       sprite.title = name;
-
       const label = document.createElement('span');
       label.className = 'evo-name';
       label.textContent = name;
       if (name === p.name) label.classList.add('selected');
+      label.style.cursor = 'pointer';
       label.addEventListener('click', () => {
-        const next = window.pokemonData.find(mon => mon.name === name);
+        const next = window.pokemonData.find(m => m.name === name);
         if (next) renderDetail(next);
       });
-
       step.append(sprite, label);
       evoContainer.appendChild(step);
 
+      // arrow to next
       if (idx < p.evolution.length - 1) {
         const arrow = document.createElement('span');
         arrow.className = 'evolution-arrow';
         arrow.textContent = '→';
+        if (Array.isArray(p.evolutionMethod)) {
+          arrow.title = p.evolutionMethod[idx] || '';
+        } else if (typeof p.evolutionMethod === 'string') {
+          arrow.title = p.evolutionMethod;
+        }
         evoContainer.appendChild(arrow);
       }
     });

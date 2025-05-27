@@ -18,6 +18,7 @@ window.pokemonData = [
         spe: 45
       },
       evolution: ['Bulbasaur', 'Ivysaur', 'Venusaur'],
+      evolutionMethod: ['Level 16', 'Level 32'],
       learnset: [
         { level: 1,  move: 'Tackle'      },
         { level: 1,  move: 'Growl'       },
@@ -58,6 +59,7 @@ window.pokemonData = [
           spe: 60
         },
         evolution: ['Bulbasaur', 'Ivysaur', 'Venusaur'],
+        evolutionMethod: ['Level 16', 'Level 32'],
         learnset: [
           { level: 1,  move: 'Tackle'      },
           { level: 1,  move: 'Growl'       },
@@ -95,6 +97,7 @@ window.pokemonData = [
           spe: 80
         },
         evolution: ['Bulbasaur', 'Ivysaur', 'Venusaur'],
+        evolutionMethod: ['Level 16', 'Level 32'],
         learnset: [
           { level: 1,  move: 'Giga Drain'     },
           { level: 1,  move: 'Ancient Power'  },
@@ -175,6 +178,7 @@ window.pokemonData = [
           spe: 65
         },
         evolution: ['Charmander', 'Charmeleon', 'Charizard'],
+        evolutionMethod: ['Level 16', 'Level 36'],
         learnset: [
           { level: 1,  move: 'Scratch'        },
           { level: 1,  move: 'Growl'          },
@@ -211,6 +215,7 @@ window.pokemonData = [
           spe: 80
         },
         evolution: ['Charmander', 'Charmeleon', 'Charizard'],
+        evolutionMethod: ['Level 16', 'Level 36'],
         learnset: [
           { level: 1,  move: 'Scratch'        },
           { level: 1,  move: 'Growl'          },
@@ -249,6 +254,7 @@ window.pokemonData = [
           spe: 100
         },
         evolution: ['Charmander', 'Charmeleon', 'Charizard'],
+        evolutionMethod: ['Level 16', 'Level 36'],
         learnset: [
           { level: 1,  move: 'Shadow Claw'    },
           { level: 1,  move: 'Hurricane'      },
@@ -378,6 +384,7 @@ window.pokemonData = [
           spe: 43
         },
         evolution: ['Squirtle', 'Wartortle', 'Blastoise'],
+        evolutionMethod: ['Level 16', 'Level 36'],
         learnset: [
           { level: 1,  move: 'Tackle'        },
           { level: 4,  move: 'Water Gun'     },
@@ -414,6 +421,7 @@ window.pokemonData = [
           spe: 58
         },
         evolution: ['Squirtle', 'Wartortle', 'Blastoise'],
+        evolutionMethod: ['Level 16', 'Level 36'],
         learnset: [
           { level: 1,  move: 'Tackle'        },
           { level: 4,  move: 'Water Gun'     },
@@ -451,6 +459,7 @@ window.pokemonData = [
           spe: 78
         },
         evolution: ['Squirtle', 'Wartortle', 'Blastoise'],
+        evolutionMethod: ['Level 16', 'Level 36'],
         learnset: [
           { level: 1,  move: 'Water Spout'   },
           { level: 1,  move: 'Water Pulse'   },
@@ -534,6 +543,7 @@ window.pokemonData = [
           spe: 45
         },
         evolution: ['Caterpie', 'Metapod', 'Butterfree'],
+        evolutionMethod: ['Level 7', 'Level 10'],
         learnset: [
           { level: 1, move: 'Tackle'     },
           { level: 1, move: 'String Shot' },
@@ -559,6 +569,7 @@ window.pokemonData = [
           spe: 30
         },
         evolution: ['Caterpie', 'Metapod', 'Butterfree'],
+        evolutionMethod: ['Level 7', 'Level 10'],
         learnset: [
           { level: 1, move: 'Tackle' },
           { level: 7, move: 'Harden' }
@@ -584,6 +595,7 @@ window.pokemonData = [
           spe: 70
         },
         evolution: ['Caterpie', 'Metapod', 'Butterfree'],
+        evolutionMethod: ['Level 7', 'Level 10'],
         learnset: [
           { level: 1,  move: 'Rage Powder' },
           { level: 1,  move: 'Pollen Puff' },
@@ -628,6 +640,7 @@ window.pokemonData = [
           spe: 50
         },
         evolution: ['Weedle', 'Kakuna', 'Beedrill'],
+        evolutionMethod: ['Level 7', 'Level 10'],
         learnset: [
           { level: 1, move: 'Poison Sting' },
           { level: 1, move: 'String Shot'  },
@@ -653,6 +666,7 @@ window.pokemonData = [
           spe: 35
         },
         evolution: ['Weedle', 'Kakuna', 'Beedrill'],
+        evolutionMethod: ['Level 7', 'Level 10'],
         learnset: [
           { level: 1, move: 'Poison Sting' },
           { level: 7, move: 'Harden'       }
@@ -677,6 +691,7 @@ window.pokemonData = [
           spe: 75
         },
         evolution: ['Weedle', 'Kakuna', 'Beedrill'],
+        evolutionMethod: ['Level 7', 'Level 10'],
         learnset: [
           { level: 1,  move: 'U-turn'      },
           { level: 1,  move: 'Knock Off'   },
@@ -731,5 +746,572 @@ window.pokemonData = [
           { level: 34, move: 'Drill Run'   },
           { level: 40, move: 'Megahorn'    }
         ]
-      }
+      },
+      {
+        number: 16,
+        name: 'Pidgey',
+        available: true,
+        types: ['Normal', 'Flying'],
+        abilities: ['Keen Eye', 'Tangled Feet'],
+        hiddenAbility: 'Big Pecks',
+        aiAbility: '',
+        gender: '50% male, 50% female',
+        catchRate: 255,
+        stats: {
+          hp: 40,
+          atk: 45,
+          def: 40,
+          spa: 35,
+          spd: 35,
+          spe: 56
+        },
+        evolution: ['Pidgey', 'Pidgeotto', 'Pidgeot'],
+        evolutionMethod: ['Level 16', 'Level 32'],
+        learnset: [
+          { level: 1,  move: 'Tackle'        },
+          { level: 2,  move: 'Feather Dance' },
+          { level: 5,  move: 'Sand Attack'   },
+          { level: 9,  move: 'Gust'          },
+          { level: 12, move: 'Quick Attack'  },
+          { level: 15, move: 'Wing Attack'   },
+          { level: 18, move: 'Secret Power'  },
+          { level: 23, move: 'Aerial Ace'    },
+          { level: 25, move: 'Extreme Speed' },
+          { level: 27, move: 'Air Slash'     },
+          { level: 30, move: 'Double-Edge'   },
+          { level: 35, move: 'Brave Bird'    }
+        ]
+      },
+      {
+        number: 17,
+        name: 'Pidgeotto',
+        available: true,
+        types: ['Normal', 'Flying'],
+        abilities: ['Keen Eye', 'Tangled Feet'],
+        hiddenAbility: 'Big Pecks',
+        aiAbility: '',
+        gender: '50% male, 50% female',
+        catchRate: 120,
+        stats: {
+          hp: 63,
+          atk: 60,
+          def: 55,
+          spa: 50,
+          spd: 50,
+          spe: 71
+        },
+        evolution: ['Pidgey', 'Pidgeotto', 'Pidgeot'],
+        evolutionMethod: ['Level 16', 'Level 32'],
+        learnset: [
+          { level: 1,  move: 'Tackle'        },
+          { level: 2,  move: 'Feather Dance' },
+          { level: 5,  move: 'Sand Attack'   },
+          { level: 9,  move: 'Gust'          },
+          { level: 12, move: 'Quick Attack'  },
+          { level: 15, move: 'Wing Attack'   },
+          { level: 22, move: 'Secret Power'  },
+          { level: 28, move: 'Aerial Ace'    },
+          { level: 33, move: 'Air Slash'     },
+          { level: 36, move: 'Steel Wing'    },
+          { level: 39, move: 'Double-Edge'   },
+          { level: 45, move: 'Brave Bird'    }
+        ]
+      },
+      {
+        number: 18,
+        name: 'Pidgeot',
+        available: true,
+        types: ['Normal', 'Flying'],
+        abilities: ['Keen Eye', 'Tangled Feet'],
+        hiddenAbility: 'Big Pecks',
+        aiAbility: '',
+        gender: '50% male, 50% female',
+        catchRate: 45,
+        stats: {
+          hp: 83,
+          atk: 80,
+          def: 75,
+          spa: 70,
+          spd: 70,
+          spe: 101
+        },
+        evolution: ['Pidgey', 'Pidgeotto', 'Pidgeot'],
+        evolutionMethod: ['Level 16', 'Level 32'],
+        learnset: [
+          { level: 1,  move: 'Roost'         },
+          { level: 1,  move: 'Tackle'        },
+          { level: 2,  move: 'Feather Dance' },
+          { level: 5,  move: 'Sand Attack'   },
+          { level: 9,  move: 'Gust'          },
+          { level: 12, move: 'Quick Attack'  },
+          { level: 15, move: 'Wing Attack'   },
+          { level: 22, move: 'Secret Power'  },
+          { level: 30, move: 'Aerial Ace'    },
+          { level: 36, move: 'Air Slash'     },
+          { level: 40, move: 'Heat Wave'     },
+          { level: 43, move: 'Steel Wing'    },
+          { level: 46, move: 'Double-Edge'   },
+          { level: 51, move: 'Brave Bird'    }
+        ]
+      },
+      {
+        number: 18,
+        name: 'Mega Pidgeot',
+        available: true,
+        types: ['Normal', 'Flying'],
+        ability: 'No Guard',
+        hiddenAbility: '',
+        aiAbility: '',
+        gender: '50% male, 50% female',
+        catchRate: 45,
+        stats: {
+          hp: 83,
+          atk: 80,
+          def: 80,
+          spa: 135,
+          spd: 80,
+          spe: 121
+        },
+        evolution: '',
+        learnset: [
+          { level: 1,  move: 'Roost'         },
+          { level: 1,  move: 'Tackle'        },
+          { level: 2,  move: 'Feather Dance' },
+          { level: 5,  move: 'Sand Attack'   },
+          { level: 9,  move: 'Gust'          },
+          { level: 12, move: 'Quick Attack'  },
+          { level: 15, move: 'Wing Attack'   },
+          { level: 22, move: 'Secret Power'  },
+          { level: 30, move: 'Aerial Ace'    },
+          { level: 36, move: 'Air Slash'     },
+          { level: 40, move: 'Heat Wave'     },
+          { level: 43, move: 'Steel Wing'    },
+          { level: 46, move: 'Double-Edge'   },
+          { level: 51, move: 'Brave Bird'    }
+        ]
+      },
+      {
+        number: 19,
+        name: 'Rattata',
+        available: false,
+        types: 'Normal',
+        ability: 'Guts',
+        hiddenAbility: 'Hustle',
+        aiAbility: '',
+        gender: '50% male, 50% female',
+        catchRate: 255,
+        heldItem: {name: "Chilan Berry", rate: 5},
+        stats: {
+          hp: 30,
+          atk: 56,
+          def: 35,
+          spa: 25,
+          spd: 35,
+          spe: 72
+        },
+        evolution: ['Rattata', 'Raticate'],
+        evolutionMethod: ['Level 20'],
+        learnset: [
+          { level: 1,  move: 'Tackle'       },
+          { level: 1,  move: 'Tail Whip'    },
+          { level: 4,  move: 'Quick Attack' },
+          { level: 10, move: 'Bite'         },
+          { level: 13, move: 'Pursuit'      },
+          { level: 16, move: 'Hyper Fang'   },
+          { level: 19, move: 'Assurance'    },
+          { level: 22, move: 'Crunch'       },
+          { level: 25, move: 'Sucker Punch' },
+          { level: 28, move: 'Super Fang'   },
+          { level: 31, move: 'Double-Edge'  },
+          { level: 34, move: 'Endeavor'     },
+          { level: 36, move: 'Facade'       }
+        ]
+      },
+      {
+        number: 20,
+        name: 'Raticate',
+        available: false,
+        types: 'Normal',
+        ability: 'Guts',
+        hiddenAbility: 'Hustle',
+        aiAbility: '',
+        gender: '50% male, 50% female',
+        catchRate: 127,
+        heldItem: {name: "Sitrus Berry", rate: 5},
+        stats: {
+          hp: 55,
+          atk: 81,
+          def: 60,
+          spa: 50,
+          spd: 70,
+          spe: 97
+        },
+        evolution: ['Rattata', 'Raticate'],
+        evolutionMethod: ['Level 20'],
+        learnset: [
+          { level: 1,  move: 'Tackle'       },
+          { level: 1,  move: 'Tail Whip'    },
+          { level: 4,  move: 'Quick Attack' },
+          { level: 10, move: 'Bite'         },
+          { level: 13, move: 'Pursuit'      },
+          { level: 16, move: 'Hyper Fang'   },
+          { level: 19, move: 'Assurance'    },
+          { level: 22, move: 'Crunch'       },
+          { level: 25, move: 'Sucker Punch' },
+          { level: 32, move: 'Super Fang'   },
+          { level: 35, move: 'Double-Edge'  },
+          { level: 37, move: 'Endeavor'     },
+          { level: 41, move: 'Facade'       },
+          { level: 44, move: 'Reversal'     }
+        ]
+      },
+      {
+        number: 19,
+        name: 'Alolan Rattata',
+        available: false,
+        types: ['Dark', 'Normal'],
+        ability: 'Guts',
+        hiddenAbility: 'Thick Fat',
+        aiAbility: '',
+        gender: '50% male, 50% female',
+        catchRate: 255,
+        stats: {
+          hp: 30,
+          atk: 56,
+          def: 35,
+          spa: 25,
+          spd: 35,
+          spe: 72
+        },
+        evolution: ['Alolan Rattata', 'Alolan Raticate'],
+        evolutionMethod: ['Level 20 at Night'],
+        learnset: [
+          { level: 1,  move: 'Tackle'       },
+          { level: 1,  move: 'Tail Whip'    },
+          { level: 4,  move: 'Quick Attack' },
+          { level: 10, move: 'Bite'         },
+          { level: 13, move: 'Pursuit'      },
+          { level: 16, move: 'Hyper Fang'   },
+          { level: 19, move: 'Assurance'    },
+          { level: 22, move: 'Crunch'       },
+          { level: 25, move: 'Sucker Punch' },
+          { level: 28, move: 'Super Fang'   },
+          { level: 31, move: 'Double-Edge'  },
+          { level: 34, move: 'Endeavor'     },
+          { level: 36, move: 'Facade'       }
+        ]
+      },
+      {
+        number: 20,
+        name: 'Alolan Raticate',
+        available: false,
+        types: ['Dark', 'Normal'],
+        ability: 'Guts',
+        hiddenAbility: 'Thick Fat',
+        aiAbility: '',
+        gender: '50% male, 50% female',
+        catchRate: 127,
+        stats: {
+          hp: 75,
+          atk: 71,
+          def: 70,
+          spa: 40,
+          spd: 80,
+          spe: 77
+        },
+        evolution: ['Alolan Rattata', 'Alolan Raticate'],
+        evolutionMethod: ['Level 20 at Night'],
+        learnset: [
+          { level: 1,  move: 'Tackle'       },
+          { level: 1,  move: 'Tail Whip'    },
+          { level: 4,  move: 'Quick Attack' },
+          { level: 10, move: 'Bite'         },
+          { level: 13, move: 'Pursuit'      },
+          { level: 16, move: 'Hyper Fang'   },
+          { level: 19, move: 'Assurance'    },
+          { level: 22, move: 'Crunch'       },
+          { level: 25, move: 'Sucker Punch' },
+          { level: 32, move: 'Super Fang'   },
+          { level: 35, move: 'Double-Edge'  },
+          { level: 37, move: 'Endeavor'     },
+          { level: 41, move: 'Facade'       },
+          { level: 44, move: 'Reversal'     }
+        ]
+      },
+      {
+        number: 21,
+        name: 'Spearow',
+        available: false,
+        types: ['Normal', 'Flying'],
+        ability: 'Keen Eye',
+        hiddenAbility: 'Sniper',
+        aiAbility: '',
+        gender: '50% male, 50% female',
+        catchRate: 255,
+        stats: {
+          hp: 40,
+          atk: 60,
+          def: 30,
+          spa: 31,
+          spd: 31,
+          spe: 70
+        },
+        evolution: ['Spearow', 'Fearow'],
+        evolutionMethod: ['Level 20'],
+        learnset: [
+          { level: 1,  move: 'Peck'         },
+          { level: 1,  move: 'Growl'        },
+          { level: 4,  move: 'Leer'         },
+          { level: 6,  move: 'Pursuit'      },
+          { level: 9,  move: 'Assurance'    },
+          { level: 11, move: 'Secret Power' },
+          { level: 15, move: 'Aerial Ace'   },
+          { level: 18, move: 'Rage'         },
+          { level: 21, move: 'Quick Attack' },
+          { level: 25, move: 'Steel Wing'   },
+          { level: 31, move: 'Drill Peck'   },
+          { level: 36, move: 'Double-Edge'  }
+        ]
+      },
+      {
+        number: 22,
+        name: 'Fearow',
+        available: false,
+        types: ['Normal', 'Flying'],
+        ability: 'Keen Eye',
+        hiddenAbility: 'Sniper',
+        aiAbility: '',
+        gender: '50% male, 50% female',
+        catchRate: 90,
+        stats: {
+          hp: 65,
+          atk: 90,
+          def: 65,
+          spa: 61,
+          spd: 61,
+          spe: 100
+        },
+        evolution: ['Spearow', 'Fearow'],
+        evolutionMethod: ['Level 20'],
+        learnset: [
+          { level: 1,  move: 'Roost'        },
+          { level: 1,  move: 'Peck'         },
+          { level: 1,  move: 'Growl'        },
+          { level: 4,  move: 'Leer'         },
+          { level: 6,  move: 'Pursuit'      },
+          { level: 9,  move: 'Assurance'    },
+          { level: 11, move: 'Secret Power' },
+          { level: 15, move: 'Aerial Ace'   },
+          { level: 22, move: 'Rage'         },
+          { level: 26, move: 'Quick Attack' },
+          { level: 29, move: 'Steel Wing'   },
+          { level: 34, move: 'Drill Run'    },
+          { level: 39, move: 'Drill Peck'   },
+          { level: 43, move: 'Double-Edge'  }
+        ]
+      },
+      {
+        number: 23,
+        name: 'Ekans',
+        available: true,
+        types: ['Poison'],
+        ability: 'Intimidate',
+        hiddenAbility: 'Unnerve',
+        aiAbility: '',
+        gender: '50% male, 50% female',
+        catchRate: 255,
+        stats: {
+          hp: 35,
+          atk: 60,
+          def: 44,
+          spa: 40,
+          spd: 54,
+          spe: 55
+        },
+        evolution: ['Ekans', 'Arbok'],
+        evolutionMethod: ['Level 22'],
+        learnset: [
+          { level: 1,  move: 'Wrap'         },
+          { level: 1,  move: 'Leer'         },
+          { level: 4,  move: 'Acid'         },
+          { level: 8,  move: 'Bite'         },
+          { level: 12, move: 'Glare'        },
+          { level: 15, move: 'Mud Shot'     },
+          { level: 19, move: 'Dig'          },
+          { level: 22, move: 'Sludge Bomb'  },
+          { level: 26, move: 'Body Slam'    },
+          { level: 29, move: 'Crunch'       },
+          { level: 33, move: 'Poison Tail'  },
+          { level: 35, move: 'Psychic Fangs'},
+          { level: 39, move: 'Rock Slide'   },
+          { level: 44, move: 'Sucker Punch' },
+          { level: 47, move: 'Gunk Shot'    }
+        ]
+      },
+      {
+        number: 24,
+        name: 'Arbok',
+        available: true,
+        types: ['Poison'],
+        ability: 'Intimidate',
+        hiddenAbility: 'Unnerve',
+        aiAbility: '',
+        gender: '50% male, 50% female',
+        catchRate: 90,
+        stats: {
+          hp: 60,
+          atk: 95,
+          def: 69,
+          spa: 65,
+          spd: 79,
+          spe: 80
+        },
+        evolution: ['Ekans', 'Arbok'],
+        evolutionMethod: ['Level 22'],
+        learnset: [
+          { level: 1,  move: 'Earthquake'    },
+          { level: 1,  move: 'Giga Drain'    },
+          { level: 1,  move: 'Fire Fang'     },
+          { level: 1,  move: 'Ice Fang'      },
+          { level: 1,  move: 'Wrap'          },
+          { level: 1,  move: 'Leer'          },
+          { level: 4,  move: 'Acid'          },
+          { level: 8,  move: 'Bite'          },
+          { level: 12, move: 'Glare'         },
+          { level: 15, move: 'Mud Shot'      },
+          { level: 19, move: 'Dig'           },
+          { level: 22, move: 'Sludge Bomb'   },
+          { level: 25, move: 'Leech Life'    },
+          { level: 29, move: 'Body Slam'     },
+          { level: 31, move: 'Crunch'        },
+          { level: 34, move: 'Thunder Fang'  },
+          { level: 37, move: 'Poison Tail'   },
+          { level: 41, move: 'Psychic Fangs' },
+          { level: 46, move: 'Rock Slide'    },
+          { level: 49, move: 'Sucker Punch'  },
+          { level: 52, move: 'Gunk Shot'     }
+        ]
+      },
+      {
+        number: 25,
+        name: 'Pikachu',
+        available: true,
+        types: ['Electric'],
+        ability: 'Static',
+        hiddenAbility: '',
+        aiAbility: '',
+        gender: '50% male, 50% female',
+        catchRate: 190,
+        stats: {
+          hp: 35,
+          atk: 55,
+          def: 40,
+          spa: 50,
+          spd: 50,
+          spe: 90
+        },
+        preEvolution: ['Pichu'],
+        evolutionSplit: ['Raichu','Alolan Raichu'],
+        evolutionMethod: ['Thunder Stone', 'Dawn Stone'],
+        learnset: [
+          { level: 1,  move: 'Charm'        },
+          { level: 1,  move: 'Thunder Shock'},
+          { level: 1,  move: 'Tail Whip'    },
+          { level: 1,  move: 'Nuzzle'       },
+          { level: 1,  move: 'Quick Attack' },
+          { level: 5,  move: 'Growl'        },
+          { level: 7,  move: 'Thunder Wave' },
+          { level: 10, move: 'Quick Attack' },
+          { level: 12, move: 'Electro Ball' },
+          { level: 16, move: 'Shock Wave'   },
+          { level: 22, move: 'Spark'        },
+          { level: 26, move: 'Play Rough'   },
+          { level: 30, move: 'Iron Tail'    },
+          { level: 33, move: 'Thunderbolt'  },
+          { level: 37, move: 'Surf'         },
+          { level: 42, move: 'Volt Switch'  },
+          { level: 46, move: 'Volt Tackle'  }
+        ]
+      },
+      {
+        number: 26,
+        name: 'Raichu',
+        available: true,
+        types: ['Electric'],
+        ability: 'Static',
+        hiddenAbility: '',
+        aiAbility: '',
+        gender: '50% male, 50% female',
+        catchRate: 75,
+        stats: {
+          hp: 60,
+          atk: 90,
+          def: 55,
+          spa: 90,
+          spd: 80,
+          spe: 110
+        },
+        evolution: ['Pichu', 'Pikachu', 'Raichu'],
+        evolutionMethod: ['Any Level', 'Thunder Stone'],
+        learnset: [
+          { level: 1,  move: 'Thunder Punch' },
+          { level: 1,  move: 'Charm'         },
+          { level: 1,  move: 'Thunder Shock' },
+          { level: 1,  move: 'Tail Whip'     },
+          { level: 1,  move: 'Nuzzle'        },
+          { level: 1,  move: 'Quick Attack'  },
+          { level: 5,  move: 'Growl'         },
+          { level: 7,  move: 'Thunder Wave'  },
+          { level: 14, move: 'Quick Attack'  },
+          { level: 19, move: 'Electro Ball'  },
+          { level: 25, move: 'Shock Wave'    },
+          { level: 28, move: 'Spark'         },
+          { level: 32, move: 'Play Rough'    },
+          { level: 36, move: 'Iron Tail'     },
+          { level: 40, move: 'Thunderbolt'   },
+          { level: 45, move: 'Surf'          },
+          { level: 49, move: 'Volt Switch'   },
+          { level: 53, move: 'Volt Tackle'   }
+        ]
+      },
+      {
+        number: 26,
+        name: 'Alolan Raichu',
+        available: true,
+        types: ['Electric', 'Psychic'],
+        abilities: ['Surge Surfer', 'Static'],
+        hiddenAbility: 'Levitate',
+        aiAbility: '',
+        gender: '50% male, 50% female',
+        catchRate: 75,
+        stats: {
+          hp: 60,
+          atk: 85,
+          def: 50,
+          spa: 95,
+          spd: 85,
+          spe: 110
+        },
+        evolution: ['Pichu', 'Pikachu', 'Alolan Raichu'],
+        evolutionMethod: ['Any Level', 'Dawn Stone'],
+        learnset: [
+          { level: 1,  move: 'Charm'         },
+          { level: 1,  move: 'Thunder Shock' },
+          { level: 1,  move: 'Tail Whip'     },
+          { level: 1,  move: 'Nuzzle'        },
+          { level: 1,  move: 'Quick Attack'  },
+          { level: 5,  move: 'Growl'         },
+          { level: 7,  move: 'Thunder Wave'  },
+          { level: 14, move: 'Quick Attack'  },
+          { level: 19, move: 'Electro Ball'  },
+          { level: 25, move: 'Shock Wave'    },
+          { level: 28, move: 'Psybeam'       },
+          { level: 32, move: 'Play Rough'    },
+          { level: 36, move: 'Psychic'       },
+          { level: 40, move: 'Thunderbolt'   },
+          { level: 45, move: 'Surf'          },
+          { level: 49, move: 'Volt Switch'   },
+          { level: 53, move: 'Volt Tackle'   }
+        ]
+      }           
   ];
