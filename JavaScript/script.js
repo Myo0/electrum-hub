@@ -133,4 +133,18 @@ function initSorters() {
   });
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+  const collapseEl = document.getElementById('collapse');
+  collapseEl.addEventListener('click', e => {
+
+    const row = e.target.closest('.pokemon-row');
+    if (!row) return;
+
+    const name = row.querySelector('.col-name').textContent;
+
+    const p = window.pokemonData.find(mon => mon.name === name);
+    if (p) renderDetail(p);
+  });
+});
+
 document.addEventListener('DOMContentLoaded', initSorters);

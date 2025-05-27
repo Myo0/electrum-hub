@@ -337,7 +337,3 @@ renderStatTable(+lvlInput.value);
   detailPanel.classList.add('open');
   document.body.classList.add('detail-open');
 }
-
-document.querySelectorAll('.pokemon-row').forEach((row,i) => {
-  row.addEventListener('click', () => renderDetail(pokemonData[i]));
-});
