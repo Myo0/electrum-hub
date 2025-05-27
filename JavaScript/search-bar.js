@@ -1,20 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('pokemon-search');
-    const rows = Array.from(document.querySelectorAll('#pokemon-section .pokemon-row'));
   
     function filterPokémon() {
       const q = searchInput.value.trim().toLowerCase();
+      const rows = Array.from(
+        document.querySelectorAll('#pokemon-section .pokemon-row')
+      );
+  
       rows.forEach(row => {
-
-        const name      = row.querySelector('.col-name').textContent.toLowerCase();
-        const types     = Array.from(row.querySelectorAll('.col-types .type-badge'))
+        const name  = row.querySelector('.col-name').textContent.toLowerCase();
+        const types = Array.from(row.querySelectorAll('.col-types .type-badge'))
                            .map(b => b.textContent.toLowerCase()).join(' ');
-        const abilities = row.querySelector('.col-abilities').textContent.toLowerCase();
+        const abil  = row.querySelector('.col-abilities').textContent.toLowerCase();
   
         if (
           name.includes(q) ||
           types.includes(q) ||
-          abilities.includes(q)
+          abil.includes(q)
         ) {
           row.style.display = '';
         } else {
@@ -23,9 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   
-
     searchInput.addEventListener('input', filterPokémon);
-    
-
+    // also run once on load
     filterPokémon();
   });
