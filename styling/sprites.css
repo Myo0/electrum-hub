@@ -145,4 +145,43 @@
     .pokemon-sprite.nidoking {
         background-position: -400px   -60px;
     }
+    .pokemon-sprite.clefairy {
+        background-position: -440px   -60px;
+    }
+    .pokemon-sprite.clefable {
+        background-position: 0   -90px;
+    }
+    .pokemon-sprite.vulpix {
+        background-position: -40px   -90px;
+    }
+    .pokemon-sprite.ninetales {
+        background-position: -80px   -90px;
+    }
+    .pokemon-sprite.alolan-vulpix {
+        background-position: -160px   -2880px;
+    }
+    .pokemon-sprite.alolan-ninetales {
+        background-position: -200px   -2880px;
+    }
+    .pokemon-sprite.jigglypuff {
+        background-position: -120px   -90px;
+    }
+    .pokemon-sprite.wigglytuff {
+        background-position: -160px   -90px;
+    }
+    .pokemon-sprite.zubat {
+        background-position: -200px   -90px;
+    }
+    .pokemon-sprite.golbat {
+        background-position: -240px   -90px;
+    }
+    .pokemon-sprite.oddish {
+        background-position: -280px   -90px;
+    }
+    .pokemon-sprite.gloom {
+        background-position: -320px   -90px;
+    }
+    .pokemon-sprite.vileplume {
+        background-position: -360px   -90px;
+    }
   }

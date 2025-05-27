@@ -7,8 +7,7 @@ const SortConfig = {
     extractors: {
       number:    row => +row.querySelector('.col-number').textContent || 0,
       name:      row => row.querySelector('.col-name').textContent.toLowerCase(),
-      types:     row => Array.from(row.querySelectorAll('.col-types .type-badge'))
-                            .map(b=>b.textContent.toLowerCase()).join(' '),
+      types:     row => Array.from(row.querySelectorAll('.col-types .type-badge')).map(b=>b.textContent.toLowerCase()).join(' '),
       abilities: row => row.querySelector('.col-abilities').textContent.toLowerCase(),
       hp:        row => +row.querySelector('.col-hp').textContent || 0,
       atk:       row => +row.querySelector('.col-atk').textContent || 0,

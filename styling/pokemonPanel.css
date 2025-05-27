@@ -351,3 +351,74 @@ body.detail-open .container {
 .evolution-arrow.split {
   font-size: 1.2rem;
 }
+
+body.dark-mode #pokemon-detail-panel {
+  background: #1e1e1e;
+  color: #eee;
+  border-color: #444;
+}
+
+/* Headings inside the panel */
+body.dark-mode #pokemon-detail-panel h3,
+body.dark-mode #pokemon-detail-panel h4 {
+  color: #fff;
+}
+
+body.dark-mode #pokemon-detail-panel a {
+  color: #8ab4f8;
+}
+
+body.dark-mode #detail-note {
+  background: #3a3a2e;
+  color: #f1c40f;
+  border-color: #66620b;
+}
+
+/* Stat Bars: background & fill colors */
+body.dark-mode #pokemon-detail-panel .stat-bar .bar {
+  background-color: #333;
+}
+body.dark-mode #pokemon-detail-panel .stat-bar .fill {
+  /* re‐use your existing hue logic, or hardcode a pleasant accent */
+  background-color: #e67e22;
+}
+
+/* Make the panel’s own scrollbar darker */
+body.dark-mode #pokemon-detail-panel {
+  scrollbar-width: thin;
+  scrollbar-color: #555 #2a2a2a;
+}
+body.dark-mode #pokemon-detail-panel::-webkit-scrollbar {
+  width: 8px;
+}
+body.dark-mode #pokemon-detail-panel::-webkit-scrollbar-track {
+  background: #2a2a2a;
+}
+body.dark-mode #pokemon-detail-panel::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+body.dark-mode #pokemon-detail-panel,
+body.dark-mode #pokemon-detail-panel * {
+  color: #eee !important;
+}
+
+body.dark-mode #pokemon-detail-panel header small {
+  color: #ccc;
+}
+
+body.dark-mode #pokemon-detail-panel .learnset-header {
+  background: #380606;
+  color:    #c8e6c9 !important;
+  border-color: #a71d2a;
+}
+
+body.dark-mode #pokemon-detail-panel .detail-top img {
+  border-color: #444; 
+  background:   #1e1e1e;
+}
+
+body.dark-mode #stat-level {
+  color: #000 !important;
+  caret-color: #000;
+}
