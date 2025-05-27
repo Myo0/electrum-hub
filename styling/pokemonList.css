@@ -208,4 +208,6 @@
 
 .table-header .sortable.selected {
   font-weight: bold;
+  font-size: 1rem;
+  color:rgb(0, 238, 255)
 }
