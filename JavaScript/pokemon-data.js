@@ -1314,5 +1314,151 @@ window.pokemonData = [
           { level: 49, move: 'Volt Switch'   },
           { level: 53, move: 'Volt Tackle'   }
         ]
-      }           
+      },
+      {
+        number: 27,
+        name: 'Sandshrew',
+        available: false,
+        types: ['Ground'],
+        ability: 'Sand Veil',
+        hiddenAbility: 'Sand Rush',
+        aiAbility: '',
+        gender: '50% male, 50% female',
+        catchRate: 255,
+        stats: {
+          hp: 50,
+          atk: 75,
+          def: 85,
+          spa: 20,
+          spd: 30,
+          spe: 40
+        },
+        evolution: ['Sandshrew', 'Sandslash'],
+        learnset: [
+          { level: 1,  move: 'Scratch'          },
+          { level: 3,  move: 'Poison Sting'     },
+          { level: 4,  move: 'Sand Attack'      },
+          { level: 8,  move: 'Rollout'          },
+          { level: 11, move: 'Bulldoze'         },
+          { level: 14, move: 'Magnitude'        },
+          { level: 18, move: 'Slash'            },
+          { level: 22, move: 'Brick Break'      },
+          { level: 28, move: 'Stomping Tantrum' },
+          { level: 31, move: 'Rock Slide'       },
+          { level: 34, move: 'Night Slash'      },
+          { level: 38, move: 'X-Scissor'        },
+          { level: 42, move: 'Earthquake'       }
+        ]
+      },
+      {
+        number: 28,
+        name: 'Sandslash',
+        available: false,
+        types: ['Ground'],
+        ability: 'Sand Veil',
+        hiddenAbility: 'Sand Rush',
+        aiAbility: '',
+        gender: '50% male, 50% female',
+        catchRate: 90,
+        stats: {
+          hp: 75,
+          atk: 100,
+          def: 110,
+          spa: 45,
+          spd: 55,
+          spe: 65
+        },
+        evolution: ['Sandshrew', 'Sandslash'],
+        learnset: [
+          { level: 1,  move: 'Scratch'          },
+          { level: 3,  move: 'Poison Sting'     },
+          { level: 4,  move: 'Sand Attack'      },
+          { level: 8,  move: 'Rollout'          },
+          { level: 15, move: 'Bulldoze'         },
+          { level: 19, move: 'Magnitude'        },
+          { level: 25, move: 'Slash'            },
+          { level: 29, move: 'Brick Break'      },
+          { level: 33, move: 'Stomping Tantrum' },
+          { level: 36, move: 'Rock Slide'       },
+          { level: 38, move: 'Night Slash'      },
+          { level: 43, move: 'X-Scissor'        },
+          { level: 45, move: 'Crush Claw'       },
+          { level: 49, move: 'Earthquake'       }
+        ]
+      },
+      {
+        number: 27,
+        name: 'Alolan Sandshrew',
+        available: true,
+        types: ['Ice', 'Steel'],
+        ability: 'Slush Rush',
+        hiddenAbility: '',
+        aiAbility: '',
+        gender: '50% male, 50% female',
+        catchRate: 255,
+        stats: {
+          hp: 50,
+          atk: 75,
+          def: 90,
+          spa: 10,
+          spd: 35,
+          spe: 40
+        },
+        evolution: ['Alolan Sandshrew', 'Alolan Sandslash'],
+        learnset: [
+          { level: 1,  move: 'Scratch'       },
+          { level: 3,  move: 'Bide'          },
+          { level: 5,  move: 'Powder Snow'   },
+          { level: 7,  move: 'Ice Ball'      },
+          { level: 9,  move: 'Metal Claw'    },
+          { level: 11, move: 'Aurora Beam'   },
+          { level: 14, move: 'Bulldoze'      },
+          { level: 17, move: 'Swift'         },
+          { level: 22, move: 'Ice Punch'     },
+          { level: 26, move: 'Slash'         },
+          { level: 30, move: 'Ice Shard'     },
+          { level: 33, move: 'Iron Head'     },
+          { level: 37, move: 'Ice Spinner'   },
+          { level: 41, move: 'Earthquake'    },
+          { level: 45, move: 'Blizzard'      }
+        ]
+      },
+      {
+        number: 28,
+        name: 'Alolan Sandslash',
+        available: true,
+        types: ['Ice', 'Steel'],
+        ability: 'Slush Rush',
+        hiddenAbility: '',
+        aiAbility: '',
+        gender: '50% male, 50% female',
+        catchRate: 90,
+        stats: {
+          hp: 75,
+          atk: 100,
+          def: 120,
+          spa: 25,
+          spd: 65,
+          spe: 65
+        },
+        evolution: ['Alolan Sandshrew', 'Alolan Sandslash'],
+        learnset: [
+          { level: 1,  move: 'Scratch'       },
+          { level: 3,  move: 'Bide'          },
+          { level: 5,  move: 'Powder Snow'   },
+          { level: 7,  move: 'Ice Ball'      },
+          { level: 10, move: 'Metal Claw'    },
+          { level: 12, move: 'Aurora Beam'   },
+          { level: 16, move: 'Bulldoze'      },
+          { level: 20, move: 'Swift'         },
+          { level: 25, move: 'Ice Punch'     },
+          { level: 28, move: 'Slash'         },
+          { level: 33, move: 'Ice Shard'     },
+          { level: 35, move: 'Iron Head'     },
+          { level: 40, move: 'Ice Spinner'   },
+          { level: 44, move: 'Earthquake'    },
+          { level: 49, move: 'Icicle Crash'  }
+        ]
+      }
+      
   ];

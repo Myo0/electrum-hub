@@ -69,50 +69,62 @@
     }
     .pokemon-sprite.mega-beedrill {
         background-position: -160px   -3300px;
-      }
-      .pokemon-sprite.pidgey {
-        background-position: -160px   -30px;
-      }
-      .pokemon-sprite.pidgeotto {
-        background-position: -200px   -30px;
-      }
-      .pokemon-sprite.pidgeot {
-        background-position: -240px   -30px;
-      }
-      .pokemon-sprite.mega-pidgeot {
-        background-position: -200px   -3300px;
-      }
-      .pokemon-sprite.rattata {
-        background-position: -280px   -30px;
-      }
-      .pokemon-sprite.raticate {
-        background-position: -320px   -30px;
-      }
-      .pokemon-sprite.rattata-alolan {
-        background-position: -440px   -2850px;
-      }
-      .pokemon-sprite.raticate-alolan {
-        background-position: 0   -2880px;
-      }
-      .pokemon-sprite.spearow {
-        background-position: -360px   -30px;
-      }
-      .pokemon-sprite.fearow {
-        background-position: -400px   -30px;
-      }
-      .pokemon-sprite.ekans {
-        background-position: -440px   -30px;
-      }
-      .pokemon-sprite.arbok {
-        background-position: 0   -60px;
-      }
-      .pokemon-sprite.pikachu {
-        background-position: -40px   -60px;
-      }
-      .pokemon-sprite.raichu {
-        background-position: -80px   -60px;
-      }
-      .pokemon-sprite.raichu-alolan {
-        background-position: -40px   -2880px;
-      }
+    }
+    .pokemon-sprite.pidgey {
+      background-position: -160px   -30px;
+    }
+    .pokemon-sprite.pidgeotto {
+      background-position: -200px   -30px;
+    }
+    .pokemon-sprite.pidgeot {
+      background-position: -240px   -30px;
+    }
+    .pokemon-sprite.mega-pidgeot {
+      background-position: -200px   -3300px;
+    }
+    .pokemon-sprite.rattata {
+      background-position: -280px   -30px;
+    }
+    .pokemon-sprite.raticate {
+      background-position: -320px   -30px;
+    }
+    .pokemon-sprite.rattata-alolan {
+      background-position: -440px   -2850px;
+    }
+    .pokemon-sprite.raticate-alolan {
+      background-position: 0   -2880px;
+    }
+    .pokemon-sprite.spearow {
+      background-position: -360px   -30px;
+    }
+    .pokemon-sprite.fearow {
+      background-position: -400px   -30px;
+    }
+    .pokemon-sprite.ekans {
+      background-position: -440px   -30px;
+    }
+    .pokemon-sprite.arbok {
+      background-position: 0   -60px;
+    }
+    .pokemon-sprite.pikachu {
+      background-position: -40px   -60px;
+    }
+    .pokemon-sprite.raichu {
+      background-position: -80px   -60px;
+    }
+    .pokemon-sprite.raichu-alolan {
+      background-position: -40px   -2880px;
+    }
+    .pokemon-sprite.sandshrew {
+      background-position: -120px   -60px;
+    }
+    .pokemon-sprite.sandslash {
+      background-position: -160px   -60px;
+    }
+    .pokemon-sprite.sandshrew-alolan {
+      background-position: -80px   -2880px;
+    }
+    .pokemon-sprite.sandslash-alolan {
+      background-position: -120px   -2880px;
+    }
   }

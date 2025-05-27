@@ -6,6 +6,8 @@
   <title>Electrum Hub</title>
   <link rel="stylesheet" href="styling/styles.css">
   <link rel="stylesheet" href="styling/sprites.css">
+  <link rel="stylesheet" href="styling/pokemonPanel.css">
+  <link rel="stylesheet" href="styling/pokemonList.css">
   <link rel="icon" type="image/x-icon" href="assets/logo.png">
 </head>
 <body>
@@ -211,7 +213,7 @@
         <span class="col-atk">100</span>
         <span class="col-def">123</span>
         <span class="col-spa">122</span>
-        <span class="col-spd">1120</span>
+        <span class="col-spd">120</span>
         <span class="col-spe">80</span>
         <span class="col-bst">625</span>
       </div>
@@ -914,7 +916,97 @@
         <span class="col-spe">110</span>
         <span class="col-bst">485</span>
       </div>
-      
+
+      <div class="pokemon-row">
+        <span class="col-check">
+          <input type="checkbox" unchecked class="pokemon-check">
+        </span>
+        <span class="col-number">
+          <span class="pokemon-sprite sandshrew"></span>
+          <span class="number-text">27</span>
+        </span>
+        <span class="col-name">Sandshrew</span>
+        <span class="col-types">
+          <span class="type-badge ground">Ground</span>
+        </span>
+        <span class="col-abilities">Sand Veil</span>
+        <span class="col-hp">50</span>
+        <span class="col-atk">75</span>
+        <span class="col-def">85</span>
+        <span class="col-spa">20</span>
+        <span class="col-spd">30</span>
+        <span class="col-spe">40</span>
+        <span class="col-bst">300</span>
+      </div>
+
+      <div class="pokemon-row">
+        <span class="col-check">
+          <input type="checkbox" unchecked class="pokemon-check">
+        </span>
+        <span class="col-number">
+          <span class="pokemon-sprite sandslash"></span>
+          <span class="number-text">28</span>
+        </span>
+        <span class="col-name">Sandslash</span>
+        <span class="col-types">
+          <span class="type-badge ground">Ground</span>
+        </span>
+        <span class="col-abilities">Sand Veil</span>
+        <span class="col-hp">75</span>
+        <span class="col-atk">100</span>
+        <span class="col-def">110</span>
+        <span class="col-spa">45</span>
+        <span class="col-spd">55</span>
+        <span class="col-spe">65</span>
+        <span class="col-bst">450</span>
+      </div>
+
+      <div class="pokemon-row">
+        <span class="col-check">
+          <input type="checkbox" checked class="pokemon-check">
+        </span>
+        <span class="col-number">
+          <span class="pokemon-sprite sandshrew-alolan"></span>
+          <span class="number-text">27</span>
+        </span>
+        <span class="col-name">Alolan Sandshrew</span>
+        <span class="col-types">
+          <span class="type-badge ice">Ice</span>
+          <span class="type-badge steel">Steel</span>
+        </span>
+        <span class="col-abilities">Slush Rush</span>
+        <span class="col-hp">50</span>
+        <span class="col-atk">75</span>
+        <span class="col-def">90</span>
+        <span class="col-spa">10</span>
+        <span class="col-spd">35</span>
+        <span class="col-spe">40</span>
+        <span class="col-bst">300</span>
+      </div>
+
+      <div class="pokemon-row">
+        <span class="col-check">
+          <input type="checkbox" checked class="pokemon-check">
+        </span>
+        <span class="col-number">
+          <span class="pokemon-sprite sandslash-alolan"></span>
+          <span class="number-text">28</span>
+        </span>
+        <span class="col-name">Alolan Sandslash</span>
+        <span class="col-types">
+          <span class="type-badge ice">Ice</span>
+          <span class="type-badge steel">Steel</span>
+        </span>
+        <span class="col-abilities">Slush Rush</span>
+        <span class="col-hp">75</span>
+        <span class="col-atk">100</span>
+        <span class="col-def">120</span>
+        <span class="col-spa">25</span>
+        <span class="col-spd">65</span>
+        <span class="col-spe">65</span>
+        <span class="col-bst">450</span>
+      </div>
+
     </div>
     
     <div id="collapse">
@@ -986,6 +1078,7 @@
   </div>
   <script src="/JavaScript/move-data.js"></script>
   <script src="/JavaScript/pokemon-data.js"></script>
+  <script src="/JavaScript/pokemon-panel.js"></script>
   <script src="/JavaScript/script.js"></script>
 </body>
 </html>
