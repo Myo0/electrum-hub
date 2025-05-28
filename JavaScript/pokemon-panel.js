@@ -119,7 +119,10 @@ statsOrder.forEach(([key,label]) => {
     <div class="bar"><div class="fill"></div></div>
   `;
   const fill = row.querySelector('.fill');
-  fill.style.width = `${(val / 255) * 100}%`;
+  const gamma = 0.6125;
+  const norm = val / 255;
+  const curved = Math.pow(norm, gamma);
+  fill.style.width = `${curved * 100}%`;
   fill.style.backgroundColor = statColor(val);
   barContainer.appendChild(row);
 });
