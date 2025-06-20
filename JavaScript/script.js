@@ -5,29 +5,29 @@ const SortConfig = {
     rowSelector: '.pokemon-row',
     // data-key ⇒ extractor(row) → comparable value
     extractors: {
-      number:    row => +row.querySelector('.col-number').textContent || 0,
-      name:      row => row.querySelector('.col-name').textContent.toLowerCase(),
-      types:     row => Array.from(row.querySelectorAll('.col-types .type-badge')).map(b=>b.textContent.toLowerCase()).join(' '),
+      number: row => +row.querySelector('.col-number').textContent || 0,
+      name: row => row.querySelector('.col-name').textContent.toLowerCase(),
+      types: row => Array.from(row.querySelectorAll('.col-types .type-badge')).map(b=>b.textContent.toLowerCase()).join(' '),
       abilities: row => row.querySelector('.col-abilities').textContent.toLowerCase(),
-      hp:        row => +row.querySelector('.col-hp').textContent || 0,
-      atk:       row => +row.querySelector('.col-atk').textContent || 0,
-      def:       row => +row.querySelector('.col-def').textContent || 0,
-      spa:       row => +row.querySelector('.col-spa').textContent || 0,
-      spd:       row => +row.querySelector('.col-spd').textContent || 0,
-      spe:       row => +row.querySelector('.col-spe').textContent || 0,
-      bst:       row => +row.querySelector('.col-bst').textContent || 0
+      hp: row => +row.querySelector('.col-hp').textContent || 0,
+      atk: row => +row.querySelector('.col-atk').textContent || 0,
+      def: row => +row.querySelector('.col-def').textContent || 0,
+      spa: row => +row.querySelector('.col-spa').textContent || 0,
+      spd: row => +row.querySelector('.col-spd').textContent || 0,
+      spe: row => +row.querySelector('.col-spe').textContent || 0,
+      bst: row => +row.querySelector('.col-bst').textContent || 0
     }
   },
 
   'moves-section': {
     rowSelector: '.move-row',
     extractors: {
-      name:     row => row.querySelector('.col-name').textContent.toLowerCase(),
-      type:     row => row.querySelector('.col-type').textContent.toLowerCase(),
+      name: row => row.querySelector('.col-name').textContent.toLowerCase(),
+      type: row => row.querySelector('.col-type').textContent.toLowerCase(),
       category: row => row.querySelector('.col-cat').textContent.toLowerCase(),
-      power:    row => +row.querySelector('.col-pwr').textContent || 0,
+      power: row => +row.querySelector('.col-pwr').textContent || 0,
       accuracy: row => +row.querySelector('.col-acc').textContent || 0,
-      pp:       row => {
+      pp: row => {
         const text = row.querySelector('.col-pp').textContent; // "15/24"
         return +text.split('/')[0]||0;
       }
@@ -87,11 +87,11 @@ function getCellValue(row, key) {
 }
 
 function initSorters() {
-  const section               = document.getElementById('pokemon-section');
-  const collapseEl            = section.querySelector('#collapse');
-  const originalCollapseHTML  = collapseEl.innerHTML;
+  const section = document.getElementById('pokemon-section');
+  const collapseEl = section.querySelector('#collapse');
+  const originalCollapseHTML = collapseEl.innerHTML;
 
-  const header    = section.querySelector('.table-header');
+  const header = section.querySelector('.table-header');
   const sortables = header.querySelectorAll('.sortable[data-key]');
   let currentSort = { key: null, direction: null };
 
@@ -102,7 +102,7 @@ function initSorters() {
       // cycle: null → desc → asc → null
       let dir = 'desc';
       if (currentSort.key === key) {
-        if      (currentSort.direction === 'desc') dir = 'asc';
+        if (currentSort.direction === 'desc') dir = 'asc';
         else if (currentSort.direction === 'asc')  dir = null;
       }
       currentSort = { key, direction: dir };
@@ -120,7 +120,7 @@ function initSorters() {
         rows.sort((a, b) => {
           const aV = getCellValue(a, key), bV = getCellValue(b, key);
           if (aV < bV) return dir==='asc' ? -1 : 1;
-          if (aV > bV) return dir==='asc' ? 1  : -1;
+          if (aV > bV) return dir==='asc' ? 1 : -1;
           return 0;
         });
         rows.forEach(r => collapseEl.appendChild(r));

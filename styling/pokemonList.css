@@ -9,10 +9,6 @@
   font-size: 1rem;
 }
 
-.table-header span:nth-child(4) {
-  flex: 2;
-}
-
 .tooltip-wrapper {
   position: relative;
   cursor: help;
@@ -42,7 +38,6 @@
 }
 
 .pokemon-row {
-  display: flex;
   align-items: center;
   padding: 0.5rem;
   border-bottom: 1px solid #ddd;
@@ -58,11 +53,6 @@
   width: 1rem;
   height: 1rem;
   pointer-events: none;
-}
-
-.pokemon-name {
-  font-weight: bold;
-  margin-right: 1rem;
 }
 
 .type-badge {
@@ -99,20 +89,6 @@
   margin-right: 0.75rem;
 }
 
-.stats {
-  display: flex;
-  gap: 0.5rem;
-  font-size: 0.75rem;
-  color: #555;
-  margin-left: auto;
-}
-
-.stat abbr {
-  text-decoration: none;
-  font-weight: bold;
-  cursor: help;
-}
-
 .table-header,
 .pokemon-row {
   display: grid;
@@ -127,17 +103,8 @@
     repeat(7,2.5rem);  /* HP,Atk,Def,SpA,SpD,Spe,BST */
 }
 
-.table-header .col-number,
-.pokemon-row .col-number {
-  justify-self: center;
-}
-
 .number-text {
   display: none;
-}
-
-.pokemon-sprite {
-  margin: 0 auto;
 }
 
 .col-sprite,
@@ -164,7 +131,6 @@
 .table-header .tooltip-wrapper,
 .pokemon-row .col-abilities {
   justify-self: center;
-  white-space: nowrap;
 }
 
 .col-abilities, .col-hp, .col-atk, .col-def, .col-spd, .col-spa, .col-spe, .col-bst {

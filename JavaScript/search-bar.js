@@ -9,8 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
       rows.forEach(row => {
         const name  = row.querySelector('.col-name').textContent.toLowerCase();
-        const types = Array.from(row.querySelectorAll('.col-types .type-badge'))
-                           .map(b => b.textContent.toLowerCase()).join(' ');
+        const types = Array.from(row.querySelectorAll('.col-types .type-badge')).map(b => b.textContent.toLowerCase()).join(' ');
         const abil  = row.querySelector('.col-abilities').textContent.toLowerCase();
   
         if (
@@ -26,6 +25,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   
     searchInput.addEventListener('input', filterPokémon);
-    // also run once on load
     filterPokémon();
   });
