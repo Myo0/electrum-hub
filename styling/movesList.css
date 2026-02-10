@@ -47,3 +47,10 @@
   color: #666;
   font-style: italic;
 }
+
+.move-cat-icon {
+  width: 28px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}

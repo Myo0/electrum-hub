@@ -24,7 +24,7 @@ const SortConfig = {
     extractors: {
       name: row => row.querySelector('.col-name').textContent.toLowerCase(),
       type: row => row.querySelector('.col-type').textContent.toLowerCase(),
-      category: row => row.querySelector('.col-cat').textContent.toLowerCase(),
+      category: row => row.querySelector('.col-cat').dataset.category,
       power: row => +row.querySelector('.col-pwr').textContent || 0,
       accuracy: row => +row.querySelector('.col-acc').textContent || 0,
       pp: row => {
@@ -62,75 +62,63 @@ if (localStorage.theme === 'dark') {
   document.body.classList.add('dark-mode');
 }
 
-function getCellValue(row, key) {
-  switch (key) {
+function initSorters(sectionId) {
+  const config = SortConfig[sectionId];
+  if (!config) return;
 
-    case 'number':
-      return parseInt(row.querySelector('.col-number').textContent) || 0;
-
-    case 'name':
-      return row.querySelector('.col-name').textContent.toLowerCase();
-
-    case 'types':
-      return Array.from(row.querySelectorAll('.col-types .type-badge'))
-        .map(b => b.textContent.toLowerCase()).join(' ');
-
-    case 'abilities':
-      return row.querySelector('.col-abilities').textContent.toLowerCase();
-
-    case 'hp': case 'atk': case 'def':
-    case 'spa': case 'spd': case 'spe': case 'bst':
-      return parseInt(row.querySelector(`.col-${key}`).textContent) || 0;
-    default:
-      return '';
-  }
-}
-
-function initSorters() {
-  const section = document.getElementById('pokemon-section');
-  const collapseEl = section.querySelector('#collapse');
-  const originalCollapseHTML = collapseEl.innerHTML;
+  const section = document.getElementById(sectionId);
+  if (!section) return;
 
   const header = section.querySelector('.table-header');
+  const rowsContainer = section.querySelector(
+    sectionId === 'pokemon-section' ? '#collapse' : '#moves-list'
+  );
+
+  if (!header || !rowsContainer) return;
+
   const sortables = header.querySelectorAll('.sortable[data-key]');
   let currentSort = { key: null, direction: null };
 
   sortables.forEach(el => {
-    el.style.cursor = 'pointer';
     el.addEventListener('click', () => {
       const key = el.dataset.key;
-      // cycle: null → desc → asc → null
-      let dir = 'desc';
-      if (currentSort.key === key) {
-        if (currentSort.direction === 'desc') dir = 'asc';
-        else if (currentSort.direction === 'asc')  dir = null;
+
+      let dir = 'asc';
+      if (currentSort.key === key && currentSort.direction === 'asc') {
+        dir = 'desc';
       }
+
       currentSort = { key, direction: dir };
 
       sortables.forEach(h =>
-        h.classList.toggle('selected', h.dataset.key === key && dir)
+        h.classList.toggle('selected', h.dataset.key === key)
       );
 
-      collapseEl
-        .querySelectorAll('.gen-header')
-        .forEach(h => h.style.display = dir ? 'none' : '');
+      const rows = Array.from(
+        rowsContainer.querySelectorAll(config.rowSelector)
+      );
 
-      if (dir) {
-        const rows = Array.from(collapseEl.querySelectorAll('.pokemon-row'));
-        rows.sort((a, b) => {
-          const aV = getCellValue(a, key), bV = getCellValue(b, key);
-          if (aV < bV) return dir==='asc' ? -1 : 1;
-          if (aV > bV) return dir==='asc' ? 1 : -1;
-          return 0;
-        });
-        rows.forEach(r => collapseEl.appendChild(r));
+  rows.sort((a, b) => {
+    const aV = config.extractors[key](a);
+    const bV = config.extractors[key](b);
 
-      } else {
-        collapseEl.innerHTML = originalCollapseHTML;
-      }
+    // String sort
+    if (typeof aV === 'string' && typeof bV === 'string') {
+      return dir === 'asc'
+        ? aV.localeCompare(bV)
+        : bV.localeCompare(aV);
+    }
+
+    // Numeric sort
+    return dir === 'asc' ? aV - bV : bV - aV;
+  });
+
+      rows.forEach(r => rowsContainer.appendChild(r));
     });
   });
 }
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const collapseEl = document.getElementById('collapse');
@@ -154,6 +142,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const row = document.createElement('div');
     row.className = 'move-row';
 
+  const category = move.category.toLowerCase(); 
+
     row.innerHTML = `
       <span class="col-name">${move.name}</span>
       <span class="col-type">
@@ -161,7 +151,14 @@ document.addEventListener('DOMContentLoaded', () => {
           ${move.type.toUpperCase()}
         </span>
       </span>
-      <span class="col-cat">${move.category}</span>
+      <span class="col-cat" data-category="${category}">
+        <img
+          class="move-cat-icon"
+          src="assets/move-category/${category}.png"
+          alt="${move.category}"
+          title="${move.category}"
+        >
+      </span>
       <span class="col-pwr">${move.power || '—'}</span>
       <span class="col-acc">${move.accuracy || '—'}</span>
       <span class="col-pp">${move.pp.base}/${move.pp.max}</span>
@@ -172,4 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-document.addEventListener('DOMContentLoaded', initSorters);
+document.addEventListener('DOMContentLoaded', () => {
+  initSorters('pokemon-section');
+  initSorters('moves-section');
+});
