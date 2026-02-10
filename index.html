@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="styling/sprites.css">
   <link rel="stylesheet" href="styling/pokemonPanel.css">
   <link rel="stylesheet" href="styling/pokemonList.css">
+  <link rel="stylesheet" href="styling/movesList.css">
   <link rel="icon" type="image/x-icon" href="assets/logo.png">
 </head>
 <body>
@@ -1485,19 +1486,25 @@
       <!-- location list -->
     </section>
 
-    <section id="moves-section" class="content-section">
-      <div class="section-header">Moves</div>
-      <input type="text" placeholder="Search moves…" class="search-bar">
-      <div class="table-header">
-        <span>Name</span>
-        <span>Type</span>
-        <span>Category</span>
-        <span>Base Power</span>
-        <span>Accuracy</span>
-        <span>PP</span>
-      </div>
-      <!-- all moves will go here -->
-    </section>
+
+    <!-- MOVES -->
+<section id="moves-section" class="content-section">
+  <div class="section-header">Moves</div>
+  <input type="text" placeholder="Search moves…" class="search-bar">
+
+  <div class="table-header">
+    <span class="col-name sortable" data-key="name">Name</span>
+    <span class="col-type sortable" data-key="type">Type</span>
+    <span class="col-cat sortable" data-key="category">Cat</span>
+    <span class="col-pwr sortable" data-key="power">Pwr</span>
+    <span class="col-acc sortable" data-key="accuracy">Acc</span>
+    <span class="col-pp sortable" data-key="pp">PP</span>
+    <span class="col-effect"></span>
+  </div>
+
+  <!-- Move rows will be injected here -->
+  <div id="moves-list"></div>
+</section>
 
     <section id="trainers-section" class="content-section">
       <div class="section-header">Abilities</div>
@@ -1505,9 +1512,9 @@
       <!-- abilities list will go here -->
     </section>
   </div>
-  <script src="/JavaScript/script.js"></script>
   <script src="/JavaScript/move-data.js"></script>
   <script src="/JavaScript/pokemon-data.js"></script>
+  <script src="/JavaScript/script.js"></script>
   <script src="/JavaScript/pokemon-panel.js"></script>
   <script src="/JavaScript/search-bar.js"></script>
 </body>

@@ -1,0 +1,49 @@
+#moves-section .table-header,
+.move-row {
+  display: grid;
+  grid-template-columns:
+    minmax(8rem, 1.5fr) /* Name */
+    5rem               /* Type */
+    5rem               /* Category */
+    4rem               /* Power */
+    4rem               /* Accuracy */
+    4.5rem             /* PP */
+    minmax(6rem, 1fr); /* Effect */
+  align-items: center;
+  column-gap: 0.5rem;
+}
+
+#moves-section .table-header {
+  font-weight: bold;
+  border-bottom: 2px solid #ccc;
+  padding: 0.4rem 0.5rem;
+}
+
+.move-row {
+  padding: 0.4rem 0.5rem;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.move-row:hover {
+  background: #f9f9f9;
+}
+
+.move-row .col-name {
+  font-weight: bold;
+}
+
+.move-row .col-type,
+.move-row .col-cat,
+.move-row .col-pwr,
+.move-row .col-acc,
+.move-row .col-pp {
+  justify-self: center;
+  font-size: 0.85rem;
+}
+
+.move-row .col-effect {
+  font-size: 0.75rem;
+  color: #666;
+  font-style: italic;
+}

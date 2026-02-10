@@ -146,4 +146,30 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const movesList = document.getElementById('moves-list');
+  if (!movesList || !window.moveData) return;
+
+  window.moveData.forEach(move => {
+    const row = document.createElement('div');
+    row.className = 'move-row';
+
+    row.innerHTML = `
+      <span class="col-name">${move.name}</span>
+      <span class="col-type">
+        <span class="type-badge ${move.type.toLowerCase()}">
+          ${move.type.toUpperCase()}
+        </span>
+      </span>
+      <span class="col-cat">${move.category}</span>
+      <span class="col-pwr">${move.power || '—'}</span>
+      <span class="col-acc">${move.accuracy || '—'}</span>
+      <span class="col-pp">${move.pp.base}/${move.pp.max}</span>
+      <span class="col-effect">${move.effect || ''}</span>
+    `;
+
+    movesList.appendChild(row);
+  });
+});
+
 document.addEventListener('DOMContentLoaded', initSorters);
