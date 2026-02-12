@@ -24,7 +24,7 @@ window.moveData = [
         base: 25,
         max: 40
         },
-        effect: "High crit ratio",
+        effect: "+1 Crit Ratio (1/8)",
         description: "The foe is attacked with a sharp chop. It has a high critical-hit ratio."
     }
 ];

@@ -26,7 +26,7 @@
 }
 
 .move-row:hover {
-  background: #f9f9f9;
+  background: #2f2f2f;
 }
 
 .move-row .col-name {
@@ -42,10 +42,16 @@
   font-size: 0.85rem;
 }
 
+.move-row .col-pwr,
+.move-row .col-acc,
+.move-row .col-pp {
+  font-weight: bold;
+}
+
 .move-row .col-effect {
   font-size: 0.75rem;
   color: #666;
-  font-style: italic;
+  font-weight: bold;
 }
 
 .move-cat-icon {
@@ -53,4 +59,8 @@
   height: auto;
   display: block;
   margin: 0 auto;
+}
+
+body.dark-mode .move-row .col-effect {
+  color: #ffffff;
 }

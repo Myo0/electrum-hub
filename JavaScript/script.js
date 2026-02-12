@@ -138,19 +138,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const movesList = document.getElementById('moves-list');
   if (!movesList || !window.moveData) return;
 
-  window.moveData.forEach(move => {
+// default ordering is alphabetical
+  const sortedMoves = [...window.moveData].sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
+
+  sortedMoves.forEach(move => {
     const row = document.createElement('div');
     row.className = 'move-row';
 
-  const category = move.category.toLowerCase(); 
+    const category = move.category.toLowerCase();
 
     row.innerHTML = `
       <span class="col-name">${move.name}</span>
+
       <span class="col-type">
         <span class="type-badge ${move.type.toLowerCase()}">
           ${move.type.toUpperCase()}
         </span>
       </span>
+
       <span class="col-cat" data-category="${category}">
         <img
           class="move-cat-icon"
@@ -159,6 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
           title="${move.category}"
         >
       </span>
+
       <span class="col-pwr">${move.power || '—'}</span>
       <span class="col-acc">${move.accuracy || '—'}</span>
       <span class="col-pp">${move.pp.base}/${move.pp.max}</span>

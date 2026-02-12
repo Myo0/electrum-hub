@@ -152,6 +152,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-weight: bold;
 }
 
 .pokemon-row .col-hp::before { content: "HP";  color: #888; font-size: 0.8rem; margin-bottom: 0.1rem; }
