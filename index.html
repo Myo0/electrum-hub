@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="styling/pokemonPanel.css">
   <link rel="stylesheet" href="styling/pokemonList.css">
   <link rel="stylesheet" href="styling/movesList.css">
+  <link rel="stylesheet" href="styling/abilitiesList.css">
   <link rel="icon" type="image/x-icon" href="assets/logo.png">
 </head>
 <body>
@@ -29,7 +30,7 @@
       <button data-section="pokemon">Pokémon</button>
       <button data-section="location">Locations</button>
       <button data-section="moves">Moves</button>
-      <button data-section="trainers">Abilities</button>
+      <button data-section="abilities">Abilities</button>
     </nav>
 
     <section id="search-section" class="content-section active">
@@ -1506,14 +1507,16 @@
   <div id="moves-list"></div>
 </section>
 
-    <section id="trainers-section" class="content-section">
-      <div class="section-header">Abilities</div>
-      <input type="text" placeholder="Search abilities…" class="search-bar">
-      <!-- abilities list will go here -->
-    </section>
+  <section id="abilities-section" class="content-section">
+    <div class="section-header">Abilities</div>
+    <input type="text" placeholder="Search abilities…" class="search-bar">
+
+    <div id="abilities-list"></div>
+  </section>
   </div>
   <script src="/JavaScript/move-data.js"></script>
   <script src="/JavaScript/pokemon-data.js"></script>
+  <script src="/JavaScript/ability-data.js"></script>
   <script src="/JavaScript/script.js"></script>
   <script src="/JavaScript/pokemon-panel.js"></script>
   <script src="/JavaScript/search-bar.js"></script>

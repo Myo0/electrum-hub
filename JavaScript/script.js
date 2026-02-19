@@ -134,6 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// moves
 document.addEventListener('DOMContentLoaded', () => {
   const movesList = document.getElementById('moves-list');
   if (!movesList || !window.moveData) return;
@@ -176,6 +177,29 @@ document.addEventListener('DOMContentLoaded', () => {
     movesList.appendChild(row);
   });
 });
+
+// abilities
+document.addEventListener('DOMContentLoaded', () => {
+  const abilitiesList = document.getElementById('abilities-list');
+  if (!abilitiesList || !window.abilityData) return;
+
+  const sortedAbilities = [...window.abilityData].sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
+
+  sortedAbilities.forEach(ability => {
+    const row = document.createElement('div');
+    row.className = 'ability-row';
+
+    row.innerHTML = `
+      <div class="ability-name">${ability.name}</div>
+      <div class="ability-description">${ability.description || ''}</div>
+    `;
+
+    abilitiesList.appendChild(row);
+  });
+});
+
 
 document.addEventListener('DOMContentLoaded', () => {
   initSorters('pokemon-section');
