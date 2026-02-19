@@ -200,6 +200,23 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// locations
+document.addEventListener('DOMContentLoaded', () => {
+  const locationList = document.getElementById('location-list');
+  if (!locationList || !window.locationData) return;
+
+  window.locationData.forEach(location => {
+    const row = document.createElement('div');
+    row.className = 'location-row';
+
+    row.innerHTML = `
+      <div class="location-name">${location.name}</div>
+      <div class="location-description">${location.description || ''}</div>
+    `;
+
+    locationList.appendChild(row);
+  });
+});
 
 document.addEventListener('DOMContentLoaded', () => {
   initSorters('pokemon-section');

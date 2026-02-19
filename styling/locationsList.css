@@ -1,0 +1,27 @@
+.location-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0.5rem;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.location-name {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.location-description {
+  font-size: 0.85rem;
+  color: #666;
+  text-align: right;
+  margin-left: 1.5rem;
+  flex: 1;
+}
+
+/* Dark mode */
+body.dark-mode .location-description {
+  color: #ccc;
+}
