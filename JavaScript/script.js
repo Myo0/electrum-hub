@@ -194,10 +194,23 @@ document.addEventListener('DOMContentLoaded', () => {
     row.innerHTML = `
       <div class="ability-name">${ability.name}</div>
       <div class="ability-description">${ability.description || ''}</div>
+      <div class="ability-chevron">›››</div>
     `;
 
     abilitiesList.appendChild(row);
   });
+
+  abilitiesList.addEventListener('click', e => {
+    const row = e.target.closest('.ability-row');
+    if (!row) return;
+
+    document.querySelectorAll('.ability-row').forEach(r =>
+      r.classList.remove('active')
+    );
+
+    row.classList.add('active');
+  });
+
 });
 
 // locations

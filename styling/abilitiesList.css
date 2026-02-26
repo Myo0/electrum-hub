@@ -1,11 +1,11 @@
 .ability-row {
   display: flex;
-  justify-content: space-between;
   align-items: center;
 
-  padding: 0.5rem;
+  padding: 0.5rem 0.75rem;
   border-bottom: 1px solid #ddd;
   cursor: pointer;
+  transition: background 0.15s ease;
 }
 
 .ability-name {
@@ -14,15 +14,41 @@
 }
 
 .ability-row:hover {
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.ability-row.active {
+  background: rgba(0, 200, 255, 0.08);
 }
 
 .ability-description {
+  margin-left: auto;
+  margin-right: 0.75rem;
+
+  max-width: 80%; /* potentially needed in the future for long ability names */
   font-size: 0.85rem;
   color: #666;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   text-align: right;
-  margin-left: 1.5rem;
-  flex: 1;
+}
+
+.ability-chevron {
+  margin-left: 1rem;
+  font-size: 1.1rem;
+  color: #999;
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.ability-row:hover .ability-chevron {
+  transform: translateX(3px);
+  color: #666;
+}
+
+body.dark-mode .ability-row:hover .ability-chevron {
+  color: #ccc;
 }
 
 body.dark-mode .ability-description {
