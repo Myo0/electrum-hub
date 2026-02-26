@@ -70,6 +70,7 @@ function renderDetail(p) {
     }
 
     const link = document.createElement('a');
+    link.classList.add('ability-link');
     link.href        = '#';
     link.textContent = name + suffix;
     if (italic) link.style.fontStyle  = 'italic';
@@ -342,3 +343,6 @@ renderStatTable(+lvlInput.value);
   detailPanel.classList.add('open');
   document.body.classList.add('detail-open');
 }
+
+// make the open pokemon panel function globally callable
+window.openPokemonPanel = openPokemonPanel;

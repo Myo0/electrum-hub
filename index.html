@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="styling/styles.css">
   <link rel="stylesheet" href="styling/sprites.css">
   <link rel="stylesheet" href="styling/pokemonPanel.css">
+  <link rel="stylesheet" href="styling/abilityPanel.css">
   <link rel="stylesheet" href="styling/pokemonList.css">
   <link rel="stylesheet" href="styling/movesList.css">
   <link rel="stylesheet" href="styling/abilitiesList.css">
@@ -125,7 +126,7 @@
         </div>
       </aside>
     
-    <div id="collapse">
+    <div class="collapse">
       <div class="gen-header">Generation I</div>
       <!-- Gen I -->
 
@@ -1441,42 +1442,42 @@
       
     </div>
     
-    <div id="collapse">
+    <div class="collapse">
       <div class="gen-header">Generation II</div>
       <!-- Gen II -->
     </div>
 
-    <div id="collapse">
+    <div class="collapse">
       <div class="gen-header">Generation III</div>
       <!-- Gen III -->
     </div>
 
-    <div id="collapse">
+    <div class="collapse">
       <div class="gen-header">Generation IV</div>
       <!-- Gen IV -->
     </div>
 
-    <div id="collapse">
+    <div class="collapse">
       <div class="gen-header">Generation V</div>
       <!-- Gen V -->
     </div>
 
-    <div id="collapse">
+    <div class="collapse">
       <div class="gen-header">Generation VI</div>
       <!-- Gen VI -->
     </div>
 
-    <div id="collapse">
+    <div class="collapse">
       <div class="gen-header">Generation VII</div>
       <!-- Gen VII -->
     </div>
 
-    <div id="collapse">
+    <div class="collapse">
       <div class="gen-header">Generation VIII</div>
       <!-- Gen VIII -->
     </div>
 
-    <div id="collapse">
+    <div class="collapse">
       <div class="gen-header">Generation IX</div>
       <!-- Gen IX -->
     </div>
@@ -1515,12 +1516,49 @@
     <div id="abilities-list"></div>
   </section>
   </div>
+
+<div id="ability-panel" class="ability-panel">
+
+    <div class="ability-panel-header">
+      <div id="ability-panel-name" class="ability-panel-title"></div>
+      <button id="ability-panel-close" class="ability-panel-close">✕</button>
+    </div>
+
+    <div class="ability-panel-divider"></div>
+
+    <div class="ability-panel-content">
+
+      <div id="ability-in-section" class="panel-section">
+        <h3>In Battle</h3>
+        <p id="ability-panel-in-battle"></p>
+      </div>
+
+      <div class="panel-section" id="ability-out-section">
+        <h3>Out of Battle</h3>
+        <p id="ability-panel-out-of-battle"></p>
+      </div>
+
+      <div class="panel-section">
+        <h3>Interactions</h3>
+        <ul id="ability-panel-interactions"></ul>
+      </div>
+
+      <div class="panel-section">
+        <h3>Pokémon with this ability</h3>
+        <div id="ability-panel-pokemon"></div>
+      </div>
+
+    </div>
+
+</div>
+
   <script src="/JavaScript/move-data.js"></script>
   <script src="/JavaScript/pokemon-data.js"></script>
   <script src="/JavaScript/ability-data.js"></script>
   <script src="/JavaScript/location-data.js"></script>
-  <script src="/JavaScript/script.js"></script>
+  <script src="/JavaScript/ability-panel.js"></script>
   <script src="/JavaScript/pokemon-panel.js"></script>
+  <script src="/JavaScript/script.js"></script>
   <script src="/JavaScript/search-bar.js"></script>
 </body>
 </html>

@@ -1,0 +1,102 @@
+.ability-panel {
+  position: fixed;
+  top: 6.6rem;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  background: #fff;
+  box-shadow: 4px 0 12px rgba(0,0,0,0.2);
+  transition: width 0.3s ease;
+  z-index: 200;
+  overflow-y: auto;
+}
+
+.ability-panel.open {
+  width: 35%;
+}
+
+.ability-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.ability-panel-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.ability-panel-close {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.ability-panel-divider {
+  height: 1px;
+  background: #ddd;
+}
+
+.ability-panel-content {
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+.ability-panel .panel-section {
+  margin-bottom: 1rem;
+}
+
+/* DARK MODE SUPPORT */
+body.dark-mode .ability-panel {
+  background: #1e1e1e;
+  color: #f5f5f5;
+}
+
+body.dark-mode .ability-panel-header {
+  border-bottom: 1px solid #444;
+}
+
+body.dark-mode .ability-panel-divider {
+  background: #444;
+}
+
+body.dark-mode .ability-panel h3 {
+  color: #ffffff;
+}
+
+body.dark-mode .ability-panel-close {
+  color: #ffffff;
+}
+
+
+.ability-panel .pokemon-row {
+  display: grid !important;
+  grid-template-columns:
+    70px     /* sprite + number */
+    90px     /* name */
+    80px     /* types */
+    90px     /* ability */
+    repeat(6, 35px)  /* stats */
+    45px;    /* BST */
+  gap: 4px !important;
+  padding: 4px 2px !important;
+  font-size: 0.75rem;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ability-panel .pokemon-row .col-types {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.ability-panel .pokemon-row .type-badge {
+  font-size: 0.65rem;
+  padding: 2px 4px;
+}

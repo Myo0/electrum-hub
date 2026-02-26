@@ -120,19 +120,26 @@ function initSorters(sectionId) {
 
 
 
-document.addEventListener('DOMContentLoaded', () => {
-  const collapseEl = document.getElementById('collapse');
-  collapseEl.addEventListener('click', e => {
+document.addEventListener('click', (e) => {
+const row = e.target.closest('.pokemon-row');
+if (!row) return;
 
-    const row = e.target.closest('.pokemon-row');
-    if (!row) return;
+  if (row.closest('#ability-panel')) return;
 
-    const name = row.querySelector('.col-name').textContent;
+  // prevent triggering when clicking ability links
+  if (e.target.closest('.ability-link')) return;
 
-    const p = window.pokemonData.find(mon => mon.name === name);
-    if (p) renderDetail(p);
-  });
+  const nameEl = row.querySelector('.col-name');
+  if (!nameEl) return;
+
+  const name = nameEl.textContent.trim();
+  const p = window.pokemonData.find(mon => mon.name === name);
+  if (!p) return;
+
+  renderDetail(p);
 });
+
+
 
 // moves
 document.addEventListener('DOMContentLoaded', () => {
@@ -193,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     row.innerHTML = `
       <div class="ability-name">${ability.name}</div>
-      <div class="ability-description">${ability.description || ''}</div>
+      <div class="ability-description">${ability.summary || ''}</div>
       <div class="ability-chevron">›››</div>
     `;
 
@@ -209,10 +216,19 @@ document.addEventListener('DOMContentLoaded', () => {
     );
 
     row.classList.add('active');
+
+    const abilityName = row.querySelector('.ability-name').textContent;
+    const abilityObj = window.abilityData.find(a => a.name === abilityName);
+
+    if (abilityObj) {
+      openAbilityPanel(abilityObj);
+    }
   });
+
 
 });
 
+// -----------------------------------------------------------------------------------
 // locations
 document.addEventListener('DOMContentLoaded', () => {
   const locationList = document.getElementById('location-list');
