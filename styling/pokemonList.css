@@ -178,3 +178,18 @@
   font-size: 1rem;
   color:rgb(0, 238, 255)
 }
+
+/* liked how the horizontal hover translation looked, so I wanted to add it to everything for cohesion. */
+.pokemon-row > *,
+.move-row > *,
+.ability-row > *,
+.location-row > * {
+  transition: transform 0.15s ease;
+}
+
+.pokemon-row:hover > *,
+.move-row:hover > *,
+.ability-row:hover > *,
+.location-row:hover > * {
+  transform: translateX(3px);
+}

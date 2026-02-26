@@ -42,11 +42,6 @@
   transition: transform 0.15s ease, color 0.15s ease;
 }
 
-.ability-row:hover .ability-chevron {
-  transform: translateX(3px);
-  color: #666;
-}
-
 body.dark-mode .ability-row:hover .ability-chevron {
   color: #ccc;
 }
