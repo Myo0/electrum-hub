@@ -3,6 +3,8 @@ const abilityPanelClose = document.getElementById("ability-panel-close");
 
 abilityPanelClose.addEventListener("click", () => {
     abilityPanel.classList.remove("open");
+
+    document.querySelectorAll('.ability-row').forEach(r => r.classList.remove('active'));
 });
 
 function openAbilityPanel(ability) {
