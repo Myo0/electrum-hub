@@ -71,7 +71,7 @@ function initSorters(sectionId) {
 
   const header = section.querySelector('.table-header');
   const rowsContainer = section.querySelector(
-    sectionId === 'pokemon-section' ? '#collapse' : '#moves-list'
+    sectionId === 'pokemon-section' ? '#pokemon-list' : '#moves-list'
   );
 
   if (!header || !rowsContainer) return;
@@ -140,6 +140,69 @@ if (!row) return;
 });
 
 
+
+// pokemon list
+document.addEventListener('DOMContentLoaded', () => {
+  const pokemonList = document.getElementById('pokemon-list');
+  if (!pokemonList || !window.pokemonData) return;
+
+  const GENERATIONS = [
+    { label: 'Generation I',    min: 1,   max: 151  },
+    { label: 'Generation II',   min: 152,  max: 251  },
+    { label: 'Generation III',  min: 252,  max: 386  },
+    { label: 'Generation IV',   min: 387,  max: 493  },
+    { label: 'Generation V',    min: 494,  max: 649  },
+    { label: 'Generation VI',   min: 650,  max: 721  },
+    { label: 'Generation VII',  min: 722,  max: 809  },
+    { label: 'Generation VIII', min: 810,  max: 905  },
+    { label: 'Generation IX',   min: 906,  max: 1025 },
+  ];
+
+  GENERATIONS.forEach(gen => {
+    const genPokemon = window.pokemonData.filter(p =>
+      p.number >= gen.min && p.number <= gen.max
+    );
+    if (!genPokemon.length) return;
+
+    const header = document.createElement('div');
+    header.className = 'gen-header';
+    header.textContent = gen.label;
+    pokemonList.appendChild(header);
+
+    genPokemon.forEach(p => {
+      const s = p.stats || {};
+      const bst = Object.values(s).reduce((a, b) => a + b, 0);
+      const spriteClass = p.name.toLowerCase().replace(/\s+/g, '-');
+      const typesArr = Array.isArray(p.types) ? p.types : (p.types ? [p.types] : []);
+      const types = typesArr.map(t =>
+        `<span class="type-badge ${t.toLowerCase()}">${t.toUpperCase()}</span>`
+      ).join('');
+
+      const row = document.createElement('div');
+      row.className = 'pokemon-row';
+      row.innerHTML = `
+        <span class="col-check">
+          <input type="checkbox" ${p.available ? 'checked' : ''} class="pokemon-check">
+        </span>
+        <span class="col-number">
+          <span class="pokemon-sprite ${spriteClass}"></span>
+          <span class="number-text">${p.number}</span>
+        </span>
+        <span class="col-name">${p.name}</span>
+        <span class="col-types">${types}</span>
+        <span class="col-abilities">${p.ability || ''}</span>
+        <span class="col-hp">${s.hp ?? ''}</span>
+        <span class="col-atk">${s.atk ?? ''}</span>
+        <span class="col-def">${s.def ?? ''}</span>
+        <span class="col-spa">${s.spa ?? ''}</span>
+        <span class="col-spd">${s.spd ?? ''}</span>
+        <span class="col-spe">${s.spe ?? ''}</span>
+        <span class="col-bst">${bst}</span>
+      `;
+      pokemonList.appendChild(row);
+    });
+  });
+});
 
 // moves
 document.addEventListener('DOMContentLoaded', () => {
