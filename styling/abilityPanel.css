@@ -19,20 +19,30 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
-  border-bottom: 1px solid #ddd;
+  padding: 1rem 1.2rem;
+  background: #222;
+  border-left: 4px solid #dc3545;
 }
 
 .ability-panel-title {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: bold;
+  color: #dc3545;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  letter-spacing: 0.03em;
 }
 
 .ability-panel-close {
   background: none;
   border: none;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   cursor: pointer;
+  color: #aaa;
+  transition: color 0.15s ease;
+}
+
+.ability-panel-close:hover {
+  color: #fff;
 }
 
 .ability-panel-divider {
@@ -46,7 +56,19 @@
 }
 
 .ability-panel .panel-section {
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.ability-panel .panel-section h3 {
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #555;
+  background: #f0f0f0;
+  border-left: 3px solid #dc3545;
+  padding: 0.3rem 0.6rem;
+  margin: 0 0 0.6rem 0;
 }
 
 /* DARK MODE SUPPORT */
@@ -56,21 +78,90 @@ body.dark-mode .ability-panel {
 }
 
 body.dark-mode .ability-panel-header {
-  border-bottom: 1px solid #444;
+  background: #111;
 }
 
 body.dark-mode .ability-panel-divider {
   background: #444;
 }
 
-body.dark-mode .ability-panel h3 {
-  color: #ffffff;
+body.dark-mode .ability-panel .panel-section h3 {
+  background: #2a2a2a;
+  color: #ccc;
+  border-left-color: #dc3545;
 }
 
 body.dark-mode .ability-panel-close {
   color: #ffffff;
 }
 
+
+/* Interactions list */
+#ability-panel-interactions {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#ability-panel-interactions li {
+  padding: 0.4rem 0.6rem;
+  border-left: 3px solid #e8909a;
+  margin-bottom: 0.4rem;
+  background: #f7f7f7;
+  border-radius: 0 4px 4px 0;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #333;
+}
+
+#ability-panel-interactions li:last-child {
+  margin-bottom: 0;
+}
+
+body.dark-mode #ability-panel-interactions li {
+  background: #252525;
+  color: #ddd;
+}
+
+/* Description card treatment */
+#ability-panel-in-battle,
+#ability-panel-out-of-battle {
+  background: #f7f7f7;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem;
+  margin: 0;
+  line-height: 1.5;
+  color: #333;
+}
+
+body.dark-mode #ability-panel-in-battle,
+body.dark-mode #ability-panel-out-of-battle {
+  background: #252525;
+  border-color: #3a3a3a;
+  color: #ddd;
+}
+
+.ability-panel .pokemon-row {
+  border-bottom: 1px solid #e8e8e8;
+  transition: background 0.15s ease;
+}
+
+.ability-panel .pokemon-row:last-child {
+  border-bottom: none;
+}
+
+.ability-panel .pokemon-row:hover {
+  background: #fdf0f1;
+}
+
+body.dark-mode .ability-panel .pokemon-row {
+  border-bottom-color: #2e2e2e;
+}
+
+body.dark-mode .ability-panel .pokemon-row:hover {
+  background: #2a1f20;
+}
 
 .ability-panel .pokemon-row {
   display: grid !important;

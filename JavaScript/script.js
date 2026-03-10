@@ -177,6 +177,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const types = typesArr.map(t =>
         `<span class="type-badge ${t.toLowerCase()}">${t.toUpperCase()}</span>`
       ).join('');
+      const abilitiesArr = Array.isArray(p.abilities) ? p.abilities : (p.ability ? [p.ability] : []);
+      const abilitiesText = abilitiesArr.join('<br>');
 
       const row = document.createElement('div');
       row.className = 'pokemon-row';
@@ -190,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </span>
         <span class="col-name">${p.name}</span>
         <span class="col-types">${types}</span>
-        <span class="col-abilities">${p.ability || ''}</span>
+        <span class="col-abilities">${abilitiesText}</span>
         <span class="col-hp">${s.hp ?? ''}</span>
         <span class="col-atk">${s.atk ?? ''}</span>
         <span class="col-def">${s.def ?? ''}</span>
