@@ -124,8 +124,6 @@ document.addEventListener('click', (e) => {
 const row = e.target.closest('.pokemon-row');
 if (!row) return;
 
-  if (row.closest('#ability-panel')) return;
-
   // prevent triggering when clicking ability links
   if (e.target.closest('.ability-link')) return;
 

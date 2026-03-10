@@ -64,70 +64,6 @@
         <span class="col-bst sortable" data-key="bst">BST</span>
       </div>
 
-      <!-- DETAIL PANEL -->
-      <aside id="pokemon-detail-panel" class="closed">
-        <header>
-          <div class="detail-header-left">
-            <h2 id="detail-name">Bulbasaur</h2>
-            <small id="detail-dex">#1</small>
-          </div>
-          <button id="detail-close">×</button>
-        </header>
-        <div id="detail-note" class="hidden"><strong>Note:</strong> This Pokémon cannot be obtained.</div>
-        <div class="detail-body">
-          <div class="detail-top">
-            <div class="detail-left">
-              <img id="detail-sprite" src="" alt=""/>
-              <div id="detail-types"></div>
-              <div class="detail-section">
-                <h4>Abilities:</h4>
-                <div id="detail-abilities"></div>
-              </div>
-            </div>
-            <div class="detail-right">
-              <div id="detail-gender"></div>
-              <div id="detail-catchrate"></div>
-              <div id="detail-held-item-section" class="detail-section">
-                <h4>Held item</h4>
-                <div id="detail-held-item"></div>
-              </div>
-            </div>
-          </div>
-          <section id="detail-stats">
-            <h3>Base stats:</h3>
-            <div class="stats-grid">
-              <div id="stat-bars" class="bar-container">
-                <!-- injected by script.js -->
-              </div>
-              <div class="stat-calc">
-                <table id="stat-calc-table">
-                  <thead>
-                    <tr>
-                      <th></th>
-                      <th>Min−</th>
-                      <th>Min</th>
-                      <th>Max</th>
-                      <th>Max+</th>
-                    </tr>
-                  </thead>
-                  <tbody></tbody>
-                </table>
-                <div class="level-input">
-                  at level <input type="number" id="stat-level" value="100" min="1" max="100">
-                </div>
-              </div>
-            </div>
-          </section>
-          <section id="detail-evolution">
-            <!-- injected by script.js -->
-          </section>
-          <section id="detail-learnset">
-            <div class="learnset-header">Level-up Learnset</div>
-            <ul id="detail-learnlist"></ul>
-          </section>
-        </div>
-      </aside>
-    
     <div id="pokemon-list"></div>
     </section>
 
@@ -164,6 +100,70 @@
     <div id="abilities-list"></div>
   </section>
   </div>
+
+<!-- DETAIL PANEL -->
+<aside id="pokemon-detail-panel" class="closed">
+  <header>
+    <div class="detail-header-left">
+      <h2 id="detail-name">Bulbasaur</h2>
+      <small id="detail-dex">#1</small>
+    </div>
+    <button id="detail-close">×</button>
+  </header>
+  <div id="detail-note" class="hidden"><strong>Note:</strong> This Pokémon cannot be obtained.</div>
+  <div class="detail-body">
+    <div class="detail-top">
+      <div class="detail-left">
+        <img id="detail-sprite" src="" alt=""/>
+        <div id="detail-types"></div>
+        <div class="detail-section">
+          <h4>Abilities:</h4>
+          <div id="detail-abilities"></div>
+        </div>
+      </div>
+      <div class="detail-right">
+        <div id="detail-gender"></div>
+        <div id="detail-catchrate"></div>
+        <div id="detail-held-item-section" class="detail-section">
+          <h4>Held item</h4>
+          <div id="detail-held-item"></div>
+        </div>
+      </div>
+    </div>
+    <section id="detail-stats">
+      <h3>Base stats:</h3>
+      <div class="stats-grid">
+        <div id="stat-bars" class="bar-container">
+          <!-- injected by script.js -->
+        </div>
+        <div class="stat-calc">
+          <table id="stat-calc-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Min−</th>
+                <th>Min</th>
+                <th>Max</th>
+                <th>Max+</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <div class="level-input">
+            at level <input type="number" id="stat-level" value="100" min="1" max="100">
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="detail-evolution">
+      <!-- injected by script.js -->
+    </section>
+    <section id="detail-learnset">
+      <div class="learnset-header">Level-up Learnset</div>
+      <ul id="detail-learnlist"></ul>
+    </section>
+  </div>
+</aside>
 
 <div id="ability-panel" class="ability-panel">
 
