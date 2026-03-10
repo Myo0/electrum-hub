@@ -54,6 +54,7 @@ function renderStatTable(stats, level = 100) {
     }
 
     const tr = document.createElement('tr');
+    tr.dataset.stat = stat;
     tr.innerHTML = `
       <td>${stat.toUpperCase()}</td>
       <td>${minNeg}</td>
@@ -123,9 +124,6 @@ function renderDetail(p) {
     if (bold)   link.style.fontWeight = 'bold';
 
     ab.appendChild(link);
-    if (idx < all.length - 1) {
-      ab.append(' | ');
-    }
   });
 
   // gender split & catch rate
