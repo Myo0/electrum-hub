@@ -141,8 +141,8 @@ if (!row) return;
 
 
 
-// pokemon list
 document.addEventListener('DOMContentLoaded', () => {
+  // pokemon list
   const pokemonList = document.getElementById('pokemon-list');
   if (!pokemonList || !window.pokemonData) return;
 
@@ -202,10 +202,8 @@ document.addEventListener('DOMContentLoaded', () => {
       pokemonList.appendChild(row);
     });
   });
-});
 
-// moves
-document.addEventListener('DOMContentLoaded', () => {
+  // moves
   const movesList = document.getElementById('moves-list');
   if (!movesList || !window.moveData) return;
 
@@ -246,10 +244,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     movesList.appendChild(row);
   });
-});
 
-// abilities
-document.addEventListener('DOMContentLoaded', () => {
+  // abilities
   const abilitiesList = document.getElementById('abilities-list');
   if (!abilitiesList || !window.abilityData) return;
 
@@ -289,11 +285,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-});
 
-// -----------------------------------------------------------------------------------
-// locations
-document.addEventListener('DOMContentLoaded', () => {
+  // -----------------------------------------------------------------------------------
+  // locations
   const locationList = document.getElementById('location-list');
   if (!locationList || !window.locationData) return;
 
@@ -308,9 +302,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     locationList.appendChild(row);
   });
-});
 
-document.addEventListener('DOMContentLoaded', () => {
   initSorters('pokemon-section');
   initSorters('moves-section');
 });

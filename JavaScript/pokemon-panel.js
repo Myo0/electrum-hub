@@ -1,23 +1,69 @@
 const detailPanel = document.getElementById('pokemon-detail-panel');
 const detailClose = document.getElementById('detail-close');
-detailClose.onclick = () => {
+function closeDetailPanel() {
   detailPanel.classList.remove('open');
   document.body.classList.remove('detail-open');
-};
+}
 
-document.querySelectorAll('.main-nav a').forEach(link => {
-  link.addEventListener('click', () => {
-    detailPanel.classList.remove('open');
-    document.body.classList.remove('detail-open');
-  });
+detailClose.addEventListener('click', closeDetailPanel);
+document.querySelectorAll('.main-nav a, .sub-nav button').forEach(el => {
+  el.addEventListener('click', closeDetailPanel);
 });
 
-document.querySelectorAll('.sub-nav button').forEach(btn => {
-  btn.addEventListener('click', () => {
-    detailPanel.classList.remove('open');
-    document.body.classList.remove('detail-open');
+function statColor(val) {
+  const hue = Math.round((val - 1) / 254 * 240);
+  return `hsl(${hue},100%,40%)`;
+}
+
+const statsOrder = [
+  ['hp',  'HP:'],
+  ['atk', 'Attack:'],
+  ['def', 'Defense:'],
+  ['spa', 'Sp. Atk:'],
+  ['spd', 'Sp. Def:'],
+  ['spe', 'Speed:']
+];
+
+function renderStatTable(stats, level = 100) {
+  const tbody = document.querySelector('#stat-calc-table tbody');
+  tbody.innerHTML = '';
+  const B = stats;
+  const negN = 0.9, neuN = 1.0, posN = 1.1;
+
+  ['hp','atk','def','spa','spd','spe'].forEach(stat => {
+    const base = B[stat];
+    let minNeg, minNeu, maxNeu, maxPos;
+
+    if (stat === 'hp') {
+      const calcHP = iv =>
+        Math.floor((2*base + iv) * level/100) + level + 10;
+      minNeu = calcHP(0);
+      maxNeu = calcHP(31);
+      minNeg = minNeu;
+      maxPos = maxNeu;
+    } else {
+      const calcPre = iv =>
+        Math.floor((2*base + iv) * level/100) + 5;
+      const neu0 = calcPre(0);
+      const neu31 = calcPre(31);
+
+      minNeg = Math.floor(neu0 * negN);
+      minNeu = Math.floor(neu0 * neuN);
+      maxNeu = Math.floor(neu31 * neuN);
+      maxPos = Math.floor(neu31 * posN);
+    }
+
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${stat.toUpperCase()}</td>
+      <td>${minNeg}</td>
+      <td>${minNeu}</td>
+      <td>${maxNeu}</td>
+      <td>${maxPos}</td>
+    `;
+    tbody.appendChild(tr);
   });
-});
+}
 
 function renderDetail(p) {
   document.getElementById('detail-name').textContent = p.name;
@@ -102,20 +148,6 @@ function renderDetail(p) {
 const barContainer = document.getElementById('stat-bars');
 barContainer.innerHTML = '';
 
-function statColor(val) {
-  const hue = Math.round((val - 1) / 254 * 240);
-  return `hsl(${hue},100%,40%)`;
-}
-
-const statsOrder = [
-  ['hp',  'HP:'],
-  ['atk', 'Attack:'],
-  ['def', 'Defense:'],
-  ['spa', 'Sp. Atk:'],
-  ['spd', 'Sp. Def:'],
-  ['spe', 'Speed:']
-];
-
 statsOrder.forEach(([key,label]) => {
   const val = p.stats[key];
   const row = document.createElement('div');
@@ -145,50 +177,9 @@ totalRow.innerHTML = `
 `;
 barContainer.appendChild(totalRow);
 
-function renderStatTable(level = 100) {
-  const tbody = document.querySelector('#stat-calc-table tbody');
-  tbody.innerHTML = '';
-  const B = p.stats;
-  const negN = 0.9, neuN = 1.0, posN = 1.1;
-
-  ['hp','atk','def','spa','spd','spe'].forEach(stat => {
-    const base = B[stat];
-    let minNeg, minNeu, maxNeu, maxPos;
-
-    if (stat === 'hp') {
-      const calcHP = iv => 
-        Math.floor((2*base + iv) * level/100) + level + 10;
-      minNeu = calcHP(0);
-      maxNeu = calcHP(31);
-      minNeg = minNeu;
-      maxPos = maxNeu;
-    } else {
-      const calcPre = iv =>
-        Math.floor((2*base + iv) * level/100) + 5;
-      const neu0 = calcPre(0);
-      const neu31 = calcPre(31);
-
-      minNeg = Math.floor(neu0 * negN);
-      minNeu = Math.floor(neu0 * neuN);
-      maxNeu = Math.floor(neu31 * neuN);
-      maxPos = Math.floor(neu31 * posN);
-    }
-
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td>${stat.toUpperCase()}</td>
-      <td>${minNeg}</td>
-      <td>${minNeu}</td>
-      <td>${maxNeu}</td>
-      <td>${maxPos}</td>
-    `;
-    tbody.appendChild(tr);
-  });
-}
-
 const lvlInput = document.getElementById('stat-level');
-lvlInput.oninput = () => renderStatTable(+lvlInput.value);
-renderStatTable(+lvlInput.value);
+lvlInput.oninput = () => renderStatTable(p.stats, +lvlInput.value);
+renderStatTable(p.stats, +lvlInput.value);
 
   // evolutions
   const evoC = document.getElementById('detail-evolution');
@@ -201,11 +192,11 @@ renderStatTable(+lvlInput.value);
 
     // a) preEvolution chain (e.g. Pichu → ...)
     if (Array.isArray(p.preEvolution)) {
-      p.preEvolution.forEach((name, i) => {
+      p.preEvolution.forEach(name => {
         const step = document.createElement('div');
         step.className = 'evolution-step';
         const spr = document.createElement('span');
-        spr.className = `pokemon-sprite ${name.toLowerCase()}`;
+        spr.className = `pokemon-sprite ${name.toLowerCase().replace(/\s+/g, '-')}`;
         spr.title = name;
         const lbl = document.createElement('span');
         lbl.className = 'evo-name';
@@ -231,12 +222,12 @@ renderStatTable(+lvlInput.value);
     const baseStep = document.createElement('div');
     baseStep.className = 'evolution-step';
     const baseSpr = document.createElement('span');
-    baseSpr.className = `pokemon-sprite ${p.name.toLowerCase()}`;
+    baseSpr.className = `pokemon-sprite ${p.name.toLowerCase().replace(/\s+/g, '-')}`;
     baseSpr.title = p.name;
     const baseLbl = document.createElement('span');
     baseLbl.className = 'evo-name';
     baseLbl.textContent = p.name;
-    if (p.name === p.name) baseLbl.classList.add('selected');
+    baseLbl.classList.add('selected');
     baseStep.append(baseSpr, baseLbl);
     container.appendChild(baseStep);
 
@@ -261,8 +252,7 @@ renderStatTable(+lvlInput.value);
       branch.appendChild(arrow);
 
       const spr = document.createElement('span');
-      const name1 = name.replace('♀' || '♂', '')
-      const key = name1.toLowerCase().trim().replace(/\s+/g, '-');
+      const key = name.toLowerCase().replace(/\s+/g, '-');
       spr.className = `pokemon-sprite ${key}`;
       spr.title = name;
       const lbl = document.createElement('span');
@@ -345,6 +335,3 @@ renderStatTable(+lvlInput.value);
   detailPanel.classList.add('open');
   document.body.classList.add('detail-open');
 }
-
-// make the open pokemon panel function globally callable
-window.openPokemonPanel = openPokemonPanel;

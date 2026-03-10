@@ -107,12 +107,6 @@
   display: none;
 }
 
-.col-sprite,
-.table-header .col-sprite {
-  display: flex;
-  justify-content: center;
-}
-
 .table-header .col-number,
 .pokemon-row .col-number {
   justify-self: center;
@@ -162,11 +156,6 @@
 .pokemon-row .col-spd::before { content: "SpD"; color: #888; font-size: 0.8rem; margin-bottom: 0.1rem; }
 .pokemon-row .col-spe::before { content: "Spe"; color: #888; font-size: 0.8rem; margin-bottom: 0.1rem; }
 .pokemon-row .col-bst::before { content: "BST"; color: #888; font-size: 0.8rem; margin-bottom: 0.1rem; }
-
-.table-header .col-sprite,
-.pokemon-row .col-sprite {
-  justify-self: center;
-}
 
 .table-header .sortable {
   cursor: pointer;
