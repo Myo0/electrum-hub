@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="styling/abilityPanel.css">
   <link rel="stylesheet" href="styling/pokemonList.css">
   <link rel="stylesheet" href="styling/movesList.css">
+  <link rel="stylesheet" href="styling/movePanel.css">
   <link rel="stylesheet" href="styling/abilitiesList.css">
   <link rel="stylesheet" href="styling/locationsList.css">
   <link rel="icon" type="image/x-icon" href="assets/logo.png">
@@ -165,6 +166,52 @@
   </div>
 </aside>
 
+<div id="move-panel">
+  <div class="move-panel-header">
+    <div id="move-panel-name" class="move-panel-title"></div>
+    <button id="move-panel-close" class="move-panel-close">✕</button>
+  </div>
+  <div class="move-panel-divider"></div>
+  <div class="move-panel-content">
+
+    <div class="move-panel-meta">
+      <div id="move-panel-type"></div>
+      <div id="move-panel-category"></div>
+    </div>
+
+    <div class="move-panel-stats">
+      <div class="move-stat-item">
+        <span class="move-stat-label">Power</span>
+        <span id="move-panel-power" class="move-stat-value"></span>
+      </div>
+      <div class="move-stat-item">
+        <span class="move-stat-label">Accuracy</span>
+        <span id="move-panel-accuracy" class="move-stat-value"></span>
+      </div>
+      <div class="move-stat-item">
+        <span class="move-stat-label">PP</span>
+        <span id="move-panel-pp" class="move-stat-value"></span>
+      </div>
+    </div>
+
+    <div id="move-effect-section" class="panel-section">
+      <h3>Effect</h3>
+      <p id="move-panel-effect"></p>
+    </div>
+
+    <div class="panel-section">
+      <h3>Description</h3>
+      <p id="move-panel-description"></p>
+    </div>
+
+    <div class="panel-section">
+      <h3>Pokémon with this move</h3>
+      <div id="move-panel-pokemon"></div>
+    </div>
+
+  </div>
+</div>
+
 <div id="ability-panel" class="ability-panel">
 
     <div class="ability-panel-header">
@@ -206,6 +253,7 @@
   <script src="/JavaScript/location-data.js"></script>
   <script src="/JavaScript/ability-panel.js"></script>
   <script src="/JavaScript/pokemon-panel.js"></script>
+  <script src="/JavaScript/move-panel.js"></script>
   <script src="/JavaScript/script.js"></script>
   <script src="/JavaScript/search-bar.js"></script>
 </body>

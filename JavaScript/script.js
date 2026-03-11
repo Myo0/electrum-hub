@@ -121,6 +121,20 @@ function initSorters(sectionId) {
 
 
 document.addEventListener('click', (e) => {
+  const moveRow = e.target.closest('.move-row');
+  if (moveRow) {
+    const moveName = moveRow.querySelector('.col-name').textContent.trim();
+    const move = window.moveData.find(m => m.name === moveName);
+    if (!move) return;
+
+    document.querySelectorAll('.move-row').forEach(r => r.classList.remove('active'));
+    moveRow.classList.add('active');
+    window.openMovePanel(move);
+    return;
+  }
+});
+
+document.addEventListener('click', (e) => {
 const row = e.target.closest('.pokemon-row');
 if (!row) return;
 

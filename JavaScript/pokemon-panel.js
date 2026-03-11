@@ -67,6 +67,7 @@ function renderStatTable(stats, level = 100) {
 }
 
 function renderDetail(p) {
+
   document.getElementById('detail-name').textContent = p.name;
   document.getElementById('detail-dex').textContent  = `#${p.number}`;
 

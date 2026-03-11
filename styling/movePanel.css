@@ -1,0 +1,234 @@
+#move-panel {
+  position: fixed;
+  top: 6.6rem;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  background: #fff;
+  box-shadow: 4px 0 12px rgba(0,0,0,0.2);
+  transition: width 0.3s ease;
+  z-index: 250;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#move-panel.open {
+  width: 35%;
+}
+
+.move-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.2rem;
+  background: #222;
+  border-left: 4px solid #dc3545;
+}
+
+.move-panel-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #dc3545;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  letter-spacing: 0.03em;
+}
+
+.move-panel-close {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: #aaa;
+  transition: color 0.15s ease;
+}
+
+.move-panel-close:hover {
+  color: #fff;
+}
+
+.move-panel-divider {
+  height: 1px;
+  background: #ddd;
+}
+
+.move-panel-content {
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+/* Type + category row */
+.move-panel-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.category-badge {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #fff;
+}
+
+.category-badge.physical { background: #C92112; }
+.category-badge.special  { background: #4E60C8; }
+.category-badge.status   { background: #8C888C; }
+
+/* Power / Accuracy / PP cards */
+.move-panel-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.move-stat-item {
+  background: #f7f7f7;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 0.5rem 0.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.move-stat-label {
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #888;
+}
+
+.move-stat-value {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #222;
+}
+
+/* Section headers */
+#move-panel .panel-section {
+  margin-bottom: 1.25rem;
+}
+
+#move-panel .panel-section h3 {
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #555;
+  background: #f0f0f0;
+  border-left: 3px solid #dc3545;
+  padding: 0.3rem 0.6rem;
+  margin: 0 0 0.6rem 0;
+}
+
+/* Effect + description cards */
+#move-panel-effect,
+#move-panel-description {
+  background: #f7f7f7;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem;
+  margin: 0;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* DARK MODE */
+body.dark-mode #move-panel {
+  background: #1e1e1e;
+  color: #f5f5f5;
+}
+
+body.dark-mode .move-panel-header {
+  background: #111;
+}
+
+body.dark-mode .move-panel-divider {
+  background: #444;
+}
+
+body.dark-mode .move-panel-close {
+  color: #fff;
+}
+
+body.dark-mode #move-panel .panel-section h3 {
+  background: #2a2a2a;
+  color: #ccc;
+  border-left-color: #dc3545;
+}
+
+body.dark-mode .move-stat-item {
+  background: #252525;
+  border-color: #3a3a3a;
+}
+
+body.dark-mode .move-stat-label {
+  color: #777;
+}
+
+body.dark-mode .move-stat-value {
+  color: #eee;
+}
+
+body.dark-mode #move-panel-effect,
+body.dark-mode #move-panel-description {
+  background: #252525;
+  border-color: #3a3a3a;
+  color: #ddd;
+}
+
+/* Pokémon with this move rows */
+#move-panel .pokemon-row {
+  display: grid !important;
+  grid-template-columns:
+    70px     /* sprite + number */
+    90px     /* name */
+    80px     /* types */
+    55px     /* level learned */
+    repeat(6, 35px)  /* stats */
+    45px;    /* BST */
+  gap: 4px !important;
+  padding: 4px 2px !important;
+  font-size: 0.75rem;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom: 1px solid #e8e8e8;
+  transition: background 0.15s ease;
+}
+
+#move-panel .pokemon-row:last-child {
+  border-bottom: none;
+}
+
+#move-panel .pokemon-row:hover {
+  background: #fdf0f1;
+}
+
+#move-panel .pokemon-row .col-types {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+#move-panel .pokemon-row .type-badge {
+  font-size: 0.65rem;
+  padding: 2px 4px;
+}
+
+body.dark-mode #move-panel .pokemon-row {
+  border-bottom-color: #2e2e2e;
+}
+
+body.dark-mode #move-panel .pokemon-row:hover {
+  background: #2a1f20;
+}
