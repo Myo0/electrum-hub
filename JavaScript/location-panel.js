@@ -162,15 +162,64 @@ function renderTrainers(trainers) {
         `<span class="team-move move-link" data-move="${m}">${m}</span>`
       ).join('');
 
+      const spriteSlug = p.name.toLowerCase();
+      const pkmnData = window.pokemonData && window.pokemonData.find(
+        pk => pk.name.toLowerCase() === p.name.toLowerCase()
+      );
+      const cardTypesArr = pkmnData ? (Array.isArray(pkmnData.types) ? pkmnData.types : [pkmnData.types]) : [];
+      const cardTypesHtml = cardTypesArr.map(t => `<span class="type-badge ${t.toLowerCase()}">${t}</span>`).join('');
+
+      const s = pkmnData && pkmnData.stats ? pkmnData.stats : null;
+      const statDefs = [
+        { key: 'hp',  label: 'HP'  },
+        { key: 'atk', label: 'Atk' },
+        { key: 'def', label: 'Def' },
+        { key: 'spa', label: 'SpA' },
+        { key: 'spd', label: 'SpD' },
+        { key: 'spe', label: 'Spe' },
+      ];
+      const statsHtml = s ? `
+        <div class="team-stat-bars">
+          ${statDefs.map(({ key, label }) => {
+            const val = s[key] ?? 0;
+            const pct = Math.min(100, Math.round((val / 255) * 100));
+            const color = val >= 100 ? '#4caf50' : val >= 60 ? '#f39c12' : '#dc3545';
+            return `<div class="team-stat-row">
+              <span class="team-stat-label">${label}</span>
+              <div class="team-stat-bar"><div class="team-stat-fill" style="width:${pct}%;background:${color}"></div></div>
+              <span class="team-stat-value">${val}</span>
+            </div>`;
+          }).join('')}
+        </div>` : '';
+
+      const ivs = p.ivs || {};
+      const ivsHtml = `
+        <div class="team-iv-col">
+          ${statDefs.map(({ key, label }) => {
+            const val = ivs[key] ?? 31;
+            const color = val === 31 ? '#4caf50' : val >= 20 ? '#f39c12' : '#dc3545';
+            return `<div class="team-iv-row">
+              <span class="team-iv-label">${label}</span>
+              <span class="team-iv-value" style="color:${color}">${val}</span>
+            </div>`;
+          }).join('')}
+        </div>`;
+
       card.innerHTML = `
-        <div class="team-pokemon-name">${p.name}</div>
-        <div class="team-pokemon-level">Lv. ${p.level ?? '?'}</div>
-        <div class="team-pokemon-details">
-          <span class="team-detail-label">Held Item</span><span>${itemHtml}</span>
-          <span class="team-detail-label">Ability</span><span>${abilityHtml}</span>
-          <span class="team-detail-label">Nature</span><span>${natureHtml}</span>
-          <span class="team-detail-label">Status</span><span>${statusHtml}</span>
+        <img class="team-pokemon-sprite" src="/assets/front/${spriteSlug}.png" alt="" onerror="this.style.display='none'">
+        <div class="team-pokemon-info">
+          <div class="team-pokemon-name">${p.name}</div>
+          ${cardTypesHtml ? `<div class="team-pokemon-types">${cardTypesHtml}</div>` : ''}
+          <div class="team-pokemon-level">Lv. ${p.level ?? '?'}</div>
+          <div class="team-pokemon-details">
+            <span class="team-detail-label">Held Item</span><span>${itemHtml}</span>
+            <span class="team-detail-label">Ability</span><span>${abilityHtml}</span>
+            <span class="team-detail-label">Nature</span><span>${natureHtml}</span>
+            <span class="team-detail-label">Status</span><span>${statusHtml}</span>
+          </div>
         </div>
+        ${ivsHtml}
+        ${statsHtml}
         <div class="team-moves">${movesHtml}</div>
       `;
 
@@ -197,7 +246,7 @@ document.addEventListener('click', e => {
   const move = window.moveData && window.moveData.find(m => m.name === moveName);
   if (!move) return;
   document.querySelectorAll('.move-row').forEach(r => r.classList.remove('active'));
-  window.openMovePanel(move);
+  window.openMovePanel(move, true);
 });
 
 window.openLocationPanel = openLocationPanel;

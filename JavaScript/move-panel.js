@@ -2,16 +2,21 @@ const movePanel = document.getElementById('move-panel');
 const movePanelClose = document.getElementById('move-panel-close');
 
 movePanelClose.addEventListener('click', () => {
-    movePanel.classList.remove('open');
+    movePanel.classList.remove('open', 'open-right');
     document.querySelectorAll('.move-row').forEach(r => r.classList.remove('active'));
 });
 
-function openMovePanel(move) {
-    // Left-side mutual exclusivity
-    document.getElementById('ability-panel').classList.remove('open');
-    document.querySelectorAll('.ability-row').forEach(r => r.classList.remove('active'));
-    document.getElementById('location-panel').classList.remove('open');
-    document.querySelectorAll('.location-row').forEach(r => r.classList.remove('active'));
+function openMovePanel(move, fromRight = false) {
+    if (fromRight) {
+        movePanel.classList.add('open-right');
+    } else {
+        // Left-side mutual exclusivity
+        document.getElementById('ability-panel').classList.remove('open');
+        document.querySelectorAll('.ability-row').forEach(r => r.classList.remove('active'));
+        document.getElementById('location-panel').classList.remove('open');
+        document.querySelectorAll('.location-row').forEach(r => r.classList.remove('active'));
+        movePanel.classList.remove('open-right');
+    }
 
     movePanel.classList.add('open');
 

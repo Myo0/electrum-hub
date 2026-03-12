@@ -235,47 +235,176 @@ body.dark-mode .enc-abilities {
   background: #f7f7f7;
   border: 1px solid #e8e8e8;
   border-radius: 6px;
-  padding: 0.55rem 0.75rem;
+  padding: 0.4rem 0.6rem;
   margin-bottom: 0.5rem;
   font-size: 0.82rem;
+  display: grid;
+  grid-template-columns: 80px auto auto 1fr auto;
+  gap: 0 0;
+  align-items: stretch;
+}
+
+.team-pokemon-sprite {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  align-self: center;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: radial-gradient(circle at center, #f8f8f8 0%, #e4e4e4 100%);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  padding: 4px;
+}
+
+.team-pokemon-info {
+  min-width: 0;
+  border-right: 1px solid #e0e0e0;
+  padding: 0 0.6rem 0 0.5rem;
 }
 
 .team-pokemon-name {
   font-weight: 700;
   font-size: 0.92rem;
   color: #222;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.15rem;
 }
 
 .team-pokemon-level {
   font-size: 0.78rem;
   color: #666;
   font-weight: 600;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.2rem;
+}
+
+.team-pokemon-types {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 0.25rem;
 }
 
 .team-pokemon-details {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.15rem 0.5rem;
-  margin-bottom: 0.35rem;
-  font-size: 0.8rem;
+  grid-template-columns: auto 1fr;
+  gap: 0.1rem 0.4rem;
+  font-size: 0.78rem;
   color: #555;
+}
+
+.team-pokemon-details > span:not(.team-detail-label) {
+  white-space: nowrap;
 }
 
 .team-detail-label {
   font-weight: 600;
   color: #888;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
+  white-space: nowrap;
 }
+
+.team-iv-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: stretch;
+  padding: 0 0.6rem;
+  border-right: 1px solid #e0e0e0;
+}
+
+.team-iv-row {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-bottom: 0.1rem;
+}
+
+.team-iv-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #888;
+  width: 2.2rem;
+  text-align: right;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.team-iv-value {
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1;
+  width: 1.4rem;
+  text-align: right;
+}
+
+body.dark-mode .team-pokemon-info { border-right-color: #3a3a3a; }
+body.dark-mode .team-iv-col { border-right-color: #3a3a3a; }
+body.dark-mode .team-stat-bars { border-right-color: #3a3a3a; }
+body.dark-mode .team-iv-label { color: #777; }
+
+.team-stat-bars {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: stretch;
+  padding: 0 0.6rem;
+  border-right: 1px solid #e0e0e0;
+}
+
+.team-stat-row {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-bottom: 0.1rem;
+}
+
+.team-stat-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #888;
+  width: 2.2rem;
+  text-align: right;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.team-stat-bar {
+  flex: 1;
+  height: 5px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.team-stat-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.team-stat-value {
+  font-size: 0.72rem;
+  color: #666;
+  width: 1.6rem;
+  text-align: right;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+body.dark-mode .team-stat-bar { background: #3a3a3a; }
+body.dark-mode .team-stat-label { color: #777; }
+body.dark-mode .team-stat-value { color: #999; }
 
 .team-moves {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.25rem;
-  margin-top: 0.35rem;
+  flex-direction: column;
+  gap: 0.2rem;
+  align-items: flex-end;
+  justify-content: center;
+  align-self: stretch;
+  padding-left: 0.6rem;
+  min-width: 90px;
 }
 
 .team-move {
@@ -355,6 +484,11 @@ body.dark-mode .trainer-toggle { color: #777; }
 body.dark-mode .team-pokemon-card {
   background: #252525;
   border-color: #3a3a3a;
+}
+body.dark-mode .team-pokemon-sprite {
+  border-color: #444;
+  background: radial-gradient(circle at center, #2e2e2e 0%, #222 100%);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
 body.dark-mode .team-pokemon-name { color: #eee; }
 body.dark-mode .team-pokemon-level { color: #999; }

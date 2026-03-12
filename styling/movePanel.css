@@ -16,6 +16,16 @@
   width: 35%;
 }
 
+#move-panel.open-right {
+  left: auto;
+  right: 0;
+  box-shadow: -4px 0 12px rgba(0,0,0,0.2);
+}
+
+body.dark-mode #move-panel.open-right {
+  box-shadow: -4px 0 12px rgba(0,0,0,0.4);
+}
+
 .move-panel-header {
   display: flex;
   justify-content: space-between;
