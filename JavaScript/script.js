@@ -314,6 +314,12 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="location-description">${location.description || ''}</div>
     `;
 
+    row.addEventListener('click', () => {
+      document.querySelectorAll('.location-row').forEach(r => r.classList.remove('active'));
+      row.classList.add('active');
+      window.openLocationPanel(location);
+    });
+
     locationList.appendChild(row);
   });
 

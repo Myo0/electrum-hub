@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="styling/movePanel.css">
   <link rel="stylesheet" href="styling/abilitiesList.css">
   <link rel="stylesheet" href="styling/locationsList.css">
+  <link rel="stylesheet" href="styling/locationPanel.css">
   <link rel="icon" type="image/x-icon" href="assets/logo.png">
 </head>
 <body>
@@ -247,6 +248,27 @@
 
 </div>
 
+<!-- LOCATION PANEL -->
+<div id="location-panel">
+  <div class="location-panel-header">
+    <div id="location-panel-title" class="location-panel-title"></div>
+    <button id="location-panel-close" class="location-panel-close">✕</button>
+  </div>
+  <div class="location-panel-content">
+    <p id="location-panel-description"></p>
+
+    <div id="location-encounters-section">
+      <h3>Wild Encounters</h3>
+      <div id="location-panel-encounters"></div>
+    </div>
+
+    <div id="location-trainers-section">
+      <h3>Trainers</h3>
+      <div id="location-panel-trainers"></div>
+    </div>
+  </div>
+</div>
+
   <script src="/JavaScript/move-data.js"></script>
   <script src="/JavaScript/pokemon-data.js"></script>
   <script src="/JavaScript/ability-data.js"></script>
@@ -254,6 +276,7 @@
   <script src="/JavaScript/ability-panel.js"></script>
   <script src="/JavaScript/pokemon-panel.js"></script>
   <script src="/JavaScript/move-panel.js"></script>
+  <script src="/JavaScript/location-panel.js"></script>
   <script src="/JavaScript/script.js"></script>
   <script src="/JavaScript/search-bar.js"></script>
 </body>

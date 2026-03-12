@@ -1,0 +1,377 @@
+/* ============================================================
+   Location Detail Panel  (right side, same slot as Pokémon panel)
+   ============================================================ */
+
+#location-panel {
+  position: fixed;
+  top: 6.6rem;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  background: #fff;
+  box-shadow: 4px 0 12px rgba(0,0,0,0.2);
+  transition: width 0.3s ease;
+  z-index: 260; /* above move panel (250) and ability panel (200) */
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#location-panel.open {
+  width: 40%;
+}
+
+/* ---- Header ---- */
+.location-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.2rem;
+  background: #222;
+  border-left: 4px solid #dc3545;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.location-panel-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #dc3545;
+  text-shadow: 0 1px 4px rgba(220,53,69,0.25);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.location-panel-close {
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 0 0.2rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.location-panel-close:hover { color: #fff; }
+
+/* ---- Content ---- */
+.location-panel-content {
+  padding: 1rem 1.2rem;
+  font-size: 0.9rem;
+}
+
+/* Description card */
+#location-panel-description {
+  background: #f7f7f7;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 0.65rem 0.85rem;
+  margin-bottom: 1.2rem;
+  color: #444;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+/* ---- Section headers ---- */
+.location-panel-content h3 {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #555;
+  background: #f0f0f0;
+  border-left: 3px solid #dc3545;
+  padding: 0.3rem 0.6rem;
+  margin: 1.1rem 0 0.6rem;
+  border-radius: 0 3px 3px 0;
+}
+
+/* ---- Encounter method tabs ---- */
+.enc-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 0.75rem;
+}
+
+.enc-tab {
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #444;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.enc-tab:hover,
+.enc-tab.active {
+  background: #dc3545;
+  color: #fff;
+  border-color: #dc3545;
+}
+
+/* ---- Encounter table ---- */
+.enc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+
+.enc-table thead tr {
+  background: #222;
+  color: #fff;
+}
+.enc-table thead th {
+  padding: 0.35rem 0.5rem;
+  font-weight: 600;
+  text-align: left;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.enc-table thead th:first-child { color: #f08090; }
+
+.enc-table tbody tr {
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+.enc-table tbody tr:hover { background: #fdf0f1; }
+
+.enc-table td {
+  padding: 0.3rem 0.5rem;
+  vertical-align: middle;
+}
+
+.enc-rate {
+  font-weight: 600;
+  color: #dc3545;
+  white-space: nowrap;
+}
+
+.enc-level {
+  color: #666;
+  white-space: nowrap;
+}
+
+.enc-pkmn-name {
+  font-weight: 500;
+}
+
+.enc-name-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.enc-pkmn-icon {
+  width: 40px;
+  height: 30px;
+  image-rendering: pixelated;
+  flex-shrink: 0;
+}
+
+.enc-types-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: flex-start;
+}
+
+.enc-abilities {
+  font-size: 0.78rem;
+  color: #555;
+}
+
+body.dark-mode .enc-abilities {
+  color: #aaa;
+}
+
+/* ---- Trainer list ---- */
+.trainer-item {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.trainer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.4rem;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.12s;
+  border-radius: 4px;
+}
+.trainer-header:hover { background: #fdf0f1; }
+
+.trainer-name {
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: #333;
+}
+
+.trainer-toggle {
+  font-size: 0.75rem;
+  color: #aaa;
+  transition: transform 0.2s;
+}
+.trainer-item.open .trainer-toggle {
+  transform: rotate(180deg);
+}
+
+.trainer-team {
+  display: none;
+  padding: 0.4rem 0.2rem 0.6rem;
+}
+.trainer-item.open .trainer-team {
+  display: block;
+}
+
+/* ---- Team Pokémon cards ---- */
+.team-pokemon-card {
+  background: #f7f7f7;
+  border: 1px solid #e8e8e8;
+  border-radius: 6px;
+  padding: 0.55rem 0.75rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.82rem;
+}
+
+.team-pokemon-name {
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: #222;
+  margin-bottom: 0.25rem;
+}
+
+.team-pokemon-level {
+  font-size: 0.78rem;
+  color: #666;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.team-pokemon-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.15rem 0.5rem;
+  margin-bottom: 0.35rem;
+  font-size: 0.8rem;
+  color: #555;
+}
+
+.team-detail-label {
+  font-weight: 600;
+  color: #888;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.team-moves {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-top: 0.35rem;
+}
+
+.team-move {
+  background: #eee;
+  border-radius: 3px;
+  padding: 0.15rem 0.45rem;
+  font-size: 0.75rem;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s;
+  border: 1px solid #ddd;
+}
+.team-move:hover {
+  background: #dc3545;
+  color: #fff;
+  border-color: #dc3545;
+}
+
+.team-pokemon-card .ability-link {
+  color: #dc3545;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+.team-pokemon-card .ability-link:hover {
+  text-decoration: underline;
+}
+
+/* ---- Dark mode ---- */
+body.dark-mode #location-panel {
+  background: #1e1e1e;
+  color: #f5f5f5;
+}
+
+body.dark-mode .location-panel-header {
+  background: #111;
+}
+
+body.dark-mode .location-panel-close {
+  color: #fff;
+}
+
+body.dark-mode .location-panel-content h3 {
+  background: #2a2a2a;
+  color: #ccc;
+  border-left-color: #dc3545;
+}
+
+body.dark-mode #location-panel-description {
+  background: #252525;
+  border-color: #3a3a3a;
+  color: #ddd;
+}
+
+body.dark-mode .enc-tab {
+  background: #2a2a2a;
+  border-color: #444;
+  color: #ccc;
+}
+body.dark-mode .enc-tab:hover,
+body.dark-mode .enc-tab.active {
+  background: #dc3545;
+  color: #fff;
+  border-color: #dc3545;
+}
+
+body.dark-mode .enc-table thead tr { background: #111; }
+body.dark-mode .enc-table tbody tr { border-bottom-color: #2a2a2a; }
+body.dark-mode .enc-table tbody tr:hover { background: #2a1a1c; }
+body.dark-mode .enc-table td { color: #ccc; }
+
+body.dark-mode .trainer-item { border-bottom-color: #333; }
+body.dark-mode .trainer-header:hover { background: #2a1a1c; }
+body.dark-mode .trainer-name { color: #ddd; }
+body.dark-mode .trainer-toggle { color: #777; }
+
+body.dark-mode .team-pokemon-card {
+  background: #252525;
+  border-color: #3a3a3a;
+}
+body.dark-mode .team-pokemon-name { color: #eee; }
+body.dark-mode .team-pokemon-level { color: #999; }
+body.dark-mode .team-pokemon-details { color: #bbb; }
+body.dark-mode .team-detail-label { color: #777; }
+
+body.dark-mode .team-moves .team-move {
+  background: #333;
+  border-color: #444;
+  color: #ccc;
+}
+body.dark-mode .team-moves .team-move:hover {
+  background: #dc3545;
+  color: #fff;
+  border-color: #dc3545;
+}
+
+body.dark-mode .team-pokemon-card .ability-link {
+  color: #f08090;
+}

@@ -7,9 +7,11 @@ movePanelClose.addEventListener('click', () => {
 });
 
 function openMovePanel(move) {
-    // Close ability panel (left-side mutual exclusivity)
+    // Left-side mutual exclusivity
     document.getElementById('ability-panel').classList.remove('open');
     document.querySelectorAll('.ability-row').forEach(r => r.classList.remove('active'));
+    document.getElementById('location-panel').classList.remove('open');
+    document.querySelectorAll('.location-row').forEach(r => r.classList.remove('active'));
 
     movePanel.classList.add('open');
 
