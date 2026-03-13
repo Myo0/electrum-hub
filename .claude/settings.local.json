@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(/c/Users/corbi/AppData/Local/Programs/Python/Python311/python.exe //wsl.localhost/Ubuntu-Restore/tmp/gen_locations.py)",
-      "Bash(/c/Users/corbi/AppData/Local/Programs/Python/Python311/python.exe \"//wsl.localhost/Ubuntu-Restore/home/hgengine/electrum-hub/gen_locations.py\")"
-    ]
-  }
-}
