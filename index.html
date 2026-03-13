@@ -20,14 +20,19 @@
   <link rel="icon" type="image/x-icon" href="assets/logo.png">
 </head>
 <body>
-  <header class="logo"><span class="logo-electrum">Electrum</span><span class="logo-hub">Hub</span></header>
-
-  <nav class="main-nav">
-    <a href="index.html" class="active">Hub</a>
-    <a href="calculator.html">Calculator</a>
-    <a target ="_blank" href="https://docs.google.com/spreadsheets/d/1N0cg5vG_irsSNjaZxOeM4_eIba-nqkY9Zzcs1rYGbEs/edit?gid=665425777#gid=665425777">Trainers (Spreadsheet)</a>
-    <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
-  </nav>
+  <header class="logo">
+    <div class="header-side header-left">
+      <a href="calculator.html" class="header-icon-btn" title="Calculator">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 2v16h10V4H7zm2 2h6v2H9V6zm0 4h2v2H9v-2zm4 0h2v2h-2v-2zm-4 4h2v2H9v-2zm4 0h2v2h-2v-2z"/></svg>
+      </a>
+    </div>
+    <div class="logo-title">
+      <span class="logo-electrum">Electrum</span><span class="logo-hub">Hub</span>
+    </div>
+    <div class="header-side header-right">
+      <button id="theme-toggle" class="header-icon-btn" aria-label="Toggle dark mode">🌙</button>
+    </div>
+  </header>
 
   <div class="container">
     <nav class="sub-nav">
