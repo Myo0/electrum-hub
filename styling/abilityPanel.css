@@ -1,6 +1,6 @@
 .ability-panel {
   position: fixed;
-  top: 6.6rem;
+  top: 4rem;
   left: 0;
   bottom: 0;
   width: 0;
@@ -8,11 +8,15 @@
   box-shadow: 4px 0 12px rgba(0,0,0,0.2);
   transition: width 0.3s ease;
   z-index: 200;
-  overflow-y: auto;
+  overflow: hidden;
 }
 
 .ability-panel.open {
   width: 35%;
+}
+
+.ability-panel .panel-inner {
+  width: 35vw;
 }
 
 .ability-panel-header {

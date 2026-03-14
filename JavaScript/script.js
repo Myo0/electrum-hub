@@ -323,6 +323,29 @@ document.addEventListener('DOMContentLoaded', () => {
     locationList.appendChild(row);
   });
 
+  // items
+  const itemsList = document.getElementById('items-list');
+  if (itemsList && window.itemData) {
+    const sortedItems = [...window.itemData].sort((a, b) => a.name.localeCompare(b.name));
+
+    sortedItems.forEach(item => {
+      const row = document.createElement('div');
+      row.className = 'item-row';
+      row.innerHTML = `
+        <img class="item-icon" src="${item.icon}" alt="${item.name}" onerror="this.style.display='none'">
+        <div class="item-name">${item.name}</div>
+        <div class="item-effect">${item.effect}</div>
+        <div class="item-chevron">›››</div>
+      `;
+      row.addEventListener('click', () => {
+        document.querySelectorAll('.item-row').forEach(r => r.classList.remove('active'));
+        row.classList.add('active');
+        window.openItemPanel(item);
+      });
+      itemsList.appendChild(row);
+    });
+  }
+
   initSorters('pokemon-section');
   initSorters('moves-section');
 });

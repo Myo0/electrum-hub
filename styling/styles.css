@@ -7,6 +7,12 @@ html {
 }
 
 * { box-sizing: border-box; }
+
+.panel-inner {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -259,4 +265,24 @@ body.dark-mode .gen-header {
 
 body.dark-mode .pokemon-row:hover {
   background: #2a2a2a;
+}
+
+mark.search-highlight {
+  background: #ffe066;
+  border-radius: 2px;
+  padding: 0 1px;
+  font-style: normal;
+  color: inherit;
+}
+
+body.dark-mode mark.search-highlight {
+  background: #a07800;
+  color: #fff;
+}
+
+.search-no-results {
+  padding: 2rem;
+  text-align: center;
+  color: #888;
+  font-size: 0.95rem;
 }

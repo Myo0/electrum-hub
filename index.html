@@ -16,7 +16,11 @@
   <link rel="stylesheet" href="styling/movePanel.css">
   <link rel="stylesheet" href="styling/abilitiesList.css">
   <link rel="stylesheet" href="styling/locationsList.css">
+  <link rel="stylesheet" href="styling/itemsList.css">
+  <link rel="stylesheet" href="styling/itemPanel.css">
   <link rel="stylesheet" href="styling/locationPanel.css">
+  <link rel="stylesheet" href="styling/typesList.css">
+  <link rel="stylesheet" href="styling/typePanel.css">
   <link rel="icon" type="image/x-icon" href="assets/logo.png">
 </head>
 <body>
@@ -41,10 +45,12 @@
       <button data-section="location">Locations</button>
       <button data-section="moves">Moves</button>
       <button data-section="abilities">Abilities</button>
+      <button data-section="items">Items</button>
     </nav>
 
     <section id="search-section" class="content-section active">
-      <input type="text" placeholder="Search Pokémon, moves, abilities, items, etc." class="search-bar">
+      <input type="text" placeholder="Search Pokémon, moves, abilities, items, locations, types, trainers, etc." class="search-bar">
+      <div id="search-results"></div>
     </section>
 
     <section id="pokemon-section" class="content-section">
@@ -107,10 +113,17 @@
 
     <div id="abilities-list"></div>
   </section>
+
+  <section id="items-section" class="content-section">
+    <div class="section-header">Items</div>
+    <input id="items-search" type="text" placeholder="Search items…" class="search-bar">
+    <div id="items-list"></div>
+  </section>
   </div>
 
 <!-- DETAIL PANEL -->
 <aside id="pokemon-detail-panel" class="closed">
+  <div class="panel-inner">
   <header>
     <div class="detail-header-left">
       <h2 id="detail-name">Bulbasaur</h2>
@@ -171,9 +184,11 @@
       <ul id="detail-learnlist"></ul>
     </section>
   </div>
+  </div>
 </aside>
 
 <div id="move-panel">
+  <div class="panel-inner">
   <div class="move-panel-header">
     <div id="move-panel-name" class="move-panel-title"></div>
     <button id="move-panel-close" class="move-panel-close">✕</button>
@@ -217,10 +232,11 @@
     </div>
 
   </div>
+  </div>
 </div>
 
 <div id="ability-panel" class="ability-panel">
-
+  <div class="panel-inner">
     <div class="ability-panel-header">
       <div id="ability-panel-name" class="ability-panel-title"></div>
       <button id="ability-panel-close" class="ability-panel-close">✕</button>
@@ -251,11 +267,13 @@
       </div>
 
     </div>
+  </div>
 
 </div>
 
 <!-- LOCATION PANEL -->
 <div id="location-panel">
+  <div class="panel-inner">
   <div class="location-panel-header">
     <div id="location-panel-title" class="location-panel-title"></div>
     <button id="location-panel-close" class="location-panel-close">✕</button>
@@ -273,8 +291,58 @@
       <div id="location-panel-trainers"></div>
     </div>
   </div>
+  </div>
 </div>
 
+  <div id="item-panel">
+    <div class="panel-inner">
+    <div class="item-panel-header">
+      <div id="item-panel-name" class="item-panel-title"></div>
+      <button id="item-panel-close" class="item-panel-close">✕</button>
+    </div>
+    <div class="item-panel-divider"></div>
+    <div class="item-panel-content">
+      <div class="item-panel-icon-wrap">
+        <img id="item-panel-icon" src="" alt="" class="item-panel-icon">
+      </div>
+      <p id="item-panel-effect" class="item-panel-effect-text"></p>
+    </div>
+    </div>
+  </div>
+
+
+<div id="type-panel">
+  <div class="panel-inner">
+    <div class="type-panel-header">
+      <div id="type-panel-badge"></div>
+      <button id="type-panel-close" class="type-panel-close">✕</button>
+    </div>
+    <div class="type-panel-content">
+      <div class="type-panel-section">
+        <h3>Weaknesses</h3>
+        <div id="type-panel-weaknesses-list"></div>
+      </div>
+      <div class="type-panel-section">
+        <h3>Resistances</h3>
+        <div id="type-panel-resistances-list"></div>
+      </div>
+      <div class="type-panel-section">
+        <h3>Immunities</h3>
+        <div id="type-panel-immunities-content"></div>
+      </div>
+      <div class="type-panel-tabs">
+        <button class="type-tab-btn active" data-tab="moves">Moves</button>
+        <button class="type-tab-btn" data-tab="pokemon">Pokémon</button>
+      </div>
+      <div id="type-panel-moves-list" class="type-tab-content active"></div>
+      <div id="type-panel-pokemon-list" class="type-tab-content"></div>
+    </div>
+  </div>
+</div>
+
+  <script src="/JavaScript/type-data.js"></script>
+  <script src="/JavaScript/item-data.js"></script>
+  <script src="/JavaScript/item-panel.js"></script>
   <script src="/JavaScript/move-data.js"></script>
   <script src="/JavaScript/pokemon-data.js"></script>
   <script src="/JavaScript/ability-data.js"></script>
@@ -283,6 +351,7 @@
   <script src="/JavaScript/pokemon-panel.js"></script>
   <script src="/JavaScript/move-panel.js"></script>
   <script src="/JavaScript/location-panel.js"></script>
+  <script src="/JavaScript/type-panel.js"></script>
   <script src="/JavaScript/script.js"></script>
   <script src="/JavaScript/search-bar.js"></script>
 </body>

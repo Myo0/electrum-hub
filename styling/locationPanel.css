@@ -4,7 +4,7 @@
 
 #location-panel {
   position: fixed;
-  top: 6.6rem;
+  top: 4rem;
   left: 0;
   bottom: 0;
   width: 0;
@@ -12,12 +12,15 @@
   box-shadow: 4px 0 12px rgba(0,0,0,0.2);
   transition: width 0.3s ease;
   z-index: 260; /* above move panel (250) and ability panel (200) */
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 #location-panel.open {
   width: 40%;
+}
+
+#location-panel .panel-inner {
+  width: 40vw;
 }
 
 /* ---- Header ---- */

@@ -1,6 +1,6 @@
 #pokemon-detail-panel {
   position: fixed;
-  top: 6.6rem;
+  top: 4rem;
   right: 0;
   bottom: 0;
   width: 40%;
@@ -8,11 +8,14 @@
   box-shadow: -4px 0 12px rgba(0,0,0,0.2);
   transition: width 0.3s ease;
   z-index: 300;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 #pokemon-detail-panel.open {
   width: var(--panel-width);
+}
+
+#pokemon-detail-panel .panel-inner {
+  width: 40vw;
 }
 #pokemon-detail-panel header {
   display: flex;

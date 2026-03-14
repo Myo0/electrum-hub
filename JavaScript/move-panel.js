@@ -15,6 +15,10 @@ function openMovePanel(move, fromRight = false) {
         document.querySelectorAll('.ability-row').forEach(r => r.classList.remove('active'));
         document.getElementById('location-panel').classList.remove('open');
         document.querySelectorAll('.location-row').forEach(r => r.classList.remove('active'));
+        document.getElementById('item-panel').classList.remove('open');
+        document.querySelectorAll('.item-row').forEach(r => r.classList.remove('active'));
+        document.getElementById('type-panel').classList.remove('open');
+        document.querySelectorAll('.type-row').forEach(r => r.classList.remove('active'));
         movePanel.classList.remove('open-right');
     }
 

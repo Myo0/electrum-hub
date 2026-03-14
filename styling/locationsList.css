@@ -25,3 +25,44 @@
 body.dark-mode .location-description {
   color: #ccc;
 }
+
+/* Trainer search rows */
+.trainer-search-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.trainer-search-row:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.trainer-search-row.active {
+  background: rgba(0, 200, 255, 0.08);
+}
+
+.trainer-search-name {
+  font-weight: 600;
+}
+
+.trainer-search-location {
+  font-size: 0.85rem;
+  color: #666;
+  text-align: right;
+}
+
+body.dark-mode .trainer-search-row {
+  border-bottom-color: #ddd;
+}
+
+body.dark-mode .trainer-search-row:hover {
+  background: #2a2a2a;
+}
+
+body.dark-mode .trainer-search-location {
+  color: #aaa;
+}

@@ -1,0 +1,28 @@
+.type-row {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.type-row:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.type-row.active {
+  background: rgba(0, 200, 255, 0.08);
+}
+
+body.dark-mode .type-row {
+  border-bottom-color: #ddd;
+}
+
+body.dark-mode .type-row:hover {
+  background: #2a2a2a;
+}
+
+body.dark-mode .type-row.active {
+  background: rgba(0, 200, 255, 0.08);
+}

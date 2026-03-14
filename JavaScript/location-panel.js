@@ -6,12 +6,16 @@ locationPanelClose.addEventListener('click', () => {
   document.querySelectorAll('.location-row').forEach(r => r.classList.remove('active'));
 });
 
-function openLocationPanel(location) {
+function openLocationPanel(location, expandTrainerName) {
   // Left-side mutual exclusivity: close ability panel and move panel
   document.getElementById('ability-panel').classList.remove('open');
   document.querySelectorAll('.ability-row').forEach(r => r.classList.remove('active'));
   document.getElementById('move-panel').classList.remove('open');
   document.querySelectorAll('.move-row').forEach(r => r.classList.remove('active'));
+  document.getElementById('item-panel').classList.remove('open');
+  document.querySelectorAll('.item-row').forEach(r => r.classList.remove('active'));
+  document.getElementById('type-panel').classList.remove('open');
+  document.querySelectorAll('.type-row').forEach(r => r.classList.remove('active'));
 
   locationPanel.classList.add('open');
 
@@ -24,6 +28,18 @@ function openLocationPanel(location) {
 
   // Trainers
   renderTrainers(location.trainers || []);
+
+  if (expandTrainerName) {
+    const container = document.getElementById('location-panel-trainers');
+    const items = container.querySelectorAll('.trainer-item');
+    items.forEach(item => {
+      const name = item.querySelector('.trainer-name')?.textContent;
+      if (name === expandTrainerName) {
+        item.classList.add('open');
+        item.scrollIntoView({ block: 'nearest' });
+      }
+    });
+  }
 }
 
 // ---- Encounters ----

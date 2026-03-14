@@ -13,6 +13,10 @@ function openAbilityPanel(ability) {
     document.querySelectorAll('.move-row').forEach(r => r.classList.remove('active'));
     document.getElementById('location-panel').classList.remove('open');
     document.querySelectorAll('.location-row').forEach(r => r.classList.remove('active'));
+    document.getElementById('item-panel').classList.remove('open');
+    document.querySelectorAll('.item-row').forEach(r => r.classList.remove('active'));
+    document.getElementById('type-panel').classList.remove('open');
+    document.querySelectorAll('.type-row').forEach(r => r.classList.remove('active'));
 
     abilityPanel.classList.add("open");
 
