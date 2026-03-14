@@ -184,4 +184,46 @@
     .pokemon-sprite.vileplume {
         background-position: -360px   -90px;
     }
+    .pokemon-sprite.paras {
+        background-position: -400px   -90px;
+    }
+    .pokemon-sprite.parasect {
+        background-position: -440px   -90px;
+    }
+    .pokemon-sprite.venonat {
+        background-position: 0   -120px;
+    }
+    .pokemon-sprite.venomoth {
+        background-position: -40px   -120px;
+    }
+    .pokemon-sprite.diglett {
+        background-position: -80px   -120px;
+    }
+    .pokemon-sprite.dugtrio {
+        background-position: -120px   -120px;
+    }
+    .pokemon-sprite.meowth {
+        background-position: -160px   -120px;
+    }
+    .pokemon-sprite.persian {
+        background-position: -200px   -120px;
+    }
+    .pokemon-sprite.alolan-meowth {
+        background-position: -320px   -2880px;
+    }
+    .pokemon-sprite.alolan-persian {
+        background-position: -360px   -2880px;
+    }
+    .pokemon-sprite.galarian-meowth {
+        background-position: -400px   -2970px;
+    }
+    .pokemon-sprite.psyduck {
+        background-position: -240px   -120px;
+    }
+    .pokemon-sprite.golduck {
+        background-position: -280px   -120px;
+    }
+    .pokemon-sprite.perrserker {
+        background-position: -440px   -2130px;
+    }
   }

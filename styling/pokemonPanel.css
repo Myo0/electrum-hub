@@ -108,8 +108,24 @@
   margin-bottom: 0.75rem;
 }
 
+.detail-left {
+  flex: 1;
+  min-width: 0;
+}
+.detail-right {
+  flex-shrink: 0;
+}
 #detail-abilities {
   margin-top: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.4rem;
+  align-items: center;
+  overflow: hidden;
+}
+.ability-link {
+  font-size: 0.8rem;
+  white-space: nowrap;
 }
 
 .detail-section {
@@ -132,39 +148,95 @@
   width: 32px; height: 32px; margin: 0 0.5rem; cursor: pointer;
   image-rendering: pixelated;
 }
-#detail-learnset ul {
+#detail-learnset ul,
+#detail-tmset ul,
+#detail-tutorset ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-#detail-learnset li {
-  display: flex;
+/* Hide TM/HM and Tutor sections when empty */
+#detail-tmset:not(:has(li)),
+#detail-tutorset:not(:has(li)) {
+  display: none;
+}
+
+/* TM/HM and Tutor rows: 7 columns (no Lv column) */
+#detail-tmlist .move-row,
+#detail-tutorlist .move-row,
+#detail-tmset .learnset-col-header,
+#detail-tutorset .learnset-col-header {
+  display: grid;
+  grid-template-columns:
+    minmax(8rem, 1.5fr)   /* Move */
+    5rem                  /* Type */
+    5rem                  /* Cat */
+    4rem                  /* Pwr */
+    4rem                  /* Acc */
+    4.5rem                /* PP */
+    minmax(6rem, 1fr);    /* Effect */
+  column-gap: 0.5rem;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.3rem 0.5rem;
-  border-bottom: 1px solid #eee;
-  transition: background 0.15s ease;
 }
 
-#detail-learnset li:last-child {
-  border-bottom: none;
-}
-
-#detail-learnset li:hover {
-  background: #fdf0f1;
-}
-
-#detail-learnset li span:first-child {
+.lv-badge {
   background: #dc3545;
   color: #fff !important;
   font-size: 0.7rem;
   font-weight: bold;
   padding: 0.15rem 0.45rem;
   border-radius: 4px;
-  min-width: 2.8rem;
   text-align: center;
-  flex-shrink: 0;
+  justify-self: start;
+}
+
+/* Learnset grid: prepend a Lv column before the standard move columns */
+#detail-learnlist .move-row,
+.learnset-col-header {
+  display: grid;
+  grid-template-columns:
+    3.5rem                /* Lv */
+    minmax(8rem, 1.5fr)   /* Move */
+    5rem                  /* Type */
+    5rem                  /* Cat */
+    4rem                  /* Pwr */
+    4rem                  /* Acc */
+    4.5rem                /* PP */
+    minmax(6rem, 1fr);    /* Effect */
+  column-gap: 0.5rem;
+  align-items: center;
+}
+
+.learnset-col-header {
+  padding: 0.4rem 0.5rem;
+  border-bottom: 2px solid #ccc;
+}
+
+.learnset-col-header span {
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #888;
+  justify-self: center;
+}
+
+.learnset-col-header span:first-child,
+.learnset-col-header span:nth-child(2) {
+  justify-self: start;
+}
+
+body.dark-mode .learnset-col-header {
+  border-bottom-color: #444;
+}
+
+body.dark-mode .learnset-col-header span {
+  color: #666;
+}
+
+#detail-learnlist .move-row .col-effect {
+  justify-self: center;
+  text-align: center;
 }
 
 #pokemon-detail-panel {
@@ -266,7 +338,7 @@ body.detail-open .container {
 
 #detail-abilities {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 0.35rem;
   margin-top: 0.25rem;
 }

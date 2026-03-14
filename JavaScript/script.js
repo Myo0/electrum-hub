@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const types = typesArr.map(t =>
         `<span class="type-badge ${t.toLowerCase()}">${t.toUpperCase()}</span>`
       ).join('');
-      const abilitiesArr = Array.isArray(p.abilities) ? p.abilities : (p.ability ? [p.ability] : []);
+      const abilitiesArr = Array.isArray(p.abilities) ? p.abilities : Array.isArray(p.ability) ? p.ability : (p.ability ? [p.ability] : []);
       const abilitiesText = abilitiesArr.join('<br>');
 
       const row = document.createElement('div');

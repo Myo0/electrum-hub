@@ -233,6 +233,11 @@ body.dark-mode #move-panel-description {
   gap: 2px;
 }
 
+#move-panel .move-panel-meta .type-badge {
+  padding: 0.2rem 0.65rem;
+  font-size: 0.75rem;
+}
+
 #move-panel .pokemon-row .type-badge {
   font-size: 0.65rem;
   padding: 2px 4px;

@@ -95,7 +95,7 @@ function renderDetail(p) {
   ab.innerHTML = '';
 
   const playerList = Array.isArray(p.abilities)
-    ? p.abilities : p.ability ? [p.ability] : [];
+    ? p.abilities : Array.isArray(p.ability) ? p.ability : p.ability ? [p.ability] : [];
 
   const hiddenList = p.hiddenAbility ? [p.hiddenAbility] : [];
   const aiList = p.aiAbility ? [p.aiAbility] : [];
@@ -136,8 +136,20 @@ function renderDetail(p) {
   // held item
   const heldSection = document.getElementById('detail-held-item-section');
   const hi = document.getElementById('detail-held-item');
-  if (p.heldItem && p.heldItem.name) {
-    hi.textContent = `${p.heldItem.name} (${p.heldItem.rate}%)`;
+  let heldItems = [];
+  if (p.heldItems && p.heldItems.length) {
+    // two-slot format — collapse if both slots are the same item (100%)
+    const [a, b] = p.heldItems;
+    if (b && a.name === b.name) {
+      heldItems = [{ name: a.name, rate: 100 }];
+    } else {
+      heldItems = p.heldItems.filter(i => i && i.name);
+    }
+  } else if (p.heldItem && p.heldItem.name) {
+    heldItems = [p.heldItem];
+  }
+  if (heldItems.length) {
+    hi.innerHTML = heldItems.map(i => `<div>${i.name} (${i.rate}%)</div>`).join('');
     heldSection.style.display = '';
   } else {
     heldSection.style.display = 'none';
@@ -325,12 +337,82 @@ renderStatTable(p.stats, +lvlInput.value);
   // learnsets
   const learnC = document.getElementById('detail-learnlist');
   learnC.innerHTML = '';
+
+  const learnSection = document.getElementById('detail-learnset');
+  const oldColHeader = learnSection.querySelector('.learnset-col-header');
+  if (oldColHeader) oldColHeader.remove();
+  const colHeader = document.createElement('div');
+  colHeader.className = 'learnset-col-header';
+  colHeader.innerHTML = `<span>Lv</span><span>Move</span><span>Type</span><span>Cat</span><span>Pwr</span><span>Acc</span><span>PP</span><span>Effect</span>`;
+  learnSection.insertBefore(colHeader, learnC);
   p.learnset.forEach(m => {
+    const moveObj = window.moveData && window.moveData.find(md => md.name === m.move);
     const li = document.createElement('li');
-    li.innerHTML = `<span>Lv.${m.level}</span><span>${m.move}</span>`;
+    li.className = 'move-row';
+    const cat = moveObj ? moveObj.category.toLowerCase() : '';
+    const type = moveObj ? moveObj.type.toLowerCase() : '';
+    const typeName = moveObj ? moveObj.type.toUpperCase() : '';
+    li.innerHTML = `
+      <span class="lv-badge">Lv.${m.level}</span>
+      <span class="col-name">${m.move}</span>
+      <span class="col-type">${type ? `<span class="type-badge ${type}">${typeName}</span>` : ''}</span>
+      <span class="col-cat" data-category="${cat}">${cat ? `<img class="move-cat-icon" src="assets/move-category/${cat}.png" alt="${moveObj.category}">` : ''}</span>
+      <span class="col-pwr">${moveObj ? (moveObj.power || '—') : ''}</span>
+      <span class="col-acc">${moveObj ? (moveObj.accuracy || '—') : ''}</span>
+      <span class="col-pp">${moveObj ? `${moveObj.pp.base}/${moveObj.pp.max}` : ''}</span>
+      <span class="col-effect" ${moveObj && moveObj.effect ? `title="${moveObj.effect}"` : ''}>${moveObj && moveObj.effect ? '>>>' : ''}</span>
+    `;
     learnC.appendChild(li);
   });
 
+  // TM/HM moves
+  renderMoveList(
+    document.getElementById('detail-tmlist'),
+    document.getElementById('detail-tmset'),
+    p.tmMoves || [],
+    null
+  );
+
+  // Tutor moves
+  renderMoveList(
+    document.getElementById('detail-tutorlist'),
+    document.getElementById('detail-tutorset'),
+    p.tutorMoves || [],
+    null
+  );
+
   detailPanel.classList.add('open');
   document.body.classList.add('detail-open');
+}
+
+function renderMoveList(listEl, sectionEl, moves, labelFn) {
+  listEl.innerHTML = '';
+  const oldHeader = sectionEl.querySelector('.learnset-col-header');
+  if (oldHeader) oldHeader.remove();
+
+  if (!moves.length) return;
+
+  const colHeader = document.createElement('div');
+  colHeader.className = 'learnset-col-header';
+  colHeader.innerHTML = `<span>Move</span><span>Type</span><span>Cat</span><span>Pwr</span><span>Acc</span><span>PP</span><span>Effect</span>`;
+  sectionEl.insertBefore(colHeader, listEl);
+
+  moves.forEach(m => {
+    const moveObj = window.moveData && window.moveData.find(md => md.name === m.move);
+    const li = document.createElement('li');
+    li.className = 'move-row';
+    const cat = moveObj ? moveObj.category.toLowerCase() : '';
+    const type = moveObj ? moveObj.type.toLowerCase() : '';
+    const typeName = moveObj ? moveObj.type.toUpperCase() : '';
+    li.innerHTML = `
+      <span class="col-name">${m.move}</span>
+      <span class="col-type">${type ? `<span class="type-badge ${type}">${typeName}</span>` : ''}</span>
+      <span class="col-cat" data-category="${cat}">${cat ? `<img class="move-cat-icon" src="assets/move-category/${cat}.png" alt="${moveObj.category}">` : ''}</span>
+      <span class="col-pwr">${moveObj ? (moveObj.power || '—') : ''}</span>
+      <span class="col-acc">${moveObj ? (moveObj.accuracy || '—') : ''}</span>
+      <span class="col-pp">${moveObj ? `${moveObj.pp.base}/${moveObj.pp.max}` : ''}</span>
+      <span class="col-effect" ${moveObj && moveObj.effect ? `title="${moveObj.effect}"` : ''}>${moveObj && moveObj.effect ? '>>>' : ''}</span>
+    `;
+    listEl.appendChild(li);
+  });
 }
