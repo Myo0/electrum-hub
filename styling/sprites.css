@@ -145,6 +145,9 @@
     .pokemon-sprite.nidoking {
         background-position: -400px   -60px;
     }
+    .pokemon-sprite.cleffa {
+        background-position: -200px   -420px;
+    }
     .pokemon-sprite.clefairy {
         background-position: -440px   -60px;
     }
@@ -163,6 +166,15 @@
     .pokemon-sprite.alolan-ninetales {
         background-position: -200px   -2880px;
     }
+    .pokemon-sprite.alolan-diglett {
+        background-position: -240px   -2880px;
+    }
+    .pokemon-sprite.alolan-dugtrio {
+        background-position: -280px   -2880px;
+    }
+    .pokemon-sprite.igglybuff {
+        background-position: -240px   -420px;
+    }
     .pokemon-sprite.jigglypuff {
         background-position: -120px   -90px;
     }
@@ -175,6 +187,9 @@
     .pokemon-sprite.golbat {
         background-position: -240px   -90px;
     }
+    .pokemon-sprite.crobat {
+        background-position: -40px    -420px;
+    }
     .pokemon-sprite.oddish {
         background-position: -280px   -90px;
     }
@@ -183,6 +198,9 @@
     }
     .pokemon-sprite.vileplume {
         background-position: -360px   -90px;
+    }
+    .pokemon-sprite.bellossom {
+        background-position: -80px    -450px;
     }
     .pokemon-sprite.paras {
         background-position: -400px   -90px;
@@ -225,5 +243,29 @@
     }
     .pokemon-sprite.perrserker {
         background-position: -440px   -2130px;
+    }
+    .pokemon-sprite.mankey {
+        background-position: -320px   -120px;
+    }
+    .pokemon-sprite.primeape {
+        background-position: -360px   -120px;
+    }
+    .pokemon-sprite.growlithe {
+        background-position: -400px   -120px;
+    }
+    .pokemon-sprite.arcanine {
+        background-position: -440px   -120px;
+    }
+    .pokemon-sprite.poliwag {
+        background-position: 0px      -150px;
+    }
+    .pokemon-sprite.annihilape {
+        background-position: -280px   -2430px;
+    }
+    .pokemon-sprite.hisuian-growlithe {
+        background-position: -80px   -3090px;
+    }
+    .pokemon-sprite.hisuian-arcanine {
+        background-position: -120px   -3090px;
     }
   }

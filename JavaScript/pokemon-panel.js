@@ -353,7 +353,7 @@ renderStatTable(p.stats, +lvlInput.value);
     const type = moveObj ? moveObj.type.toLowerCase() : '';
     const typeName = moveObj ? moveObj.type.toUpperCase() : '';
     li.innerHTML = `
-      <span class="lv-badge">Lv.${m.level}</span>
+      <span class="lv-badge${m.level === 0 ? ' evo-badge' : ''}">${m.level === 0 ? 'Evo' : `Lv.${m.level}`}</span>
       <span class="col-name">${m.move}</span>
       <span class="col-type">${type ? `<span class="type-badge ${type}">${typeName}</span>` : ''}</span>
       <span class="col-cat" data-category="${cat}">${cat ? `<img class="move-cat-icon" src="assets/move-category/${cat}.png" alt="${moveObj.category}">` : ''}</span>

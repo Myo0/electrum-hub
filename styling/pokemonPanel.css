@@ -191,6 +191,10 @@
   justify-self: start;
 }
 
+.lv-badge.evo-badge {
+  background: #7c3aed;
+}
+
 /* Learnset grid: prepend a Lv column before the standard move columns */
 #detail-learnlist .move-row,
 .learnset-col-header {
