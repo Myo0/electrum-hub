@@ -3,364 +3,106 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Electrum Hub</title>
+  <title>Electrum</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styling/styles.css">
-  <link rel="stylesheet" href="styling/sprites.css">
-  <link rel="stylesheet" href="styling/pokemonPanel.css">
-  <link rel="stylesheet" href="styling/abilityPanel.css">
-  <link rel="stylesheet" href="styling/pokemonList.css">
-  <link rel="stylesheet" href="styling/movesList.css">
-  <link rel="stylesheet" href="styling/movePanel.css">
-  <link rel="stylesheet" href="styling/abilitiesList.css">
-  <link rel="stylesheet" href="styling/locationsList.css">
-  <link rel="stylesheet" href="styling/itemsList.css">
-  <link rel="stylesheet" href="styling/itemPanel.css">
-  <link rel="stylesheet" href="styling/locationPanel.css">
-  <link rel="stylesheet" href="styling/typesList.css">
-  <link rel="stylesheet" href="styling/typePanel.css">
+  <link rel="stylesheet" href="styling/home.css">
   <link rel="icon" type="image/x-icon" href="assets/logo.png">
 </head>
 <body>
-  <header class="logo">
-    <div class="header-side header-left">
-      <a href="calculator.html" class="header-icon-btn" title="Calculator">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 2v16h10V4H7zm2 2h6v2H9V6zm0 4h2v2H9v-2zm4 0h2v2h-2v-2zm-4 4h2v2H9v-2zm4 0h2v2h-2v-2z"/></svg>
-      </a>
+
+  <header class="site-header">
+    <div class="header-logo">
+      <span class="logo-electrum">Electrum</span>
     </div>
-    <div class="logo-title">
-      <span class="logo-electrum">Electrum</span><span class="logo-hub">Hub</span>
-    </div>
-    <div class="header-side header-right">
+    <nav class="site-nav">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="download.html" class="nav-link">Download</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="faq.html" class="nav-link">FAQ</a>
+      <a href="docs.html" class="nav-link">Documentation</a>
+      <a href="hub.html" class="nav-link">Info Hub</a>
+      <a href="calculator.html" class="nav-link">Calculator</a>
+    </nav>
+    <div class="header-right">
       <button id="theme-toggle" class="header-icon-btn" aria-label="Toggle dark mode">🌙</button>
     </div>
   </header>
 
-  <div class="container">
-    <nav class="sub-nav">
-      <button data-section="search" class="active">Search</button>
-      <button data-section="pokemon">Pokémon</button>
-      <button data-section="location">Locations</button>
-      <button data-section="moves">Moves</button>
-      <button data-section="abilities">Abilities</button>
-      <button data-section="items">Items</button>
-    </nav>
+  <main>
 
-    <section id="search-section" class="content-section active">
-      <input type="text" placeholder="Search Pokémon, moves, abilities, items, locations, types, trainers, etc." class="search-bar">
-      <div id="search-results"></div>
-    </section>
-
-    <section id="pokemon-section" class="content-section">
-      <div class="section-header">Pokémon</div>
-      <input id="pokemon-search" type="text" placeholder="Search Pokémon…" class="search-bar"/>
-      <div class="table-header">
-        <span class="col-check"></span>
-        <span class="col-number sortable" data-key="number">Number</span>
-        <span class="col-name  sortable" data-key="name">Name</span>
-        <span class="col-types sortable" data-key="types">Types</span>
-        <span class="col-abilities tooltip-wrapper sortable" data-key="abilities">
-          Abilities (P)*
-          <span class="tooltip-text">
-            “(P)” marks abilities available to the Player. Expanding the Pokémon by clicking on it will display abilities exclusive to the AI if it has any.<br><br>
-
-            If an ability is too overpowered or trivializes the game in the hands of the player for whatever reason, the AI may use it but the Player will not have access to it.
-          </span>
-        </span>
-        <span class="col-hp  sortable" data-key="hp">HP</span>
-        <span class="col-atk sortable" data-key="atk">Atk</span>
-        <span class="col-def sortable" data-key="def">Def</span>
-        <span class="col-spa sortable" data-key="spa">SpA</span>
-        <span class="col-spd sortable" data-key="spd">SpD</span>
-        <span class="col-spe sortable" data-key="spe">Spe</span>
-        <span class="col-bst sortable" data-key="bst">BST</span>
-      </div>
-
-    <div id="pokemon-list"></div>
-    </section>
-
-    <section id="location-section" class="content-section">
-      <div class="section-header">Locations</div>
-      <input id="location-search" type="text" placeholder="Search locations…" class="search-bar">
-      <div id="location-list"></div>
-    </section>
-
-
-    <!-- MOVES -->
-<section id="moves-section" class="content-section">
-  <div class="section-header">Moves</div>
-  <input id="moves-search" type="text" placeholder="Search moves…" class="search-bar">
-
-  <div class="table-header">
-    <span class="col-name sortable" data-key="name">Name</span>
-    <span class="col-type sortable" data-key="type">Type</span>
-    <span class="col-cat sortable" data-key="category">Cat</span>
-    <span class="col-pwr sortable" data-key="power">Pwr</span>
-    <span class="col-acc sortable" data-key="accuracy">Acc</span>
-    <span class="col-pp sortable" data-key="pp">PP</span>
-    <span class="col-effect"></span>
-  </div>
-
-  <!-- Move rows will be injected here -->
-  <div id="moves-list"></div>
-</section>
-
-  <section id="abilities-section" class="content-section">
-    <div class="section-header">Abilities</div>
-    <input id="abilities-search" type="text" placeholder="Search abilities…" class="search-bar">
-
-    <div id="abilities-list"></div>
-  </section>
-
-  <section id="items-section" class="content-section">
-    <div class="section-header">Items</div>
-    <input id="items-search" type="text" placeholder="Search items…" class="search-bar">
-    <div id="items-list"></div>
-  </section>
-  </div>
-
-<!-- DETAIL PANEL -->
-<aside id="pokemon-detail-panel" class="closed">
-  <div class="panel-inner">
-  <header>
-    <div class="detail-header-left">
-      <h2 id="detail-name">Bulbasaur</h2>
-      <small id="detail-dex">#1</small>
-    </div>
-    <button id="detail-close">×</button>
-  </header>
-  <div id="detail-note" class="hidden"><strong>Note:</strong> This Pokémon cannot be obtained.</div>
-  <div class="detail-body">
-    <div class="detail-top">
-      <div class="detail-left">
-        <img id="detail-sprite" src="" alt=""/>
-        <div id="detail-types"></div>
-        <div class="detail-section">
-          <h4>Abilities:</h4>
-          <div id="detail-abilities"></div>
-        </div>
-      </div>
-      <div class="detail-right">
-        <div id="detail-gender"></div>
-        <div id="detail-catchrate"></div>
-        <div id="detail-held-item-section" class="detail-section">
-          <h4>Held item</h4>
-          <div id="detail-held-item"></div>
-        </div>
-      </div>
-    </div>
-    <section id="detail-stats">
-      <h3>Base stats:</h3>
-      <div class="stats-grid">
-        <div id="stat-bars" class="bar-container">
-          <!-- injected by script.js -->
-        </div>
-        <div class="stat-calc">
-          <table id="stat-calc-table">
-            <thead>
-              <tr>
-                <th></th>
-                <th>Min−</th>
-                <th>Min</th>
-                <th>Max</th>
-                <th>Max+</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-          <div class="level-input">
-            at level <input type="number" id="stat-level" value="100" min="1" max="100">
-          </div>
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title"><span class="logo-electrum">Electrum</span></h1>
+        <p class="hero-subtitle">Placeholder tagline for the game goes here.</p>
+        <div class="hero-actions">
+          <a href="download.html" class="btn btn-primary">Get Started</a>
+          <a href="about.html" class="btn btn-secondary">Features</a>
         </div>
       </div>
     </section>
-    <section id="detail-evolution">
-      <!-- injected by script.js -->
+
+    <section class="updates-section">
+      <h2 class="updates-heading">Latest Updates</h2>
+      <div class="updates-grid">
+
+        <div class="update-card">
+          <div class="update-date">2026-04-01</div>
+          <div class="update-title">Placeholder Update Title</div>
+          <div class="update-desc">Placeholder description for this update. Replace with real notes when ready.</div>
+          <a href="#" class="update-link">Read More</a>
+        </div>
+
+        <div class="update-card">
+          <div class="update-date">2026-04-01</div>
+          <div class="update-title">Placeholder Update Title</div>
+          <div class="update-desc">Placeholder description for this update. Replace with real notes when ready.</div>
+          <a href="#" class="update-link">Read More</a>
+        </div>
+
+        <div class="update-card">
+          <div class="update-date">2026-04-01</div>
+          <div class="update-title">Placeholder Update Title</div>
+          <div class="update-desc">Placeholder description for this update. Replace with real notes when ready.</div>
+          <a href="#" class="update-link">Read More</a>
+        </div>
+
+      </div>
     </section>
-    <section id="detail-learnset">
-      <div class="learnset-header">Level-up Learnset</div>
-      <ul id="detail-learnlist"></ul>
-    </section>
-    <section id="detail-tmset">
-      <div class="learnset-header">TM/HM Moves</div>
-      <ul id="detail-tmlist"></ul>
-    </section>
-    <section id="detail-tutorset">
-      <div class="learnset-header">Tutor Moves</div>
-      <ul id="detail-tutorlist"></ul>
-    </section>
-  </div>
-  </div>
-</aside>
 
-<div id="move-panel">
-  <div class="panel-inner">
-  <div class="move-panel-header">
-    <div id="move-panel-name" class="move-panel-title"></div>
-    <button id="move-panel-close" class="move-panel-close">✕</button>
-  </div>
-  <div class="move-panel-divider"></div>
-  <div class="move-panel-content">
+  </main>
 
-    <div class="move-panel-meta">
-      <div id="move-panel-type"></div>
-      <div id="move-panel-category"></div>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo"><span class="logo-electrum">Electrum</span></div>
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="download.html">Download</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="docs.html">Documentation</a>
+        <a href="hub.html">Info Hub</a>
+        <a href="calculator.html">Calculator</a>
+      </nav>
+      <div class="footer-copy">2026 Pokémon Electrum. Pokémon is © Nintendo/Game Freak/The Pokémon Company. This is a non-commercial fan passion project.</div>
     </div>
+  </footer>
 
-    <div class="move-panel-stats">
-      <div class="move-stat-item">
-        <span class="move-stat-label">Power</span>
-        <span id="move-panel-power" class="move-stat-value"></span>
-      </div>
-      <div class="move-stat-item">
-        <span class="move-stat-label">Accuracy</span>
-        <span id="move-panel-accuracy" class="move-stat-value"></span>
-      </div>
-      <div class="move-stat-item">
-        <span class="move-stat-label">PP</span>
-        <span id="move-panel-pp" class="move-stat-value"></span>
-      </div>
-    </div>
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      document.body.classList.add('dark-mode');
+      toggle.textContent = '☀️';
+    }
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const dark = document.body.classList.contains('dark-mode');
+      toggle.textContent = dark ? '☀️' : '🌙';
+      localStorage.setItem('theme', dark ? 'dark' : 'light');
+    });
+  </script>
 
-    <div id="move-effect-section" class="panel-section">
-      <h3>Effect</h3>
-      <p id="move-panel-effect"></p>
-    </div>
-
-    <div class="panel-section">
-      <h3>Description</h3>
-      <p id="move-panel-description"></p>
-    </div>
-
-    <div class="panel-section">
-      <h3>Pokémon with this move</h3>
-      <div id="move-panel-pokemon"></div>
-    </div>
-
-  </div>
-  </div>
-</div>
-
-<div id="ability-panel" class="ability-panel">
-  <div class="panel-inner">
-    <div class="ability-panel-header">
-      <div id="ability-panel-name" class="ability-panel-title"></div>
-      <button id="ability-panel-close" class="ability-panel-close">✕</button>
-    </div>
-
-    <div class="ability-panel-divider"></div>
-
-    <div class="ability-panel-content">
-
-      <div id="ability-in-section" class="panel-section">
-        <h3>In Battle</h3>
-        <p id="ability-panel-in-battle"></p>
-      </div>
-
-      <div class="panel-section" id="ability-out-section">
-        <h3>Out of Battle</h3>
-        <p id="ability-panel-out-of-battle"></p>
-      </div>
-
-      <div class="panel-section">
-        <h3>Interactions</h3>
-        <ul id="ability-panel-interactions"></ul>
-      </div>
-
-      <div class="panel-section">
-        <h3>Pokémon with this ability</h3>
-        <div id="ability-panel-pokemon"></div>
-      </div>
-
-    </div>
-  </div>
-
-</div>
-
-<!-- LOCATION PANEL -->
-<div id="location-panel">
-  <div class="panel-inner">
-  <div class="location-panel-header">
-    <div id="location-panel-title" class="location-panel-title"></div>
-    <button id="location-panel-close" class="location-panel-close">✕</button>
-  </div>
-  <div class="location-panel-content">
-    <p id="location-panel-description"></p>
-
-    <div id="location-encounters-section">
-      <h3>Wild Encounters</h3>
-      <div id="location-panel-encounters"></div>
-    </div>
-
-    <div id="location-trainers-section">
-      <h3>Trainers</h3>
-      <div id="location-panel-trainers"></div>
-    </div>
-  </div>
-  </div>
-</div>
-
-  <div id="item-panel">
-    <div class="panel-inner">
-    <div class="item-panel-header">
-      <div id="item-panel-name" class="item-panel-title"></div>
-      <button id="item-panel-close" class="item-panel-close">✕</button>
-    </div>
-    <div class="item-panel-divider"></div>
-    <div class="item-panel-content">
-      <div class="item-panel-icon-wrap">
-        <img id="item-panel-icon" src="" alt="" class="item-panel-icon">
-      </div>
-      <p id="item-panel-effect" class="item-panel-effect-text"></p>
-    </div>
-    </div>
-  </div>
-
-
-<div id="type-panel">
-  <div class="panel-inner">
-    <div class="type-panel-header">
-      <div id="type-panel-badge"></div>
-      <button id="type-panel-close" class="type-panel-close">✕</button>
-    </div>
-    <div class="type-panel-content">
-      <div class="type-panel-section">
-        <h3>Weaknesses</h3>
-        <div id="type-panel-weaknesses-list"></div>
-      </div>
-      <div class="type-panel-section">
-        <h3>Resistances</h3>
-        <div id="type-panel-resistances-list"></div>
-      </div>
-      <div class="type-panel-section">
-        <h3>Immunities</h3>
-        <div id="type-panel-immunities-content"></div>
-      </div>
-      <div class="type-panel-tabs">
-        <button class="type-tab-btn active" data-tab="moves">Moves</button>
-        <button class="type-tab-btn" data-tab="pokemon">Pokémon</button>
-      </div>
-      <div id="type-panel-moves-list" class="type-tab-content active"></div>
-      <div id="type-panel-pokemon-list" class="type-tab-content"></div>
-    </div>
-  </div>
-</div>
-
-  <script src="/JavaScript/type-data.js"></script>
-  <script src="/JavaScript/item-data.js"></script>
-  <script src="/JavaScript/item-panel.js"></script>
-  <script src="/JavaScript/move-data.js"></script>
-  <script src="/JavaScript/pokemon-data.js"></script>
-  <script src="/JavaScript/ability-data.js"></script>
-  <script src="/JavaScript/location-data.js"></script>
-  <script src="/JavaScript/ability-panel.js"></script>
-  <script src="/JavaScript/pokemon-panel.js"></script>
-  <script src="/JavaScript/move-panel.js"></script>
-  <script src="/JavaScript/location-panel.js"></script>
-  <script src="/JavaScript/type-panel.js"></script>
-  <script src="/JavaScript/script.js"></script>
-  <script src="/JavaScript/search-bar.js"></script>
 </body>
 </html>
